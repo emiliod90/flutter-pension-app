@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'components/rounded_button.dart';
 
@@ -7,7 +8,7 @@ class AccountSuccessScreen extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Colors.indigo,
         //appBar: AppBar(
         //backgroundColor: Colors.lightBlue,
         //title: Text("Login"),
@@ -21,7 +22,7 @@ class AccountSuccessScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Image(
-                  image: AssetImage('assets/images/balloon.png'), height: size.width * 0.6,
+                  image: AssetImage('assets/images/rocket1.png'), height: size.width * 0.6,
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 20, bottom: 10),
@@ -31,6 +32,18 @@ class AccountSuccessScreen extends StatelessWidget {
                       color: Colors.white,
                         fontSize: 36,
                         fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 10, bottom: 10),
+                  width: size.width * 0.8,
+                  child: Text(
+                    "Your account has been activated!",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Colors.white70,
+                        fontSize: 19,
+                        ),
                   ),
                 ),
                 RoundedButton(

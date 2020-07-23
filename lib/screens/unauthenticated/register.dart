@@ -47,7 +47,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
         //resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.lightBlue[100],
+        backgroundColor: Colors.lightBlue,
         //appBar: AppBar(
         //backgroundColor: Colors.lightBlue,
         //title: Text("Login"),
@@ -91,7 +91,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                     ),
                     TextFieldContainer(
-                      color: Colors.lightBlue[300],
+                      color: Colors.lightBlue[100],
                       child: TextFormField(
                         style: TextStyle(
                             fontSize: 18,
@@ -109,7 +109,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     RoundedButton(
                       text: "Start",
                       textColor: Colors.white,
-                      color: Colors.red,
+                      color: Colors.purple,
                       press: validateAndSubmit,
                     ),
                     Container(

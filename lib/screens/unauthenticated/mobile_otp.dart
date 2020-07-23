@@ -187,14 +187,15 @@ class _MobileOTPScreenState extends State<MobileOTPScreen> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 18,
+                          decoration: TextDecoration.underline,
                         ),
                       ),
                     ),
-                    SizedBox(height: 70.0),
+                    SizedBox(height: size.height * 0.2),
                     RoundedButton(
                         text: "verify",
                         textColor: Colors.white,
-                        color: Colors.deepPurple,
+                        color: Colors.purple,
                         press: validateAndSubmit),
                   ],
                 ),

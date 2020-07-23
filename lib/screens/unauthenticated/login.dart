@@ -39,7 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
         .size;
     return Scaffold(
       //resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Colors.indigo,
         //appBar: AppBar(
         //backgroundColor: Colors.lightBlue,
         //title: Text("Login"),
@@ -131,7 +131,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           Text(
                             "Need to Register? ",
                             style: TextStyle(
-                                fontSize: 16
+                                fontSize: 16,
+                              color: Colors.white
 
                             ),
                           ),
@@ -150,6 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               "Sign up",
                               style: TextStyle(
                                 fontSize: 16,
+                                color: Colors.white,
                                 fontWeight: FontWeight.bold,
                                 decoration: TextDecoration.underline,
                               ),

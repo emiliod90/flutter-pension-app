@@ -23,7 +23,7 @@ class RegisterFormSuccessScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Image(
-                  image: AssetImage('assets/images/rocket1.png'),
+                  image: AssetImage('assets/images/balloon.png'),
                   height: size.width * 0.6,
                 ),
                 Container(
@@ -42,7 +42,7 @@ class RegisterFormSuccessScreen extends StatelessWidget {
                   child: RichText(
                     text: TextSpan(
                       style: TextStyle(
-                          fontSize: 18, height: 1.5, color: Colors.black87),
+                          fontSize: 19, height: 1.5, color: Colors.black87),
                       children: <TextSpan>[
                         TextSpan(
                             text:
@@ -55,18 +55,18 @@ class RegisterFormSuccessScreen extends StatelessWidget {
                   width: size.width * 0.7,
                   margin: EdgeInsets.only(top: 10),
                   child: Text(
-                    "1. Create a username and password",
+                    "1. Provide an email and password",
                     textAlign: TextAlign.left,
-                    style: TextStyle(fontSize: 18, color: Colors.black87),
+                    style: TextStyle(fontSize: 19, color: Colors.black87),
                   ),
                 ),
                 Container(
                   width: size.width * 0.7,
                   margin: EdgeInsets.only(top: 10),
                   child: Text(
-                    "2. Pair your mobile or tablet device",
+                    "2. Pair your mobile or tablet",
                     textAlign: TextAlign.left,
-                    style: TextStyle(fontSize: 18, color: Colors.black87),
+                    style: TextStyle(fontSize: 19, color: Colors.black87),
                   ),
                 ),
                 RoundedButton(

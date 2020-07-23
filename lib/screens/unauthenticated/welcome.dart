@@ -10,7 +10,7 @@ class WelcomeScreen extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Colors.indigo,
         //appBar: AppBar(
         //backgroundColor: Colors.lightBlue,
         //title: Text("Login"),
@@ -32,14 +32,16 @@ class WelcomeScreen extends StatelessWidget {
                     "Welcome",
                     style: TextStyle(
                       color: Colors.white,
+                        fontFamily: 'Indie Flower',
                         fontSize: 36,
                         fontWeight: FontWeight.bold),
                   ),
                 ),
+                SizedBox(height: size.height * 0.05,),
                 RoundedButton(
                   text: "login",
                   textColor: Colors.white,
-                  color: Colors.red,
+                  color: Colors.red ,
                   press: () {
                     Navigator.push(
                       context,
@@ -54,7 +56,7 @@ class WelcomeScreen extends StatelessWidget {
                 RoundedButton(
                   text: "register",
                   textColor: Colors.white,
-                  color: Colors.purple,
+                  color: Colors.deepPurple[400],
                   press: () {
                     Navigator.push(
                       context,

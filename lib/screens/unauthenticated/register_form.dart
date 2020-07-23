@@ -71,6 +71,7 @@ class _RegisterFormScreenState extends State<RegisterFormScreen> {
                         Container(
                           margin: EdgeInsets.only(top: 10, bottom: 10),
                           child: Card(
+                            color: Colors.white70,
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: RichText(
@@ -126,10 +127,11 @@ class _RegisterFormScreenState extends State<RegisterFormScreen> {
                         onSaved: (value) => _ni = value,
                       ),
                     ),
+                    SizedBox(height: size.height * 0.05),
                     RoundedButton(
                       text: "Submit",
                       press: validateAndSubmit,
-                      color: Colors.deepPurple,
+                      color: Colors.purple,
                       textColor: Colors.white,
                     )
                   ],

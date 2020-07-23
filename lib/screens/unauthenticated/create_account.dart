@@ -10,7 +10,7 @@ class CreateAccountScreen extends StatefulWidget {
 class _CreateAccountScreenState extends State<CreateAccountScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool _agreedToTOS = false;
-  bool _showPassword = false;
+  bool _showPassword = true;
   String _username;
   String _password;
 
@@ -104,6 +104,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                         Container(
                           margin: EdgeInsets.only(top: 10, bottom: 10),
                           child: Card(
+                            color: Colors.white70,
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: RichText(
@@ -139,6 +140,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                       margin: EdgeInsets.only(top: 5, bottom: 5),
                       padding: const EdgeInsets.all(8.0),
                       child: TextFormField(
+                        obscureText: _showPassword,
                         decoration: InputDecoration(
                             labelText: "Create a Password",
                             icon: Icon(Icons.account_box),
@@ -157,6 +159,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                       margin: EdgeInsets.only(top: 5, bottom: 5),
                       padding: const EdgeInsets.all(8.0),
                       child: TextFormField(
+                        obscureText: _showPassword,
                         decoration: InputDecoration(
                             labelText: "Re-type Password",
                             icon: Icon(Icons.account_box),
@@ -188,7 +191,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                     RoundedButton(
                       text: "Create Account",
                       press: validateAndSubmit,
-                      color: Colors.deepPurple,
+                      color: Colors.red,
                       textColor: Colors.white,
                     )
                   ],
