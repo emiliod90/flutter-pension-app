@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertemplateapp/screens/unauthenticated/register.dart';
-
 import 'components/rounded_button.dart';
-import 'login.dart';
 
-class WelcomeScreen extends StatelessWidget {
+class AccountSuccessScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -24,12 +21,12 @@ class WelcomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Image(
-                  image: AssetImage('assets/images/rocket2.png'), height: size.width * 0.6,
+                  image: AssetImage('assets/images/balloon.png'), height: size.width * 0.6,
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 20, bottom: 10),
                   child: Text(
-                    "Welcome",
+                    "Success",
                     style: TextStyle(
                       color: Colors.white,
                         fontSize: 36,
@@ -37,33 +34,11 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ),
                 RoundedButton(
-                  text: "login",
-                  textColor: Colors.white,
-                  color: Colors.red,
-                  press: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return LoginScreen();
-                        },
-                      ),
-                    );
-                  },
-                ),
-                RoundedButton(
-                  text: "register",
+                  text: "Go to Dashboard",
                   textColor: Colors.white,
                   color: Colors.purple,
                   press: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return RegisterScreen();
-                        },
-                      ),
-                    );
+
                   },
                 ),
               ],

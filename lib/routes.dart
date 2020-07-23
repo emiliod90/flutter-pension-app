@@ -23,7 +23,7 @@ class _RootRouteState extends State<RootRoute> {
 class PublicRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return LoginScreen();
+    return WelcomeScreen();
   }
 }
 
