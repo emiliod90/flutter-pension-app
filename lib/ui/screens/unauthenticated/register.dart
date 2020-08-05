@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertemplateapp/screens/unauthenticated/components/text_field_container.dart';
-import 'package:fluttertemplateapp/screens/unauthenticated/login.dart';
-import 'package:fluttertemplateapp/screens/unauthenticated/register_form.dart';
+import 'package:fluttertemplateapp/ui/screens/unauthenticated/components/text_field_container.dart';
+import 'package:fluttertemplateapp/ui/screens/unauthenticated/login.dart';
+import 'package:fluttertemplateapp/ui/screens/unauthenticated/register_form.dart';
 import 'components/rounded_button.dart';
 
 class RegisterScreen extends StatefulWidget {

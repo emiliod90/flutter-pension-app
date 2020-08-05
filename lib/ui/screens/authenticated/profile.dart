@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.blue,
+    return SafeArea(
+      left: false,
+      right: false,
+      child: Container(
+
+      ),
     );
   }
 }

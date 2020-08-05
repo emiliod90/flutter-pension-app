@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'components/rounded_button.dart';
 
-class AccountSuccessScreen extends StatelessWidget {
+class PublicScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -29,7 +27,7 @@ class AccountSuccessScreen extends StatelessWidget {
                   child: Text(
                     "Success",
                     style: TextStyle(
-                      color: Colors.white,
+                        color: Colors.white,
                         fontSize: 36,
                         fontWeight: FontWeight.bold),
                   ),
@@ -41,18 +39,10 @@ class AccountSuccessScreen extends StatelessWidget {
                     "Your account has been activated!",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: Colors.white70,
-                        fontSize: 19,
-                        ),
+                      color: Colors.white70,
+                      fontSize: 19,
+                    ),
                   ),
-                ),
-                RoundedButton(
-                  text: "Go to Dashboard",
-                  textColor: Colors.white,
-                  color: Colors.purple,
-                  press: () {
-
-                  },
                 ),
               ],
             ),

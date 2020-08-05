@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertemplateapp/screens/unauthenticated/create_account.dart';
+import 'package:fluttertemplateapp/ui/screens/unauthenticated/create_account.dart';
 
 import 'components/rounded_button.dart';
 

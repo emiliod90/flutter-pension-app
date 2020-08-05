@@ -1,10 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertemplateapp/screens/unauthenticated/register.dart';
-
+import '../../../routes.dart';
 import 'components/rounded_button.dart';
-import 'login.dart';
 
-class WelcomeScreen extends StatelessWidget {
+class AccountSuccessScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -24,48 +23,44 @@ class WelcomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Image(
-                  image: AssetImage('assets/images/rocket2.png'), height: size.width * 0.6,
+                  image: AssetImage('assets/images/rocket1.png'), height: size.width * 0.6,
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 20, bottom: 10),
                   child: Text(
-                    "Welcome",
+                    "Success",
                     style: TextStyle(
                       color: Colors.white,
-                        fontFamily: 'Indie Flower',
                         fontSize: 36,
                         fontWeight: FontWeight.bold),
                   ),
                 ),
-                SizedBox(height: size.height * 0.05,),
-                RoundedButton(
-                  text: "login",
-                  textColor: Colors.white,
-                  color: Colors.red ,
-                  press: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return LoginScreen();
-                        },
-                      ),
-                    );
-                  },
+                Container(
+                  margin: EdgeInsets.only(top: 10, bottom: 10),
+                  width: size.width * 0.8,
+                  child: Text(
+                    "Your account has been activated!",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Colors.white70,
+                        fontSize: 19,
+                        ),
+                  ),
                 ),
                 RoundedButton(
-                  text: "register",
+                  text: "Go to Dashboard",
                   textColor: Colors.white,
-                  color: Colors.deepPurple[400],
+                  color: Colors.purple,
                   press: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return RegisterScreen();
+                          return HomePage();
                         },
                       ),
                     );
+
                   },
                 ),
               ],

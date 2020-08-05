@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertemplateapp/screens/unauthenticated/components/rounded_input_field.dart';
-import 'package:fluttertemplateapp/screens/unauthenticated/register.dart';
+import 'package:fluttertemplateapp/ui/screens/unauthenticated/components/rounded_input_field.dart';
+import 'package:fluttertemplateapp/ui/screens/unauthenticated/register.dart';
 import 'components/rounded_button.dart';
 import 'components/rounded_password_field.dart';
 import 'components/text_field_container.dart';
+import 'package:fluttertemplateapp/routes.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -29,6 +30,14 @@ class _LoginScreenState extends State<LoginScreen> {
   void validateAndSubmit() {
     if (validateAndSave()) {
       print("mock auth api call");
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return HomePage();
+          },
+        ),
+      );
     }
   }
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertemplateapp/screens/unauthenticated/components/rounded_button.dart';
-import 'package:fluttertemplateapp/screens/unauthenticated/register_form_success.dart';
+import 'package:fluttertemplateapp/ui/screens/unauthenticated/components/rounded_button.dart';
+import 'package:fluttertemplateapp/ui/screens/unauthenticated/register_form_success.dart';
 
 class RegisterFormScreen extends StatefulWidget {
   @override

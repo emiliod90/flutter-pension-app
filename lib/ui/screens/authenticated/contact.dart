@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.blue,
+    return Scaffold(
+      appBar: AppBar(),
+      body: Container(
+        color: Colors.green,
+      ),
     );
   }
 }

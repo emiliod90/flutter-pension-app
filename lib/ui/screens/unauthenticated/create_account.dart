@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertemplateapp/screens/unauthenticated/components/rounded_button.dart';
-import 'package:fluttertemplateapp/screens/unauthenticated/mobile_form.dart';
+import 'package:fluttertemplateapp/ui/screens/unauthenticated/components/rounded_button.dart';
+import 'package:fluttertemplateapp/ui/screens/unauthenticated/mobile_form.dart';
 
 class CreateAccountScreen extends StatefulWidget {
   @override
