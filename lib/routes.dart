@@ -1,11 +1,15 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertemplateapp/ui/screens/authenticated/analysis.dart';
+import 'package:fluttertemplateapp/ui/screens/authenticated/contact.dart';
 import 'package:fluttertemplateapp/ui/screens/authenticated/history.dart';
 import 'package:fluttertemplateapp/ui/screens/authenticated/home.dart';
+import 'package:fluttertemplateapp/ui/screens/authenticated/notifications.dart';
 import 'package:fluttertemplateapp/ui/screens/authenticated/profile.dart';
 import 'package:fluttertemplateapp/ui/screens/unauthenticated/login.dart';
 import 'package:fluttertemplateapp/ui/screens/unauthenticated/public.dart';
 import 'package:fluttertemplateapp/ui/screens/authenticated/settings.dart';
+
 //import 'package:fluttertemplateapp/ui/screens/unauthenticated/register.dart';
 //import 'package:fluttertemplateapp/ui/screens/unauthenticated/register_form.dart';
 import 'package:fluttertemplateapp/ui/screens/unauthenticated/welcome.dart';
@@ -68,7 +72,7 @@ class Destination {
 }
 
 const List<Destination> allDestinations = <Destination>[
-  Destination('Home', Icons.home, Colors.teal),
+  Destination('Home', Icons.trending_up, Colors.teal),
   Destination('Portfolio', Icons.pie_chart, Colors.cyan),
   Destination('History', Icons.table_chart, Colors.orange),
   Destination('Account', Icons.account_box, Colors.blue)
@@ -88,14 +92,14 @@ class _HomePageState extends State<HomePage>
     return WillPopScope(
       onWillPop: () => Future.value(false),
       child: Scaffold(
-        appBar: AppBar(
+        /*appBar: AppBar(
           elevation: 0,
-          //leading: IconButton(
-          //icon: Icon(Icons.menu),
-          //onPressed: () {},
-          //),
-        ),
-        drawer: Drawer(
+          leading: IconButton(
+            icon: Icon(CupertinoIcons.settings),
+            onPressed: () {},
+          ),
+        ),*/
+/*        drawer: Drawer(
           child: ListView(
             padding: EdgeInsets.zero,
             children: <Widget>[
@@ -107,9 +111,9 @@ class _HomePageState extends State<HomePage>
               ),
               ListTile(
                 title: Text('Notifications'),
-                onTap: () {
-                  // Update the state of the app.
-                  // ...
+                onTap: () {Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => NotificationsScreen()
+                ));
                 },
               ),
               ListTile(
@@ -121,9 +125,9 @@ class _HomePageState extends State<HomePage>
               ),
               ListTile(
                 title: Text('Contact'),
-                onTap: () {
-                  // Update the state of the app.
-                  // ...
+                onTap: () {Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => ContactScreen()
+                ));
                 },
               ),
               ListTile(
@@ -144,7 +148,7 @@ class _HomePageState extends State<HomePage>
               ),
             ],
           ),
-        ),
+        ),*/
         body: IndexedStack(
           index: _currentIndex,
           children: <Widget>[
@@ -172,7 +176,7 @@ class _HomePageState extends State<HomePage>
               title: Text(destination.title),
             );
           }).toList(),
-          selectedItemColor: Colors.black87,
+          //selectedItemColor: Theme.of(context).,
         ),
       ),
     );
