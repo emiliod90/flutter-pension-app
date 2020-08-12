@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ThemeChanger with ChangeNotifier {
@@ -30,9 +31,14 @@ ThemeData dark = ThemeData(
 );
 
 ThemeData cool = ThemeData(
-  brightness: Brightness.dark,
+  brightness: Brightness.light,
   primarySwatch: Colors.lightBlue,
   accentColor: Colors.blueAccent,
-  scaffoldBackgroundColor: Colors.indigo,
-  primaryColor: Colors.lightBlue,
+  scaffoldBackgroundColor: Colors.white,
+  primaryColor: Colors.cyan,
+  textTheme: TextTheme(
+    headline1: TextStyle(color: Colors.white),
+    headline6: TextStyle(color: Colors.white, fontFamily: 'Source Sans', fontWeight: FontWeight.normal, fontStyle: FontStyle.normal),
+    bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+  ),
 );
