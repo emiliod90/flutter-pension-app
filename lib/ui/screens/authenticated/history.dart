@@ -538,7 +538,7 @@ class DetailSettings extends StatelessWidget {
               onTap: () {},
               trailing: Text(
                 //"${_startDate.day}/${_startDate.month}/${_startDate.year}",
-                "hello",
+                "01/09/2017",
                 style: TextStyle(
                     fontSize: 18,
                     color: Colors.black54,
@@ -560,7 +560,7 @@ class DetailSettings extends StatelessWidget {
               onTap: () {},
               trailing: Text(
                 //"${_dateTime.day}/${_dateTime.month}/${_dateTime.year}",
-                "hello",
+                "13/08/2020",
                 style: TextStyle(
                     fontSize: 18,
                     color: Colors.black54,

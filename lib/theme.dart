@@ -43,7 +43,7 @@ ThemeData cool = ThemeData(
   accentColor: Colors.blueAccent,
   scaffoldBackgroundColor: Colors.white,
   primaryColor: Colors.cyan,*/
-  fontFamily: 'Source Sans',
+  fontFamily: 'Open Sans',
   textTheme: TextTheme(
     headline1: TextStyle(color: Colors.white),
     headline6: TextStyle(color: Colors.white, fontWeight: FontWeight.normal, fontStyle: FontStyle.normal),
