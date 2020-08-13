@@ -5,6 +5,7 @@ import 'package:fluttertemplateapp/ui/screens/authenticated/contact.dart';
 import 'package:fluttertemplateapp/ui/screens/authenticated/history.dart';
 import 'package:fluttertemplateapp/ui/screens/authenticated/home.dart';
 import 'package:fluttertemplateapp/ui/screens/authenticated/notifications.dart';
+import 'package:fluttertemplateapp/ui/screens/authenticated/portfolio.dart';
 import 'package:fluttertemplateapp/ui/screens/authenticated/profile.dart';
 import 'package:fluttertemplateapp/ui/screens/unauthenticated/login.dart';
 import 'package:fluttertemplateapp/ui/screens/unauthenticated/public.dart';
@@ -37,6 +38,7 @@ class PublicRoute extends StatelessWidget {
 // Route parameters:
 const String HomeViewRoute = '/';
 const String LoginViewRoute = 'login';
+const String PortfolioViewRoute = 'portfolio';
 const String AnalysisViewRoute = 'analysis';
 const String AccountViewRoute = 'account';
 const String HistoryViewRoute = 'history';
@@ -52,6 +54,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => HistoryScreen());
     case LoginViewRoute:
       return MaterialPageRoute(builder: (context) => LoginScreen());
+    case PortfolioViewRoute:
+      return MaterialPageRoute(builder: (context) => PortfolioScreen());
     case AnalysisViewRoute:
       return MaterialPageRoute(builder: (context) => AnalysisScreen());
     case AccountViewRoute:
@@ -72,8 +76,9 @@ class Destination {
 }
 
 const List<Destination> allDestinations = <Destination>[
-  Destination('Home', Icons.trending_up, Colors.teal),
+  Destination('Home', Icons.home, Colors.teal),
   Destination('Portfolio', Icons.pie_chart, Colors.cyan),
+  Destination('Forecast', Icons.trending_up, Colors.indigo),
   Destination('History', Icons.table_chart, Colors.orange),
   Destination('Account', Icons.account_box, Colors.blue)
 ];
@@ -153,6 +158,7 @@ class _HomePageState extends State<HomePage>
           index: _currentIndex,
           children: <Widget>[
             HomeScreen(),
+            PortfolioScreen(),
             AnalysisScreen(),
             HistoryScreen(),
             ProfileScreen(),

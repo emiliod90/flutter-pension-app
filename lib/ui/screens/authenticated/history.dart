@@ -11,7 +11,13 @@ class HistoryScreen extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        backgroundColor: Colors.grey[100],
         appBar: AppBar(
+          backgroundColor: Color(0xff28465f),
+          title: Text(
+            "History",
+          ),
+          centerTitle: true,
           actions: [
             Builder(
               builder: (context) => IconButton(
@@ -203,6 +209,15 @@ class _DetailHistoryState extends State<DetailHistory> {
     );
   }
 
+  _pickEndDate() async {
+    showDatePicker(
+      context: context,
+      initialDate: _dateTime,
+      firstDate: _startDate,
+      lastDate: DateTime.now(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -217,7 +232,7 @@ class _DetailHistoryState extends State<DetailHistory> {
                   //height: 250,
                   padding: EdgeInsets.all(8.0),
                   decoration: BoxDecoration(
-                      color: Colors.indigo,
+                      color: Color(0xff00515e),
                       borderRadius: BorderRadius.only(
                           bottomRight: Radius.circular(20),
                           bottomLeft: Radius.circular(20),
@@ -225,17 +240,17 @@ class _DetailHistoryState extends State<DetailHistory> {
                           topRight: Radius.circular(20))),
                   child: Column(
                     children: <Widget>[
-                      Container(
+                      /*Container(
                         padding: EdgeInsets.all(8.0),
                         child: Text(
-                          "Detail",
+                          "Contribution History",
                           style: TextStyle(
                               fontSize: 18,
                               color: Colors.white70,
                               fontWeight: FontWeight.bold,
                               fontFamily: "Open Sans"),
                         ),
-                      ),
+                      ),*/
                       Row(
                         children: <Widget>[
                           Flexible(
@@ -280,12 +295,15 @@ class _DetailHistoryState extends State<DetailHistory> {
                             child: Container(
                               height: 40,
                               child: Center(
-                                child: Text(
-                                  "Start Date",
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      color: Colors.white,
-                                      fontFamily: "Open Sans"),
+                                child: MaterialButton(
+                                  onPressed: _pickDate,
+                                  child: Text(
+                                    "${_startDate.day}/${_startDate.month}/${_startDate.year}",
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.white,
+                                        fontFamily: "Open Sans"),
+                                  ),
                                 ),
                               ),
                             ),
@@ -294,123 +312,21 @@ class _DetailHistoryState extends State<DetailHistory> {
                             child: Container(
                               height: 40,
                               child: Center(
-                                child: Text(
-                                  "Start Date",
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      color: Colors.white,
-                                      fontFamily: "Open Sans"),
+                                child: MaterialButton(
+                                  onPressed: _pickEndDate,
+                                  child: Text(
+                                    "${_dateTime.day}/${_dateTime.month}/${_dateTime.year}",
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.white,
+                                        fontFamily: "Open Sans"),
+                                  ),
                                 ),
                               ),
                             ),
                           )
                         ],
                       ),
-                      ListTile(
-                        title: Text(
-                          "More Settings",
-                          style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white,
-                              fontFamily: "Open Sans"),
-                        ),
-                        leading: Icon(
-                          Icons.tune,
-                          color: Colors.white70,
-                        ),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => DetailSettings(),
-                                fullscreenDialog: true),
-                          );
-                        },
-                      ),
-                      ListTile(
-                        title: Text(
-                          "Start Date: ",
-                          style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white,
-                              fontFamily: "Open Sans"),
-                        ),
-                        leading: Icon(
-                          Icons.date_range,
-                          color: Colors.white70,
-                        ),
-                        onTap: _pickDate,
-                        trailing: Text(
-                          "${_startDate.day}/${_startDate.month}/${_startDate.year}",
-                          style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white,
-                              fontFamily: "Open Sans"),
-                        ),
-                      ),
-                      ListTile(
-                        title: Text(
-                          "End Date: ",
-                          style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white,
-                              fontFamily: "Open Sans"),
-                        ),
-                        leading: Icon(
-                          Icons.date_range,
-                          color: Colors.white70,
-                        ),
-                        onTap: () {},
-                        trailing: Text(
-                          "${_dateTime.day}/${_dateTime.month}/${_dateTime.year}",
-                          style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white,
-                              fontFamily: "Open Sans"),
-                        ),
-                      ),
-                      Divider(
-                        height: 1,
-                        indent: 16,
-                        endIndent: 16,
-                        color: Colors.grey,
-                      ),
-                      Theme(
-                        data: ThemeData(unselectedWidgetColor: Colors.white),
-                        child: CheckboxListTile(
-                          title: Text(
-                            "Incl. Employer Contributions?",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontFamily: "Open Sans"),
-                          ),
-                          checkColor: Colors.white,
-                          activeColor: Colors.green,
-                          //secondary: Icon(Icons.attach_money),
-                          controlAffinity: ListTileControlAffinity.leading,
-                          value: _checkEmployer,
-                          onChanged: _setCheckEmployer,
-                        ),
-                      ),
-                      Theme(
-                        data: ThemeData(unselectedWidgetColor: Colors.white),
-                        child: CheckboxListTile(
-                          title: Text(
-                            "Incl. Tax Relief?",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontFamily: "Open Sans"),
-                          ),
-                          checkColor: Colors.white,
-                          activeColor: Colors.green,
-                          //secondary: Icon(Icons.attach_money),
-                          controlAffinity: ListTileControlAffinity.leading,
-                          value: _checkTax,
-                          onChanged: _setCheckTax,
-                        ),
-                      )
                     ],
                   ),
                 ),
@@ -580,11 +496,141 @@ class DetailSettings extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
+        backgroundColor: Color(0xff00515e),
       ),
       body: Padding(
         padding: EdgeInsets.all(16),
         child: Column(
-          children: <Widget>[],
+          children: <Widget>[
+            /*ListTile(
+              title: Text(
+                "More Settings",
+                style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                    fontFamily: "Open Sans"),
+              ),
+              leading: Icon(
+                Icons.tune,
+                color: Colors.white70,
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => DetailSettings(),
+                      fullscreenDialog: true),
+                );
+              },
+            ),*/
+            ListTile(
+              title: Text(
+                "Start Date: ",
+                style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.black54,
+                    fontFamily: "Open Sans"),
+              ),
+              leading: Icon(
+                Icons.date_range,
+                color: Colors.black54,
+              ),
+              onTap: () {},
+              trailing: Text(
+                //"${_startDate.day}/${_startDate.month}/${_startDate.year}",
+                "hello",
+                style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.black54,
+                    fontFamily: "Open Sans"),
+              ),
+            ),
+            ListTile(
+              title: Text(
+                "End Date: ",
+                style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.black54,
+                    fontFamily: "Open Sans"),
+              ),
+              leading: Icon(
+                Icons.date_range,
+                color: Colors.black54,
+              ),
+              onTap: () {},
+              trailing: Text(
+                //"${_dateTime.day}/${_dateTime.month}/${_dateTime.year}",
+                "hello",
+                style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.black54,
+                    fontFamily: "Open Sans"),
+              ),
+            ),
+            Divider(
+              height: 1,
+              indent: 16,
+              endIndent: 16,
+              color: Colors.grey,
+            ),
+            Theme(
+              data: ThemeData(unselectedWidgetColor: Colors.black54),
+              child: CheckboxListTile(
+                title: Text(
+                  "Incl. Employer Contributions?",
+                  style: TextStyle(
+                      color: Colors.black54,
+                      fontSize: 18,
+                      fontFamily: "Open Sans"),
+                ),
+                checkColor: Colors.white,
+                activeColor: Colors.green,
+                //secondary: Icon(Icons.attach_money),
+                controlAffinity: ListTileControlAffinity.leading,
+                value: true,
+                onChanged: null,
+              ),
+            ),
+            Theme(
+              data: ThemeData(unselectedWidgetColor: Colors.black54),
+              child: CheckboxListTile(
+                title: Text(
+                  "Incl. Tax Relief?",
+                  style: TextStyle(
+                      color: Colors.black54,
+                      fontSize: 18,
+                      fontFamily: "Open Sans"),
+                ),
+                checkColor: Colors.white,
+                activeColor: Colors.green,
+                //secondary: Icon(Icons.attach_money),
+                controlAffinity: ListTileControlAffinity.leading,
+                value: true,
+                onChanged: null,
+              ),
+            ),
+            Divider(
+              height: 1,
+              indent: 16,
+              endIndent: 16,
+              color: Colors.grey,
+            ),
+            ListTile(
+              leading: Icon(Icons.file_download),
+              onTap: () {
+                showCupertinoModalPopup(
+                    context: context,
+                    builder: (context) => MyActionSheet());
+              },
+              title: Text(
+                "Download selected",
+                style: TextStyle(
+                    color: Colors.black54,
+                    fontSize: 18,
+                    fontFamily: "Open Sans"),
+              ),
+            )
+          ],
         ),
       ),
     );

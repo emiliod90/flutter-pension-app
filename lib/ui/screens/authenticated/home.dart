@@ -12,7 +12,9 @@ class HomeScreen extends StatelessWidget {
         .of(context)
         .size;
     return Scaffold(
+      backgroundColor: Colors.grey[100],
       appBar: AppBar(
+        backgroundColor: Color(0xff28465f),
         title: Text(
           "Nest",
           style: Theme
@@ -34,7 +36,7 @@ class HomeScreen extends StatelessWidget {
                     Container(
                       height: size.height * 0.45,
                       width: size.width,
-                      color: Colors.cyan,
+                      color: Color(0xff28465f),
                     ),
                     Positioned(
                       top: 45,
@@ -44,8 +46,8 @@ class HomeScreen extends StatelessWidget {
                                 topLeft: Radius.circular(45.0),
                                 topRight: Radius.circular(45.0),
                               ),
-                              color: Colors.white),
-                          height: size.height * 0.3,
+                              color: Color(0xfff5f5f5)),
+                          height: size.height * 0.4,
                           width: size.width),
                     ),
                     Positioned(
@@ -100,8 +102,8 @@ class HomeScreen extends StatelessWidget {
                                   bottomLeft: Radius.circular(25.0),
                                   bottomRight: Radius.circular(25.0),
                                 ),
-                                border: Border.all(color: Colors.white, width: 2),
-                                color: Colors.cyan[700]
+                                //border: Border.all(color: Color(0xff28465f), width: 2),
+                                color: Colors.white
                               ),
                             ),
                             Container(
@@ -116,8 +118,8 @@ class HomeScreen extends StatelessWidget {
                                     bottomLeft: Radius.circular(25.0),
                                     bottomRight: Radius.circular(25.0),
                                   ),
-                                  border: Border.all(color: Colors.white, width: 2),
-                                  color: Colors.cyan[700]
+                                  //border: Border.all(color: Color(0xff28465f), width: 2),
+                                  color: Colors.white
                               ),
                             ),
                             Container(
@@ -132,8 +134,8 @@ class HomeScreen extends StatelessWidget {
                                     bottomLeft: Radius.circular(25.0),
                                     bottomRight: Radius.circular(25.0),
                                   ),
-                                  border: Border.all(color: Colors.white, width: 2),
-                                  color: Colors.cyan[700]
+                                  //border: Border.all(color: Color(0xff28465f), width: 2),
+                                  color: Colors.white
                               ),
                             ),
                           ],
@@ -142,27 +144,7 @@ class HomeScreen extends StatelessWidget {
                     )
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    height: size.height * 0.4,
-                    width: size.width,
-                    padding: EdgeInsets.all(4),
-                    child: Center(
-                      child: Container(
-                        //color: Colors.black12,
-                        decoration: BoxDecoration(
-                          //color: Colors.black45,
-                            borderRadius: BorderRadius.only(
-                                topLeft: const Radius.circular(12.0),
-                                topRight: const Radius.circular(12.0),
-                                bottomLeft: const Radius.circular(12.0),
-                                bottomRight: const Radius.circular(12.0))),
-                        child: StackedFillColorBarChart.withSampleData(),
-                      ),
-                    ),
-                  ),
-                ),
+
                 Row(
                   children: <Widget>[
                     Expanded(
@@ -173,7 +155,7 @@ class HomeScreen extends StatelessWidget {
                         child: Center(
                           child: Container(
                             decoration: BoxDecoration(
-                                color: Colors.indigoAccent,
+                                color: Colors.white,
                                 borderRadius: BorderRadius.only(
                                     topLeft: const Radius.circular(12.0),
                                     topRight: const Radius.circular(12.0),
@@ -192,7 +174,7 @@ class HomeScreen extends StatelessWidget {
                         child: Center(
                           child: Container(
                             decoration: BoxDecoration(
-                                color: Colors.lightBlue,
+                                color: Colors.white,
                                 borderRadius: BorderRadius.only(
                                     topLeft: const Radius.circular(12.0),
                                     topRight: const Radius.circular(12.0),
@@ -211,7 +193,7 @@ class HomeScreen extends StatelessWidget {
                   child: Center(
                     child: Container(
                       decoration: BoxDecoration(
-                          color: Colors.black45,
+                          color: Colors.white,
                           borderRadius: BorderRadius.only(
                               topLeft: const Radius.circular(12.0),
                               topRight: const Radius.circular(12.0),

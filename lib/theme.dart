@@ -16,10 +16,17 @@ class ThemeChanger with ChangeNotifier {
 
 ThemeData light = ThemeData(
   brightness: Brightness.light,
-  primarySwatch: Colors.indigo,
+  /*primarySwatch: Colors.indigo,
   accentColor: Colors.redAccent,
   scaffoldBackgroundColor: Color(0xfff1f1f1),
   primaryColor: Color(0xff303030),
+  secondaryHeaderColor: Color(0xff96e4da),*/
+  /*colorScheme: ColorScheme(
+    primary: Color(0xffff7882),
+    primaryVariant: Color(0xffc4a0dc),
+    secondary: Color(0xffc8dcfa),
+    secondaryVariant: Color(0xff96e4da),
+  )*/
 );
 
 ThemeData dark = ThemeData(
@@ -32,13 +39,13 @@ ThemeData dark = ThemeData(
 
 ThemeData cool = ThemeData(
   brightness: Brightness.light,
-  primarySwatch: Colors.lightBlue,
+  /*primarySwatch: Colors.lightBlue,
   accentColor: Colors.blueAccent,
   scaffoldBackgroundColor: Colors.white,
-  primaryColor: Colors.cyan,
+  primaryColor: Colors.cyan,*/
+  fontFamily: 'Source Sans',
   textTheme: TextTheme(
     headline1: TextStyle(color: Colors.white),
-    headline6: TextStyle(color: Colors.white, fontFamily: 'Source Sans', fontWeight: FontWeight.normal, fontStyle: FontStyle.normal),
-    bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+    headline6: TextStyle(color: Colors.white, fontWeight: FontWeight.normal, fontStyle: FontStyle.normal),
   ),
 );
