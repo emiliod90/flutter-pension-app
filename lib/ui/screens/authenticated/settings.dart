@@ -10,6 +10,7 @@ class SettingsScreen extends StatelessWidget {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: Color(0xff00515e),
         ),
         body: SingleChildScrollView(
           child: Padding(

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertemplateapp/ui/charts/stacked_chart.dart';
 
@@ -70,6 +71,7 @@ class PortfolioScreen extends StatelessWidget {
                                   bottomLeft: const Radius.circular(12.0),
                                   bottomRight:
                                   const Radius.circular(12.0))),
+
                         ),
                       ),
                     ),
