@@ -48,7 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
         .size;
     return Scaffold(
       //resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.indigo,
+        backgroundColor: Color(0xff28465f),
         //appBar: AppBar(
         //backgroundColor: Colors.lightBlue,
         //title: Text("Login"),
@@ -64,13 +64,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Container(
+                    /*Container(
                       margin: EdgeInsets.only(bottom: 20),
                       child: Text(
-                        "LOGIN",
+                        "Sign In",
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
-                    ),
+                    ),*/
                     Image(
                       image: AssetImage('assets/images/rocket1.png'),
                       width: size.width * 0.6,
@@ -126,9 +126,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     //icon: Icons.lock,
                     //),
                     RoundedButton(
-                      text: "login",
+                      text: "sign in",
                       textColor: Colors.white,
-                      color: Colors.red,
+                      color: Color(0xff751248),
                       press: validateAndSubmit,
                     ),
                     Container(

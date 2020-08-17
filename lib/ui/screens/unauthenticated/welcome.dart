@@ -10,7 +10,7 @@ class WelcomeScreen extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.indigo,
+        backgroundColor: Color(0xff28465f),
         //appBar: AppBar(
         //backgroundColor: Colors.lightBlue,
         //title: Text("Login"),
@@ -24,24 +24,24 @@ class WelcomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Image(
-                  image: AssetImage('assets/images/rocket2.png'), height: size.width * 0.6,
+                  image: AssetImage('assets/images/rocket2.png'), height: size.width * 0.5,
                 ),
-                Container(
+                /*Container(
                   margin: EdgeInsets.only(top: 20, bottom: 10),
                   child: Text(
                     "Welcome",
                     style: TextStyle(
-                      color: Colors.white,
-                        fontFamily: 'Indie Flower',
+                      color: Colors.black54,
+                        //fontFamily: 'Indie Flower',
                         fontSize: 36,
                         fontWeight: FontWeight.bold),
                   ),
-                ),
+                ),*/
                 SizedBox(height: size.height * 0.05,),
                 RoundedButton(
                   text: "login",
                   textColor: Colors.white,
-                  color: Colors.red ,
+                  color: Color(0xff751248) ,
                   press: () {
                     Navigator.push(
                       context,
@@ -56,7 +56,7 @@ class WelcomeScreen extends StatelessWidget {
                 RoundedButton(
                   text: "register",
                   textColor: Colors.white,
-                  color: Colors.deepPurple[400],
+                  color: Color(0xff00515e),
                   press: () {
                     Navigator.push(
                       context,

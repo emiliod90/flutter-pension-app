@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertemplateapp/routes.dart';
 import 'package:fluttertemplateapp/theme.dart';
+import 'package:fluttertemplateapp/ui/screens/unauthenticated/welcome.dart';
 import 'package:provider/provider.dart';
 //import 'package:provider/provider.dart';
 
@@ -26,7 +27,7 @@ class MaterialAppWithTheme extends StatelessWidget {
       title: "Prototype App",
       theme: theme.getTheme(),
       darkTheme: dark,
-      home: HomePage(),
+      home: WelcomeScreen(),
     );
   }
 }
