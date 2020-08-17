@@ -4,18 +4,29 @@ import 'package:fluttertemplateapp/ui/charts/gauge.dart';
 import 'package:fluttertemplateapp/ui/charts/simple_chart.dart';
 import 'package:fluttertemplateapp/ui/charts/stacked_chart.dart';
 import 'package:fluttertemplateapp/ui/charts/combo_chart.dart';
+import 'package:fluttertemplateapp/ui/screens/onboarding/onboarding.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    Size size = MediaQuery
+        .of(context)
+        .size;
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
         backgroundColor: Color(0xff28465f),
         title: Text(
           "Nest",
-          style: Theme.of(context).textTheme.headline6,
+          style: Theme
+              .of(context)
+              .textTheme
+              .headline6,
         ),
         centerTitle: true,
         elevation: 0,
@@ -57,16 +68,27 @@ class HomeScreen extends StatelessWidget {
                             height: size.width * 0.6,
                             width: size.width * 0.6,
                             decoration:
-                                BoxDecoration(color: Colors.transparent),
+                            BoxDecoration(color: Colors.transparent),
                             child: Stack(
                               children: <Widget>[
                                 GaugeChart.withSampleData(),
                                 Center(
-                                  child: Text(
-                                    "£3,420",
-                                    style: TextStyle(
-                                      fontSize: 22,
-                                    ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Text(
+                                        "£18,420",
+                                        style: TextStyle(
+                                          fontSize: 22,
+                                        ),
+                                      ),
+                                      Text(
+                                        "My Nest Pot",
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 )
                               ],
@@ -102,7 +124,8 @@ class HomeScreen extends StatelessWidget {
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
-                                    Text("+71%", style: TextStyle(fontSize: 18),),
+                                    Text(
+                                      "+71%", style: TextStyle(fontSize: 18),),
                                     Text("target score")
                                   ],
                                 ),
@@ -126,7 +149,8 @@ class HomeScreen extends StatelessWidget {
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
-                                    Text("+8.1%", style: TextStyle(fontSize: 18),),
+                                    Text(
+                                      "+8.1%", style: TextStyle(fontSize: 18),),
                                     Text("since '17")
                                   ],
                                 ),
@@ -150,7 +174,8 @@ class HomeScreen extends StatelessWidget {
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
-                                    Text("£-545", style: TextStyle(fontSize: 18),),
+                                    Text(
+                                      "-£545", style: TextStyle(fontSize: 18),),
                                     Text("Shortfall")
                                   ],
                                 ),
@@ -161,6 +186,198 @@ class HomeScreen extends StatelessWidget {
                       ),
                     )
                   ],
+                ),
+                Container(
+                  //height: size.width,
+                  padding: EdgeInsets.all(8.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                        topLeft: const Radius.circular(12.0),
+                        topRight: const Radius.circular(12.0),
+                        bottomLeft: const Radius.circular(12.0),
+                        bottomRight: const Radius.circular(12.0),
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: <Widget>[
+                          ListTile(
+                            title: Text(""
+                                "Nest Pension",
+                              style: TextStyle(
+                                fontSize: 17
+                              ),),
+                            trailing: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                Text(
+                                  "£18,420",
+                                  style: TextStyle(
+                                    fontSize: 18
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Icon(Icons.star)
+                              ],
+                            ),
+                            onTap: () {},
+                            dense: true,
+
+                          ),
+                          ListTile(
+                            title: Text(""
+                                "Vanguard SIPP",
+                              style: TextStyle(
+                                  fontSize: 17
+                              ),),
+                            trailing: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                Text(
+                                  "£11,260",
+                                  style: TextStyle(
+                                      fontSize: 18
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Icon(Icons.compare_arrows)
+                              ],
+                            ),
+                            dense: true,
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => EditPension(),
+                                    fullscreenDialog: true),
+                              );
+                            },
+
+                          ),
+                          ListTile(
+                            title: Text(""
+                                "Legal & General",
+                              style: TextStyle(
+                                  fontSize: 17
+                              ),),
+                            trailing: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                Text(
+                                  "£2,940",
+                                  style: TextStyle(
+                                      fontSize: 18
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Icon(Icons.compare_arrows)
+                              ],
+                            ),
+                            dense: true,
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => EditPension(),
+                                    fullscreenDialog: true),
+                              );
+                            },
+
+                          ),
+                          ListTile(
+                            title: Text(""
+                                "Aviva Pension",
+                              style: TextStyle(
+                                  fontSize: 17
+                              ),),
+                            trailing: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                Text(
+                                  "£1,820",
+                                  style: TextStyle(
+                                      fontSize: 18
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Icon(Icons.compare_arrows)
+                              ],
+                            ),
+                            dense: true,
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => EditPension(),
+                                    fullscreenDialog: true),
+                              );
+                            },
+
+                          ),
+                          Divider(
+                            height: 1,
+                            indent: 16,
+                            endIndent: 16,
+                            color: Colors.grey,
+                          ),
+                          ListTile(
+                            title: Text(""
+                                "Add Pension",
+                              style: TextStyle(
+                                  fontSize: 17
+                              ),),
+                            leading: Icon(Icons.add),
+                            dense: true,
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => AddPension(),
+                                    fullscreenDialog: true),
+                              );
+                            },
+
+                          ),
+                          Divider(
+                            height: 1,
+                            indent: 16,
+                            endIndent: 16,
+                            color: Colors.grey,
+                          ),
+                          ListTile(
+                            title: Text(""
+                                "Total",
+                              style: TextStyle(
+                                  fontSize: 18,
+                                fontWeight: FontWeight.bold
+                              ),),
+                            subtitle: Text("My Total Pension Pot Value"),
+                            trailing: Text(
+                              "£34,440",
+                              style: TextStyle(
+                                  fontSize: 18,
+                                fontWeight: FontWeight.bold
+                              ),
+                            ),
+                            dense: true,
+                            //onTap: () {},
+                          ),
+
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
                 Row(
                   children: <Widget>[
@@ -194,7 +411,7 @@ class HomeScreen extends StatelessWidget {
                           height: size.width * 0.5,
                           padding: EdgeInsets.all(4),
                           decoration: BoxDecoration(
-                              //color: Color(0xff4f2a5f),
+                            //color: Color(0xff4f2a5f),
                               borderRadius: BorderRadius.only(
                                   topLeft: const Radius.circular(12.0),
                                   topRight: const Radius.circular(12.0),
@@ -234,3 +451,175 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+class AddPension extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery
+        .of(context)
+        .size;
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xff00515e),
+        title: Text("Add Pension"),
+        centerTitle: true,
+      ),
+      body: SafeArea(
+        left: false,
+        right: false,
+        child: Form(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: <Widget>[
+                TextFormField(
+                  decoration: const InputDecoration(
+                    icon: const Icon(Icons.business),
+                    hintText: 'Enter the Pension Provider Name',
+                    labelText: 'Provider Name',
+                  ),
+                ),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    icon: const Icon(Icons.perm_identity),
+                    hintText: 'Enter your Account or Policy No.',
+                    labelText: 'Policy no.',
+                  ),
+                ),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    icon: const Icon(Icons.money_off),
+                    hintText: 'Enter most approx. value',
+                    labelText: 'Approx. value',
+                  ),
+                ),
+                SizedBox(
+                  height: size.height * 0.035,
+                ),
+                MaterialButton(
+                  minWidth: size.width * 0.75,
+                  color: Color(0xff751248),
+                  padding: EdgeInsets.all(16.0),
+                  onPressed: () {Navigator.pop(context);},
+                  child: Text(
+                    "Add Pension",
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                ),
+                SizedBox(
+                  height: size.height * 0.025,
+                ),
+                /*ListTile(
+                  title: Text("Transfer Pension to Nest"),
+                  //leading: Icon(Icons.arrow_forward),
+                  trailing: Icon(Icons.chevron_right),
+                  onTap: () {Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return OnboardingScreen();
+                      },
+                    ),
+                  );},
+                ),*/
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class EditPension extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery
+        .of(context)
+        .size;
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xff00515e),
+        title: Text("Transfer Pension"),
+        centerTitle: true,
+      ),
+      body: SafeArea(
+        left: false,
+        right: false,
+        child: Form(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: <Widget>[
+                TextFormField(
+                  decoration: const InputDecoration(
+                    icon: const Icon(Icons.business),
+                    hintText: 'Enter the Pension Provider Name',
+                    labelText: 'Provider Name',
+                  ),
+                ),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    icon: const Icon(Icons.perm_identity),
+                    hintText: 'Enter your Account or Policy No.',
+                    labelText: 'Policy no.',
+                  ),
+                ),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    icon: const Icon(Icons.money_off),
+                    hintText: 'Enter most approx. value',
+                    labelText: 'Approx. value',
+                  ),
+                ),
+/*                SizedBox(
+                  height: size.height * 0.035,
+                ),
+                MaterialButton(
+                  minWidth: size.width * 0.75,
+                  color: Color(0xff751248),
+                  padding: EdgeInsets.all(16.0),
+                  onPressed: () {Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return OnboardingScreen();
+                      },
+                    ),
+                  );},
+                  child: Text(
+                    "Update Details",
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                ),*/
+                SizedBox(
+                  height: size.height * 0.035,
+                ),
+                MaterialButton(
+                  minWidth: size.width * 0.75,
+                  color: Color(0xff751248),
+                  padding: EdgeInsets.all(16.0),
+                  onPressed: () {Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return OnboardingScreen();
+                      },
+                    ),
+                  );},
+                  child: Text(
+                    "Transfer to Nest",
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                ),
+
+
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+

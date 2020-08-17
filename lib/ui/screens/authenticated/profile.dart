@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertemplateapp/ui/screens/authenticated/settings.dart';
+import 'package:fluttertemplateapp/ui/screens/onboarding/onboarding.dart';
 
 class ProfileScreen extends StatelessWidget {
   @override
@@ -78,21 +79,23 @@ class ProfileScreen extends StatelessWidget {
                       child: Container(
                         height: size.height * 0.25,
                         padding: EdgeInsets.all(4),
-                        child: Center(
-                          child: Container(
-                            decoration: BoxDecoration(
-                                color: Colors.black45,
-                                borderRadius: BorderRadius.only(
-                                    topLeft: const Radius.circular(12.0),
-                                    topRight: const Radius.circular(12.0),
-                                    bottomLeft: const Radius.circular(12.0),
-                                    bottomRight: const Radius.circular(12.0))),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.black45,
+                              borderRadius: BorderRadius.only(
+                                  topLeft: const Radius.circular(12.0),
+                                  topRight: const Radius.circular(12.0),
+                                  bottomLeft: const Radius.circular(12.0),
+                                  bottomRight: const Radius.circular(12.0))),
+                          child: FlatButton(
+                            onPressed: () {},
+                            splashColor: Color(0xff751248),
                             child: Center(
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
                                   Text(
-                                    "Personal",
+                                    "Profile",
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 18,
@@ -117,21 +120,23 @@ class ProfileScreen extends StatelessWidget {
                       child: Container(
                         height: size.height * 0.25,
                         padding: EdgeInsets.all(4),
-                        child: Center(
-                          child: Container(
-                            decoration: BoxDecoration(
-                                color: Colors.black45,
-                                borderRadius: BorderRadius.only(
-                                    topLeft: const Radius.circular(12.0),
-                                    topRight: const Radius.circular(12.0),
-                                    bottomLeft: const Radius.circular(12.0),
-                                    bottomRight: const Radius.circular(12.0))),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.black45,
+                              borderRadius: BorderRadius.only(
+                                  topLeft: const Radius.circular(12.0),
+                                  topRight: const Radius.circular(12.0),
+                                  bottomLeft: const Radius.circular(12.0),
+                                  bottomRight: const Radius.circular(12.0))),
+                          child: FlatButton(
+                            onPressed: () {},
+                            splashColor: Color(0xff751248),
                             child: Center(
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
                                   Text(
-                                    "Beneficiaries",
+                                    "Secure Inbox",
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 18,
@@ -153,15 +158,17 @@ class ProfileScreen extends StatelessWidget {
                       child: Container(
                         height: size.height * 0.25,
                         padding: EdgeInsets.all(4),
-                        child: Center(
-                          child: Container(
-                            decoration: BoxDecoration(
-                                color: Colors.black45,
-                                borderRadius: BorderRadius.only(
-                                    topLeft: const Radius.circular(12.0),
-                                    topRight: const Radius.circular(12.0),
-                                    bottomLeft: const Radius.circular(12.0),
-                                    bottomRight: const Radius.circular(12.0))),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.black45,
+                              borderRadius: BorderRadius.only(
+                                  topLeft: const Radius.circular(12.0),
+                                  topRight: const Radius.circular(12.0),
+                                  bottomLeft: const Radius.circular(12.0),
+                                  bottomRight: const Radius.circular(12.0))),
+                          child: FlatButton(
+                            splashColor: Color(0xff751248),
+                            onPressed: () {},
                             child: Center(
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -192,20 +199,71 @@ class ProfileScreen extends StatelessWidget {
                       child: Container(
                         height: size.height * 0.25,
                         padding: EdgeInsets.all(4),
-                        child: Center(
-                          child: Container(
-                            decoration: BoxDecoration(
-                                color: Colors.black45,
-                                borderRadius: BorderRadius.only(
-                                    topLeft: const Radius.circular(12.0),
-                                    topRight: const Radius.circular(12.0),
-                                    bottomLeft: const Radius.circular(12.0),
-                                    bottomRight: const Radius.circular(12.0))),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.black45,
+                              borderRadius: BorderRadius.only(
+                                  topLeft: const Radius.circular(12.0),
+                                  topRight: const Radius.circular(12.0),
+                                  bottomLeft: const Radius.circular(12.0),
+                                  bottomRight: const Radius.circular(12.0))),
+                          child: FlatButton(
+                            onPressed: () {},
+                            splashColor: Color(0xff751248),
+                            child: Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    "Beneficiaries",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
                         ),
                       ),
                     ),
                   ],
+                ),
+                Container(
+                  padding: EdgeInsets.all(4),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Color(0xff4f2a5f),
+                        borderRadius: BorderRadius.only(
+                            topLeft: const Radius.circular(12.0),
+                            topRight: const Radius.circular(12.0),
+                            bottomLeft: const Radius.circular(12.0),
+                            bottomRight: const Radius.circular(12.0))),
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.arrow_forward,
+                        color: Colors.white,
+                      ),
+                      title: Text(
+                        "Transfer a Pension",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: "Open Sans",
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return OnboardingScreen();
+                            },
+                          ),
+                        );
+                      },
+                    ),
+                  ),
                 ),
                 Container(
                   padding: EdgeInsets.all(4),

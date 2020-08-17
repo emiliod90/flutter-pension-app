@@ -10,6 +10,8 @@ class PortfolioScreen extends StatelessWidget {
         .size;
     return Scaffold(
       appBar: AppBar(
+        title: Text("Portfolio"),
+        centerTitle: true,
         backgroundColor: Color(0xff28465f),
       ),
       body: SafeArea(

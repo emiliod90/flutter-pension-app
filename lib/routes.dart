@@ -76,11 +76,11 @@ class Destination {
 }
 
 const List<Destination> allDestinations = <Destination>[
-  Destination('Home', Icons.home, Colors.teal),
-  Destination('Portfolio', Icons.pie_chart, Colors.cyan),
-  Destination('Forecast', Icons.trending_up, Colors.indigo),
-  Destination('History', Icons.table_chart, Colors.orange),
-  Destination('Account', Icons.account_box, Colors.blue)
+  Destination('Home', Icons.home, Colors.blueGrey),
+  Destination('Portfolio', Icons.pie_chart, Colors.blueGrey),
+  Destination('Forecast', Icons.trending_up, Colors.blueGrey),
+  Destination('History', Icons.table_chart, Colors.blueGrey),
+  Destination('Account', Icons.account_box, Colors.blueGrey)
 ];
 
 class HomePage extends StatefulWidget {
@@ -165,6 +165,7 @@ class _HomePageState extends State<HomePage>
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
+          selectedItemColor: Color(0xff751248),
           currentIndex: _currentIndex,
           type: BottomNavigationBarType.fixed,
           onTap: (int index) {
@@ -176,7 +177,7 @@ class _HomePageState extends State<HomePage>
             return BottomNavigationBarItem(
               icon: Icon(
                 destination.icon,
-                color: destination.color,
+                //color: destination.color,
               ),
               //backgroundColor: destination.color,
               title: Text(destination.title),

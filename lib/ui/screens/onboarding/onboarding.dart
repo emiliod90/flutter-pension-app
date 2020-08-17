@@ -277,7 +277,7 @@ class SlideThree extends StatelessWidget {
                     textColor: Colors.black87,
                     onPressed: () {},
                     child: Text(
-                      "hello",
+                      "Next",
                     ),
                   ),
                 ),
