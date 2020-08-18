@@ -30,7 +30,8 @@ class _LoginScreenState extends State<LoginScreen> {
   void validateAndSubmit() {
     if (validateAndSave()) {
       print("mock auth api call");
-      Navigator.push(
+      //Navigator.pushReplacementNamed(context, "/home");
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (context) {

@@ -43,7 +43,7 @@ class WelcomeScreen extends StatelessWidget {
                   textColor: Colors.white,
                   color: Color(0xff751248) ,
                   press: () {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                         builder: (context) {
@@ -58,7 +58,7 @@ class WelcomeScreen extends StatelessWidget {
                   textColor: Colors.white,
                   color: Color(0xff00515e),
                   press: () {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                         builder: (context) {

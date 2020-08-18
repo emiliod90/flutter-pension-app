@@ -36,7 +36,7 @@ class PublicRoute extends StatelessWidget {
 }
 
 // Route parameters:
-const String HomeViewRoute = '/';
+const String HomeViewRoute = '/home';
 const String LoginViewRoute = 'login';
 const String PortfolioViewRoute = 'portfolio';
 const String AnalysisViewRoute = 'analysis';
@@ -91,12 +91,22 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage>
     with TickerProviderStateMixin<HomePage> {
   int _currentIndex = 0;
+  String _title;
+
+
+  @override
+  initState(){
+    _title = allDestinations[_currentIndex].title;
+  }
 
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () => Future.value(false),
       child: Scaffold(
+        /*appBar: AppBar(
+          title: Text(_title),
+        ),*/
         /*appBar: AppBar(
           elevation: 0,
           leading: IconButton(

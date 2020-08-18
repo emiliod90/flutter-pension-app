@@ -403,6 +403,9 @@ class ProfileScreen extends StatelessWidget {
                           fontFamily: "Open Sans",
                         ),
                       ),
+                      onTap: () {
+                        Navigator.pushReplacementNamed(context, "/");
+                      },
                     ),
                   ),
                 ),
