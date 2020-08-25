@@ -40,17 +40,17 @@ class AnalysisScreen extends StatelessWidget {
                         title: "Current Value",
                         subtitle: "13/08/20",
                         amount: "£3,420",
-                        suffix: Icon(Icons.help_outline),
+                        suffix: Icon(Icons.help_outline, color: Colors.blue),
                       ),
                       CustomTile(
                         title: "Retirement Goal",
                         subtitle: "13/08/50",
                         amount: "£100,000",
-                        suffix: Icon(Icons.help_outline),
+                        suffix: Icon(Icons.help_outline, color: Colors.blue,),
                       ),
                       ListTile(
-                        title: Text("Target"),
-                        trailing: Text("71%"),
+                        title: Text("Target", style: TextStyle(color: Colors.black87),),
+                        trailing: Text("71%", style: TextStyle(color: Colors.black87),),
                       ),
                     ],
                   ),
@@ -81,11 +81,11 @@ class AnalysisScreen extends StatelessWidget {
                               children: <Widget>[
                                 Text(
                                   "Monthly Target",
-                                  style: TextStyle(fontSize: 18),
+                                  style: TextStyle(fontSize: 18, color: Colors.black87),
                                 ),
                                 Text(
                                   "£275",
-                                  style: TextStyle(fontSize: 18),
+                                  style: TextStyle(fontSize: 18, color: Colors.black87),
                                 )
                               ],
                             ),
@@ -275,9 +275,9 @@ class ForecastSettings extends StatelessWidget {
                         fontFamily: "Open Sans"),
                   ),
                   onTap: () {},
-                  leading: Icon(Icons.info_outline),
+                  leading: Icon(Icons.info_outline, color: Colors.blue,),
                   subtitle: Text(
-                      "Learn about some of the basic assumptions included in the model"),
+                      "Learn about some of the basic assumptions included in the model", style: TextStyle(color: Colors.black54),),
                   isThreeLine: true,
                 ),
               ],

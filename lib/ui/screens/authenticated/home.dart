@@ -104,10 +104,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Container(
-                              margin: EdgeInsets.symmetric(horizontal: 10),
+                              margin: EdgeInsets.symmetric(horizontal: 4),
                               padding: EdgeInsets.all(4.0),
                               height: 90,
-                              width: size.width * 0.25,
+                              width: (size.width * 0.3) - 8,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.only(
                                     topLeft: Radius.circular(25.0),
@@ -133,10 +133,10 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             Container(
-                              margin: EdgeInsets.symmetric(horizontal: 10),
+                              margin: EdgeInsets.symmetric(horizontal: 4),
                               padding: EdgeInsets.all(4.0),
                               height: 90,
-                              width: size.width * 0.25,
+                              width: (size.width * 0.3) - 8,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.only(
                                     topLeft: Radius.circular(25.0),
@@ -164,10 +164,10 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             Container(
-                              margin: EdgeInsets.symmetric(horizontal: 10),
+                              margin: EdgeInsets.symmetric(horizontal: 4),
                               padding: EdgeInsets.all(4.0),
                               height: 90,
-                              width: size.width * 0.25,
+                              width: (size.width * 0.3) - 8,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.only(
                                     topLeft: Radius.circular(25.0),

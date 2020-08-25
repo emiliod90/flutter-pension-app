@@ -35,19 +35,20 @@ class CustomTile extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text(title, style: TextStyle(fontSize: 18),),
+                          Text(title, style: TextStyle(fontSize: 18, color: Colors.black87),),
                           Text(
                             "$subtitle",
                             style: TextStyle(
                               fontFamily: "Source Sans",
                               fontWeight: FontWeight.normal,
+                              color: Colors.black87
                             ),
                           )
                         ],
                       ),
                       Text(
                         amount,
-                        style: TextStyle(fontSize: 20),
+                        style: TextStyle(fontSize: 20, color: Colors.black87),
                       ),
                     ],
                   ),
