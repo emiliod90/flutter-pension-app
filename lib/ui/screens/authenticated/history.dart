@@ -150,7 +150,6 @@ class SummaryHistory extends StatelessWidget {
             Container(
               padding: EdgeInsets.symmetric(vertical: 16.0),
               decoration: BoxDecoration(
-                  color: Colors.grey,
                   borderRadius: BorderRadius.only(
                       bottomRight: Radius.circular(20),
                       bottomLeft: Radius.circular(20),
@@ -171,18 +170,20 @@ class SummaryHistory extends StatelessWidget {
                   ),
                   EmployerEntity(
                     indicatorColor: Colors.red,
-                    indicatorFraction: 0.5,
+                    indicatorFraction: 1,
                     title: "Nest Corp.",
                     subtitle: "01/08/20",
                     amount: "£2,280",
+                    child: NestEntityDetail(),
                     suffix: Icon(Icons.chevron_right),
                   ),
                   EmployerEntity(
                     indicatorColor: Colors.red,
-                    indicatorFraction: 0.5,
+                    indicatorFraction: 0,
                     title: "GSK",
                     subtitle: "01/03/19",
                     amount: "£2,040",
+                    child: GSKEntityDetail(),
                     suffix: Icon(Icons.chevron_right),
                   ),
                 ],
@@ -383,7 +384,7 @@ class _DetailHistoryState extends State<DetailHistory> {
                 Container(
                   margin: EdgeInsets.only(bottom: 8.0),
                   decoration: BoxDecoration(
-                      color: Colors.grey[300],
+                      color: Colors.blue[200],
                       borderRadius: BorderRadius.only(
                           bottomRight: Radius.circular(20),
                           bottomLeft: Radius.circular(20),
@@ -411,7 +412,7 @@ class _DetailHistoryState extends State<DetailHistory> {
                 Container(
                   margin: EdgeInsets.only(bottom: 8.0),
                   decoration: BoxDecoration(
-                      color: Colors.grey[300],
+                      color: Colors.orange[200],
                       borderRadius: BorderRadius.only(
                           bottomRight: Radius.circular(20),
                           bottomLeft: Radius.circular(20),
@@ -439,7 +440,7 @@ class _DetailHistoryState extends State<DetailHistory> {
                 Container(
                   margin: EdgeInsets.only(bottom: 8.0),
                   decoration: BoxDecoration(
-                      color: Colors.grey[300],
+                      color: Colors.red[200],
                       borderRadius: BorderRadius.only(
                           bottomRight: Radius.circular(20),
                           bottomLeft: Radius.circular(20),
@@ -467,7 +468,7 @@ class _DetailHistoryState extends State<DetailHistory> {
                 Container(
                   margin: EdgeInsets.only(bottom: 8.0),
                   decoration: BoxDecoration(
-                      color: Colors.grey[300],
+                      color: Colors.blue[200],
                       borderRadius: BorderRadius.only(
                           bottomRight: Radius.circular(20),
                           bottomLeft: Radius.circular(20),
@@ -709,7 +710,7 @@ class EmployerEntityView extends StatelessWidget {
                         children: <Widget>[
                           Text(title),
                           Text(
-                            "Last Contribution: $subtitle",
+                            "Last Date: $subtitle",
                             style: TextStyle(
                               fontFamily: "Source Sans",
                               fontWeight: FontWeight.normal,
@@ -752,6 +753,7 @@ class EmployerEntity extends StatelessWidget {
   final String semanticsLabel;
   final String amount;
   final Widget suffix;
+  final Widget child;
 
   const EmployerEntity(
       {Key key,
@@ -761,7 +763,7 @@ class EmployerEntity extends StatelessWidget {
       this.subtitle,
       this.semanticsLabel,
       this.amount,
-      this.suffix})
+      this.suffix, this.child})
       : super(key: key);
 
   @override
@@ -769,7 +771,7 @@ class EmployerEntity extends StatelessWidget {
     return OpenContainer(
       transitionDuration: const Duration(milliseconds: 800),
       transitionType: ContainerTransitionType.fade,
-      openBuilder: (context, openContainer) => EmployerEntityDetail(),
+      openBuilder: (context, openContainer) => child,
       //openColor: RallyColors.primaryBackground,
       closedColor: Colors.transparent,
       closedElevation: 0,
@@ -802,7 +804,7 @@ class EmployerEntity extends StatelessWidget {
                             children: <Widget>[
                               Text(title),
                               Text(
-                                "Last Contribution: $subtitle",
+                                "Last Date: $subtitle",
                                 style: TextStyle(
                                   fontFamily: "Source Sans",
                                   fontWeight: FontWeight.normal,
@@ -839,13 +841,103 @@ class EmployerEntity extends StatelessWidget {
   }
 }
 
-class EmployerEntityDetail extends StatelessWidget {
+class NestEntityDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor:  Color(0xff751248),
         elevation: 0,
-        centerTitle: true,
+        title: Text(
+          "Nest Corp.",
+          style: TextStyle(fontSize: 18),
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Column(
+            children: <Widget>[
+              ListTile(
+                title: Text(
+                  "01/08/2020",
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.black87,
+                      fontFamily: "Open Sans"),
+                ),
+                //onTap: () {},
+                leading: Icon(Icons.work),
+                enabled: true,
+                trailing: Text(
+                  "£420",
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              ListTile(
+                title: Text(
+                  "01/07/2020",
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.black87,
+                      fontFamily: "Open Sans"),
+                ),
+                //onTap: () {},
+                leading: Icon(Icons.work),
+                enabled: true,
+                trailing: Text(
+                  "£420",
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              ListTile(
+                title: Text(
+                  "01/06/2020",
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.black87,
+                      fontFamily: "Open Sans"),
+                ),
+                //onTap: () {},
+                leading: Icon(Icons.work),
+                enabled: true,
+                trailing: Text(
+                  "£420",
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              ListTile(
+                title: Text(
+                  "01/05/2020",
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.black87,
+                      fontFamily: "Open Sans"),
+                ),
+                //onTap: () {},
+                leading: Icon(Icons.work),
+                //subtitle: Text("12 Units"),
+                enabled: true,
+                trailing: Text(
+                  "£420",
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class GSKEntityDetail extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor:  Color(0xff751248),
+        elevation: 0,
         title: Text(
           "GSK",
           style: TextStyle(fontSize: 18),
