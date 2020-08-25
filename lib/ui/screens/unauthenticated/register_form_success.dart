@@ -35,6 +35,7 @@ class RegisterFormSuccessScreen extends StatelessWidget {
                   width: size.width * 0.7,
                   margin: EdgeInsets.only(top: 5),
                   child: RichText(
+                    textAlign:TextAlign.center,
                     text: TextSpan(
                       style: TextStyle(
                           fontSize: 19, height: 1.5, color: Colors.white),
@@ -66,7 +67,7 @@ class RegisterFormSuccessScreen extends StatelessWidget {
                       /*side: BorderSide(color: color)*/
                     ),
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                           builder: (context) {

@@ -113,7 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             bottomRight: Radius.circular(25.0),
                           ),
                           //border: Border.all(color: Color(0xff28465f), width: 2),
-                          color: Colors.green),
+                          color: Colors.indigoAccent),
                       child: Center(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -144,7 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             bottomRight: Radius.circular(25.0),
                           ),
                           //border: Border.all(color: Color(0xff28465f), width: 2),
-                          color: Colors.teal),
+                          color: Colors.deepPurpleAccent),
                       child: Center(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -183,7 +183,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             title: Text(
                               ""
                               "Nest Pension",
-                              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold,color: Color(0xffe66e00)),
+                              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold,color: Colors.blue),
                             ),
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
@@ -205,7 +205,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             title: Text(
                               ""
                               "Vanguard SIPP",
-                              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold,color: Color(0xff792a86)),
+                              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold,color: Colors.indigo),
                             ),
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
@@ -234,7 +234,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             title: Text(
                               ""
                               "Legal & General",
-                              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold,color: Color(0xff009ddb)),
+                              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold,color: Colors.deepPurple),
                             ),
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
@@ -263,7 +263,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             title: Text(
                               ""
                               "Aviva Pension",
-                              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold,color: Color(0xff00a0a4)),
+                              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold,color: Colors.purple),
                             ),
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
@@ -357,56 +357,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-                /*Row(
-                  children: <Widget>[
-                    Expanded(
-                      flex: 1,
-                      child: Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Container(
-                          height: size.width * 0.5,
-                          padding: EdgeInsets.all(4),
-                          decoration: BoxDecoration(
-                            //color: Color(0xff751248),
-                            borderRadius: BorderRadius.only(
-                              topLeft: const Radius.circular(12.0),
-                              topRight: const Radius.circular(12.0),
-                              bottomLeft: const Radius.circular(12.0),
-                              bottomRight: const Radius.circular(12.0),
-                            ),
-                          ),
-                          child: Center(
-                            child: OrdinalComboBarLineChart.withSampleData(),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Container(
-                          height: size.width * 0.5,
-                          padding: EdgeInsets.all(4),
-                          decoration: BoxDecoration(
-                              //color: Color(0xff4f2a5f),
-                              borderRadius: BorderRadius.only(
-                                  topLeft: const Radius.circular(12.0),
-                                  topRight: const Radius.circular(12.0),
-                                  bottomLeft: const Radius.circular(12.0),
-                                  bottomRight: const Radius.circular(12.0))),
-                          child: Center(
-                            child: StackedFillColorBarChart.withSampleData(),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),*/
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                   child: Card(
-                    color: Colors.transparent,
+                    color: Color(0xff00515e),
                     elevation: 1.0,
                     child: Row(
                       //crossAxisAlignment: CrossAxisAlignment.start,
@@ -429,7 +383,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           //width: 440,
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Text("Latest Articles", style: TextStyle(fontSize: 20),),
+                            child: Text("Latest Articles", style: TextStyle(color: Colors.white,fontSize: 20, fontFamily: "Open Sans"),),
                           ),
                         ),
                       ],
@@ -439,7 +393,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                   child: Card(
-                    color: Colors.transparent,
+                    color: Color(0xff751248),
                     elevation: 1.0,
                     child: Row(
                       //crossAxisAlignment: CrossAxisAlignment.start,
@@ -462,7 +416,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           //width: 440,
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Text("Market News", style: TextStyle(fontSize: 20),),
+                            child: Text("Market News", style: TextStyle(color: Colors.white,fontSize: 20, fontFamily: "Open Sans"),),
                           ),
                         ),
                       ],

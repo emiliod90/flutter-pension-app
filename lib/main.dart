@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertemplateapp/routes.dart';
 import 'package:fluttertemplateapp/theme.dart';
 import 'package:fluttertemplateapp/ui/screens/unauthenticated/login.dart';
 import 'package:provider/provider.dart';
@@ -24,7 +25,7 @@ class MaterialAppWithTheme extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       //title: "Prototype App",
       theme: theme.getTheme(),
-      home: LoginScreen(),
+      home: HomePage(),
     );
   }
 }

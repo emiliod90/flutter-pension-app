@@ -16,7 +16,7 @@ class VerticalFractionBar extends StatelessWidget {
           SizedBox(
             height: (1 - fraction) * 32.0,
             child: Container(
-              color: Colors.black,
+              color: Colors.grey[300],
             ),
           ),
           SizedBox(

@@ -36,7 +36,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       // await API call
       // if successful push to register form
       print("success");
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (context) {
@@ -53,10 +53,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        //backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
       body: SafeArea(
         left: false,
         right: false,
@@ -69,7 +65,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 children: <Widget>[
                   Container(
                     height:
-                    size.height * 0.3 - MediaQuery.of(context).padding.top - kToolbarHeight,
+                    size.height * 0.3 - MediaQuery.of(context).padding.top,
                     //color: Colors.grey,
                     child: Container(
                         width: size.width - 64,
@@ -211,6 +207,30 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   ? Text("Please wait...")
                                   : Text("Next")),
                             )),
+                        SizedBox(
+                          height: 32,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return RegisterScreen();
+                                },
+                              ),
+                            );
+                          },
+                          child: Text(
+                            "Back to Sign In",
+                            style: TextStyle(
+                              //fontSize: 16,
+                              //color: Colors.white,
+                              //fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.underline,
+                            ),
+                          ),
+                        )
                         /*SizedBox(height: 32,),
                         Text(
                           "Back to Sign In"

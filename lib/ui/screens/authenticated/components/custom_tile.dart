@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 class CustomTile extends StatelessWidget {
   final String title;
+  final Color primaryColor;
+  final Color secondaryColor;
   final String subtitle;
   final String semanticsLabel;
   final String amount;
@@ -13,6 +15,8 @@ class CustomTile extends StatelessWidget {
         this.subtitle,
         this.semanticsLabel,
         this.amount,
+        this.primaryColor,
+        this.secondaryColor,
         this.suffix})
       : super(key: key);
 
@@ -35,20 +39,20 @@ class CustomTile extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text(title, style: TextStyle(fontSize: 18, color: Colors.black87),),
+                          Text(title, style: TextStyle(fontSize: 18, color: primaryColor),),
                           Text(
                             "$subtitle",
                             style: TextStyle(
-                              fontFamily: "Source Sans",
+                              fontFamily: "Open Sans",
                               fontWeight: FontWeight.normal,
-                              color: Colors.black87
+                              color: secondaryColor
                             ),
                           )
                         ],
                       ),
                       Text(
                         amount,
-                        style: TextStyle(fontSize: 20, color: Colors.black87),
+                        style: TextStyle(fontSize: 20, color: primaryColor),
                       ),
                     ],
                   ),

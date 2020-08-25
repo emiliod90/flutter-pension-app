@@ -11,7 +11,6 @@ class HistoryScreen extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        backgroundColor: Colors.grey[100],
         appBar: AppBar(
           backgroundColor: Color(0xff28465f),
           title: Text(
@@ -69,7 +68,7 @@ class SummaryHistory extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(8.0),
               decoration: BoxDecoration(
-                  color: Colors.white70,
+                  //color: Colors.white70,
                   borderRadius: BorderRadius.only(
                       bottomRight: Radius.circular(20),
                       bottomLeft: Radius.circular(20),
@@ -77,76 +76,56 @@ class SummaryHistory extends StatelessWidget {
                       topRight: Radius.circular(20))),
               child: Column(
                 children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text(
-                      "Summary",
-                      style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.black87,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "Open Sans"),
-                    ),
-                  ),
                   ListTile(
                     title: Text(
-                      "£5,070.87",
+                      "£5,070",
                       style: TextStyle(
                           fontSize: 18,
-                          color: Colors.black87,
                           fontFamily: "Open Sans"),
                     ),
                     onTap: () {},
                     leading: Icon(Icons.person_pin, color: Colors.blue,),
-                    subtitle: Text("My Contributions", style: TextStyle(color: Colors.black54),),
+                    subtitle: Text("My Contributions", style: TextStyle(fontFamily: "Open Sans"),),
                   ),
                   ListTile(
                     title: Text(
-                      "£4,320.29",
+                      "£8,700",
                       style: TextStyle(
                           fontSize: 18,
-                          color: Colors.black87,
                           fontFamily: "Open Sans"),
                     ),
                     onTap: () {},
                     leading: Icon(Icons.work, color: Colors.red,),
-                    subtitle: Text("Employer Contributions", style: TextStyle(color: Colors.black54)),
+                    subtitle: Text("Employer Contributions", style: TextStyle(fontFamily: "Open Sans")),
                   ),
                   ListTile(
                     title: Text(
-                      "£1,245.45",
+                      "£3,240",
                       style: TextStyle(
                           fontSize: 18,
-                          color: Colors.black87,
                           fontFamily: "Open Sans"),
                     ),
                     onTap: () {},
                     leading: Icon(Icons.monetization_on, color: Colors.orange,),
-                    subtitle: Text("Tax Relief", style: TextStyle(color: Colors.black54)),
+                    subtitle: Text("Tax Relief", style: TextStyle(fontFamily: "Open Sans")),
                     enabled: true,
                   ),
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                height: size.height * 0.4,
-                width: size.width,
-                padding: EdgeInsets.all(4),
-                child: Center(
-                  child: Container(
-                    //color: Colors.black12,
-                    decoration: BoxDecoration(
-                      //color: Colors.black45,
-                        borderRadius: BorderRadius.only(
-                            topLeft: const Radius.circular(12.0),
-                            topRight: const Radius.circular(12.0),
-                            bottomLeft: const Radius.circular(12.0),
-                            bottomRight: const Radius.circular(12.0))),
-                    child: StackedFillColorBarChart.withSampleData(),
-                  ),
-                ),
+            Container(
+              height: size.height * 0.4,
+              width: size.width,
+              padding: EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                  //color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                      topLeft: const Radius.circular(12.0),
+                      topRight: const Radius.circular(12.0),
+                      bottomLeft: const Radius.circular(12.0),
+                      bottomRight: const Radius.circular(12.0))),
+              child: Center(
+                child: StackedFillColorBarChart.withSampleData(),
               ),
             ),
             Container(
@@ -165,7 +144,6 @@ class SummaryHistory extends StatelessWidget {
                       "Employer History",
                       style: TextStyle(
                           fontSize: 18,
-                          color: Colors.black87,
                           fontWeight: FontWeight.bold,
                           fontFamily: "Open Sans"),
                     ),
@@ -175,7 +153,7 @@ class SummaryHistory extends StatelessWidget {
                     indicatorFraction: 1,
                     title: "Nest Corp.",
                     subtitle: "01/08/20",
-                    amount: "£2,280",
+                    amount: "£4,800",
                     child: NestEntityDetail(),
                     suffix: Icon(Icons.chevron_right),
                   ),
@@ -184,7 +162,7 @@ class SummaryHistory extends StatelessWidget {
                     indicatorFraction: 0,
                     title: "GSK",
                     subtitle: "01/03/19",
-                    amount: "£2,040",
+                    amount: "£3,900",
                     child: GSKEntityDetail(),
                     suffix: Icon(Icons.chevron_right),
                   ),
@@ -358,7 +336,7 @@ class _DetailHistoryState extends State<DetailHistory> {
                 Container(
                   margin: EdgeInsets.only(bottom: 8.0),
                   decoration: BoxDecoration(
-                      color: Colors.red[200],
+                      color: Colors.blue[600],
                       borderRadius: BorderRadius.only(
                           bottomRight: Radius.circular(20),
                           bottomLeft: Radius.circular(20),
@@ -369,7 +347,7 @@ class _DetailHistoryState extends State<DetailHistory> {
                       "01/08/2020",
                       style: TextStyle(
                           fontSize: 18,
-                          color: Colors.black87,
+                          color: Colors.white,
                           fontFamily: "Open Sans"),
                     ),
                     subtitle: Text("Employer Contribution"),
@@ -386,7 +364,7 @@ class _DetailHistoryState extends State<DetailHistory> {
                 Container(
                   margin: EdgeInsets.only(bottom: 8.0),
                   decoration: BoxDecoration(
-                      color: Colors.blue[200],
+                      color: Colors.indigo,
                       borderRadius: BorderRadius.only(
                           bottomRight: Radius.circular(20),
                           bottomLeft: Radius.circular(20),
@@ -397,7 +375,7 @@ class _DetailHistoryState extends State<DetailHistory> {
                       "01/08/2020",
                       style: TextStyle(
                           fontSize: 18,
-                          color: Colors.black87,
+                          color: Colors.white,
                           fontFamily: "Open Sans"),
                     ),
                     subtitle: Text("My Contribution"),
@@ -414,7 +392,7 @@ class _DetailHistoryState extends State<DetailHistory> {
                 Container(
                   margin: EdgeInsets.only(bottom: 8.0),
                   decoration: BoxDecoration(
-                      color: Colors.orange[200],
+                      color: Colors.deepPurple,
                       borderRadius: BorderRadius.only(
                           bottomRight: Radius.circular(20),
                           bottomLeft: Radius.circular(20),
@@ -425,7 +403,7 @@ class _DetailHistoryState extends State<DetailHistory> {
                       "15/07/2020",
                       style: TextStyle(
                           fontSize: 18,
-                          color: Colors.black87,
+                          color: Colors.white,
                           fontFamily: "Open Sans"),
                     ),
                     subtitle: Text("Tax Relief"),
@@ -442,7 +420,7 @@ class _DetailHistoryState extends State<DetailHistory> {
                 Container(
                   margin: EdgeInsets.only(bottom: 8.0),
                   decoration: BoxDecoration(
-                      color: Colors.red[200],
+                      color: Colors.blue[600],
                       borderRadius: BorderRadius.only(
                           bottomRight: Radius.circular(20),
                           bottomLeft: Radius.circular(20),
@@ -453,7 +431,7 @@ class _DetailHistoryState extends State<DetailHistory> {
                       "01/07/2020",
                       style: TextStyle(
                           fontSize: 18,
-                          color: Colors.black87,
+                          color: Colors.white,
                           fontFamily: "Open Sans"),
                     ),
                     subtitle: Text("Employer Contribution"),
@@ -470,7 +448,7 @@ class _DetailHistoryState extends State<DetailHistory> {
                 Container(
                   margin: EdgeInsets.only(bottom: 8.0),
                   decoration: BoxDecoration(
-                      color: Colors.blue[200],
+                      color: Colors.indigo,
                       borderRadius: BorderRadius.only(
                           bottomRight: Radius.circular(20),
                           bottomLeft: Radius.circular(20),
@@ -481,7 +459,7 @@ class _DetailHistoryState extends State<DetailHistory> {
                       "01/07/2020",
                       style: TextStyle(
                           fontSize: 18,
-                          color: Colors.black87,
+                          color: Colors.white,
                           fontFamily: "Open Sans"),
                     ),
                     subtitle: Text("My Contribution"),
@@ -529,12 +507,10 @@ class DetailSettings extends StatelessWidget {
                 "Start Date: ",
                 style: TextStyle(
                     fontSize: 18,
-                    color: Colors.black54,
                     fontFamily: "Open Sans"),
               ),
               leading: Icon(
                 Icons.date_range,
-                color: Colors.black54,
               ),
               onTap: () {},
               trailing: Text(
@@ -542,7 +518,6 @@ class DetailSettings extends StatelessWidget {
                 "01/09/2017",
                 style: TextStyle(
                     fontSize: 18,
-                    color: Colors.black54,
                     fontFamily: "Open Sans"),
               ),
             ),
@@ -551,12 +526,10 @@ class DetailSettings extends StatelessWidget {
                 "End Date: ",
                 style: TextStyle(
                     fontSize: 18,
-                    color: Colors.black54,
                     fontFamily: "Open Sans"),
               ),
               leading: Icon(
                 Icons.date_range,
-                color: Colors.black54,
               ),
               onTap: () {},
               trailing: Text(
@@ -564,7 +537,6 @@ class DetailSettings extends StatelessWidget {
                 "13/08/2020",
                 style: TextStyle(
                     fontSize: 18,
-                    color: Colors.black54,
                     fontFamily: "Open Sans"),
               ),
             ),
@@ -574,41 +546,33 @@ class DetailSettings extends StatelessWidget {
               endIndent: 16,
               color: Colors.grey,
             ),
-            Theme(
-              data: ThemeData(unselectedWidgetColor: Colors.black54),
-              child: CheckboxListTile(
-                title: Text(
-                  "Incl. Employer Contributions?",
-                  style: TextStyle(
-                      color: Colors.black54,
-                      fontSize: 18,
-                      fontFamily: "Open Sans"),
-                ),
-                checkColor: Colors.white,
-                activeColor: Colors.green,
-                //secondary: Icon(Icons.attach_money),
-                controlAffinity: ListTileControlAffinity.leading,
-                value: true,
-                onChanged: null,
+            CheckboxListTile(
+              title: Text(
+                "Incl. Employer Contributions?",
+                style: TextStyle(
+                    fontSize: 18,
+                    fontFamily: "Open Sans"),
               ),
+              checkColor: Colors.white,
+              activeColor: Colors.green,
+              //secondary: Icon(Icons.attach_money),
+              controlAffinity: ListTileControlAffinity.leading,
+              value: true,
+              onChanged: null,
             ),
-            Theme(
-              data: ThemeData(unselectedWidgetColor: Colors.black54),
-              child: CheckboxListTile(
-                title: Text(
-                  "Incl. Tax Relief?",
-                  style: TextStyle(
-                      color: Colors.black54,
-                      fontSize: 18,
-                      fontFamily: "Open Sans"),
-                ),
-                checkColor: Colors.white,
-                activeColor: Colors.green,
-                //secondary: Icon(Icons.attach_money),
-                controlAffinity: ListTileControlAffinity.leading,
-                value: true,
-                onChanged: null,
+            CheckboxListTile(
+              title: Text(
+                "Incl. Tax Relief?",
+                style: TextStyle(
+                    fontSize: 18,
+                    fontFamily: "Open Sans"),
               ),
+              checkColor: Colors.white,
+              activeColor: Colors.green,
+              //secondary: Icon(Icons.attach_money),
+              controlAffinity: ListTileControlAffinity.leading,
+              value: true,
+              onChanged: null,
             ),
             Divider(
               height: 1,
@@ -626,7 +590,6 @@ class DetailSettings extends StatelessWidget {
               title: Text(
                 "Download selected",
                 style: TextStyle(
-                    color: Colors.black54,
                     fontSize: 18,
                     fontFamily: "Open Sans"),
               ),

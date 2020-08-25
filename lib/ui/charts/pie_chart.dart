@@ -34,10 +34,10 @@ class DonutPieChart extends StatelessWidget {
   /// Create one series with sample hard coded data.
   static List<charts.Series<LinearSales, int>> _createSampleData() {
     final data = [
-      new LinearSales(0, 45),
-      new LinearSales(1, 35),
-      new LinearSales(2, 15),
-      new LinearSales(3, 5),
+      new LinearSales(0, 8100, charts.ColorUtil.fromDartColor(Color(0xffe66e00))),
+      new LinearSales(1, 6300, charts.ColorUtil.fromDartColor(Color(0xff792a86))),
+      new LinearSales(2, 2700, charts.ColorUtil.fromDartColor(Color(0xff009ddb))),
+      new LinearSales(3, 900, charts.ColorUtil.fromDartColor(Color(0xff00a0a4))),
     ];
 
     return [
@@ -48,6 +48,7 @@ class DonutPieChart extends StatelessWidget {
         data: data,
         // Set a label accessor to control the text of the arc label.
         labelAccessorFn: (LinearSales row, _) => '${row.sales}',
+        colorFn: (LinearSales segment, _) => segment.color,
       )
     ];
   }
@@ -57,6 +58,7 @@ class DonutPieChart extends StatelessWidget {
 class LinearSales {
   final int year;
   final int sales;
+  final charts.Color color;
 
-  LinearSales(this.year, this.sales);
+  LinearSales(this.year, this.sales, this.color);
 }

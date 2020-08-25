@@ -35,10 +35,10 @@ class GaugeChart extends StatelessWidget {
   /// Create one series with sample hard coded data.
   static List<charts.Series<GaugeSegment, String>> _createSampleData() {
     final data = [
-      new GaugeSegment('Low', 18420, charts.ColorUtil.fromDartColor(Color(0xffe66e00))),
-      new GaugeSegment('Acceptable', 11260, charts.ColorUtil.fromDartColor(Color(0xff792a86))),
-      new GaugeSegment('High', 2940, charts.ColorUtil.fromDartColor(Color(0xff009ddb))),
-      new GaugeSegment('Highly Unusual', 1820, charts.ColorUtil.fromDartColor(Color(0xff00a0a4))),
+      new GaugeSegment('Low', 18420, charts.ColorUtil.fromDartColor(Colors.blue)),
+      new GaugeSegment('Acceptable', 11260, charts.ColorUtil.fromDartColor(Colors.indigo)),
+      new GaugeSegment('High', 2940, charts.ColorUtil.fromDartColor(Colors.deepPurple)),
+      new GaugeSegment('Highly Unusual', 1820, charts.ColorUtil.fromDartColor(Colors.purple)),
     ];
 
     return [

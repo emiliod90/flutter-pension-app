@@ -34,7 +34,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Back"),
         backgroundColor: Color(0xff751248),
       ),
       body: SafeArea(
@@ -99,8 +98,7 @@ class SlideOne extends StatelessWidget {
                 children: <Widget>[
                   Container(
                     width: size.width * 0.6,
-                    padding:
-                        const EdgeInsets.only(top: 15.0, bottom: 5.0),
+                    padding: const EdgeInsets.only(top: 15.0, bottom: 5.0),
                     child: Text(
                       "Lorem Ipsum".toUpperCase(),
                       style: TextStyle(
@@ -113,8 +111,7 @@ class SlideOne extends StatelessWidget {
                   ),
                   Container(
                     width: size.width * 0.6,
-                    padding:
-                        const EdgeInsets.only(top: 5.0, bottom: 15.0),
+                    padding: const EdgeInsets.only(top: 5.0, bottom: 15.0),
                     child: Text(
                       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec erat nisl, consequat vel interdum eu.",
                       style: TextStyle(
@@ -144,11 +141,10 @@ class SlideTwo extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Container(
-                padding:
-                const EdgeInsets.only(top: 16.0, bottom: 8.0),
+                padding: const EdgeInsets.only(top: 16.0, bottom: 8.0),
                 width: size.width * 0.7,
                 child: Text(
-                  "Review".toUpperCase(),
+                  "Review",
                   style: TextStyle(
                     fontSize: 22,
                     letterSpacing: 1,
@@ -158,33 +154,71 @@ class SlideTwo extends StatelessWidget {
                 ),
               ),
               ListTile(
-                title: Text("Title"),
-                subtitle: Text("Sir"),
+                title: Text(
+                  "Title",
+                  style:
+                      TextStyle(color: Colors.white, fontFamily: "Open Sans"),
+                ),
+                subtitle: Text(
+                  "Sir",
+                  style:
+                      TextStyle(color: Colors.white, fontFamily: "Open Sans"),
+                ),
               ),
               ListTile(
-                title: Text("Name"),
-                subtitle: Text("Bender Bending Rodríguez"),
+                title: Text(
+                  "Name",
+                  style:
+                      TextStyle(color: Colors.white, fontFamily: "Open Sans"),
+                ),
+                subtitle: Text(
+                  "Bender Bending Rodríguez",
+                  style:
+                      TextStyle(color: Colors.white, fontFamily: "Open Sans"),
+                ),
               ),
               ListTile(
-                title: Text("Address"),
-                subtitle: Text("57th Street, Manhattan, NY"),
+                title: Text(
+                  "Address",
+                  style:
+                      TextStyle(color: Colors.white, fontFamily: "Open Sans"),
+                ),
+                subtitle: Text(
+                  "57th Street, Manhattan, NY",
+                  style:
+                      TextStyle(color: Colors.white, fontFamily: "Open Sans"),
+                ),
               ),
               ListTile(
-                title: Text("Provider Name"),
-                subtitle: Text("Vanguard"),
+                title: Text(
+                  "Provider Name",
+                  style:
+                      TextStyle(color: Colors.white, fontFamily: "Open Sans"),
+                ),
+                subtitle: Text(
+                  "Vanguard",
+                  style:
+                      TextStyle(color: Colors.white, fontFamily: "Open Sans"),
+                ),
               ),
               ListTile(
-                title: Text("Provider Client/Policy Number"),
-                subtitle: Text("3822600"),
+                title: Text(
+                  "Provider Client/Policy Number",
+                  style:
+                      TextStyle(color: Colors.white, fontFamily: "Open Sans"),
+                ),
+                subtitle: Text(
+                  "3822600",
+                  style:
+                      TextStyle(color: Colors.white, fontFamily: "Open Sans"),
+                ),
               ),
               ListTile(
-                title: Text("Approx value"),
-                subtitle: Text("£11,000"),
+                title: Text("Approx value", style: TextStyle(color: Colors.white, fontFamily: "Open Sans"),),
+                subtitle: Text("£11,000", style: TextStyle(color: Colors.white, fontFamily: "Open Sans"),),
               ),
-
-
               Container(
-                width: size.width * 0.7,
+                width: size.width - 54.0,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(6.0),
                   gradient: LinearGradient(
@@ -199,9 +233,8 @@ class SlideTwo extends StatelessWidget {
                     borderRadius: BorderRadius.circular(6.0),
                     /*side: BorderSide(color: color)*/
                   ),
-                  onPressed: (){},
-                  child: Text("Confirm")
-                  ,
+                  onPressed: () {},
+                  child: Text("Confirm"),
                 ),
               ),
             ],

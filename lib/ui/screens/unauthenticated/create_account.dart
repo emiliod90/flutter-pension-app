@@ -63,7 +63,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
   void validateAndSubmit() {
     if (validateAndSave()) {
       print("mock auth api call");
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (context) {

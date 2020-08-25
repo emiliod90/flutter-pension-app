@@ -41,32 +41,32 @@ class PortfolioScreen extends StatelessWidget {
               ),
               FractionTile(
                 indicatorFraction: 0.45,
-                indicatorColor: Colors.indigo,
+                indicatorColor: Color(0xffe66e00),
                 title: "Nest 2055 Retirement Fund",
                 subtitle: "Nest",
-                amount: "333",
+                amount: "£8,100",
 
               ),
               FractionTile(
                 indicatorFraction: 0.35,
-                indicatorColor: Colors.blue,
+                indicatorColor:Color(0xff792a86),
                 title: "FTSE Developed World ETF",
                 subtitle: "Vanguard",
-                amount: "333",
+                amount: "£6,300",
               ),
               FractionTile(
                 indicatorFraction: 0.15,
-                indicatorColor: Colors.lightBlue,
+                indicatorColor: Color(0xff009ddb),
                 title: "MSCI China ETF",
                 subtitle: "HSBC",
-                amount: "333",
+                amount: "£2,700",
               ),
               FractionTile(
                 indicatorFraction: 0.05,
-                indicatorColor: Colors.teal,
+                indicatorColor: Color(0xff00a0a4),
                 title: "UK Gilts 0 - 5yr ETF",
                 subtitle: "iShares",
-                amount: "333",
+                amount: "£900",
               ),
 
               /*Row(

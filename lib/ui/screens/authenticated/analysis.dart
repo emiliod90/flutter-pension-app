@@ -9,7 +9,7 @@ class AnalysisScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      //backgroundColor: Colors.grey[100],
       appBar: AppBar(
         backgroundColor: Color(0xff28465f),
         title: Text(
@@ -28,7 +28,7 @@ class AnalysisScreen extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.all(4),
                   decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Color(0xff00515e),
                       borderRadius: BorderRadius.only(
                           topLeft: const Radius.circular(12.0),
                           topRight: const Radius.circular(12.0),
@@ -38,19 +38,23 @@ class AnalysisScreen extends StatelessWidget {
                     children: <Widget>[
                       CustomTile(
                         title: "Current Value",
-                        subtitle: "13/08/20",
-                        amount: "£3,420",
+                        subtitle: "13/08/2020",
+                        amount: "£18,420",
+                        primaryColor: Colors.white,
+                        secondaryColor: Colors.white70,
                         suffix: Icon(Icons.help_outline, color: Colors.blue),
                       ),
                       CustomTile(
                         title: "Retirement Goal",
-                        subtitle: "13/08/50",
-                        amount: "£100,000",
+                        subtitle: "12/09/2055",
+                        amount: "£150,000",
+                        primaryColor: Colors.white,
+                        secondaryColor: Colors.white70,
                         suffix: Icon(Icons.help_outline, color: Colors.blue,),
                       ),
                       ListTile(
-                        title: Text("Target", style: TextStyle(color: Colors.black87),),
-                        trailing: Text("71%", style: TextStyle(color: Colors.black87),),
+                        title: Text("Target", style: TextStyle(color: Colors.white70),),
+                        trailing: Text("71%", style: TextStyle(color: Colors.white70),),
                       ),
                     ],
                   ),
@@ -81,11 +85,11 @@ class AnalysisScreen extends StatelessWidget {
                               children: <Widget>[
                                 Text(
                                   "Monthly Target",
-                                  style: TextStyle(fontSize: 18, color: Colors.black87),
+                                  style: TextStyle(fontSize: 18, ),
                                 ),
                                 Text(
                                   "£275",
-                                  style: TextStyle(fontSize: 18, color: Colors.black87),
+                                  style: TextStyle(fontSize: 18, ),
                                 )
                               ],
                             ),
@@ -152,7 +156,7 @@ class AnalysisScreen extends StatelessWidget {
                                       fontSize: 20, color: Colors.white),
                                 ),
                                 Text(
-                                  "August 2050",
+                                  "August 2055",
                                   style: TextStyle(color: Colors.white),
                                 )
                               ],
@@ -193,7 +197,7 @@ class AnalysisScreen extends StatelessWidget {
                                       fontSize: 20, color: Colors.white),
                                 ),
                                 Text(
-                                  "August 2050",
+                                  "August 2055",
                                   style: TextStyle(color: Colors.white),
                                 )
                               ],
@@ -239,7 +243,7 @@ class ForecastSettings extends StatelessWidget {
                 CustomTile(
                   title: "Retirement Date",
                   suffix: Icon(Icons.edit),
-                  amount: "13/08/2050",
+                  amount: "13/08/2055",
                   subtitle: "(or age)",
                 ),
                 CustomTile(

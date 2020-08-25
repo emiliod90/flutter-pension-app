@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../../routes.dart';
-import 'components/rounded_button.dart';
+//import 'components/rounded_button.dart';
 
 class AccountSuccessScreen extends StatelessWidget {
   @override
