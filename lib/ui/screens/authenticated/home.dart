@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      //backgroundColor: Colors.grey[100],
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Color(0xff28465f),
@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
           style: Theme.of(context).textTheme.headline6,
         ),
         centerTitle: true,
-        elevation: 0,
+        elevation: 1,
       ),
       body: SafeArea(
           left: false,
@@ -34,168 +34,131 @@ class _HomeScreenState extends State<HomeScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                Stack(
+                Hero(
+                  tag: 'Pot',
+                  child: Container(
+                    margin: EdgeInsets.only(top: 16),
+                    height: size.width * 0.6,
+                    decoration:
+                    BoxDecoration(color: Colors.transparent),
+                    child: Stack(
+                      children: <Widget>[
+                        GaugeChart.withSampleData(),
+                        Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                "£18,420",
+                                style: TextStyle(
+                                    fontSize: 21,
+                                    ),
+                              ),
+                              Text(
+                                "My Nest Pot",
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    ),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Container(
-                      height: size.height * 0.45,
-                      width: size.width,
-                      color: Color(0xff28465f),
-                    ),
-                    Positioned(
-                      top: 45,
-                      child: Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(45.0),
-                                topRight: Radius.circular(45.0),
-                              ),
-                              color: Color(0xfff5f5f5)),
-                          height: size.height * 0.4,
-                          width: size.width),
-                    ),
-                    Positioned(
-                      top: 5.0,
-                      right: 20.0,
-                      left: 20.0,
-                      child: Align(
-                        alignment: Alignment.center,
-                        child: Hero(
-                          tag: 'Pot',
-                          child: Container(
-                            height: size.width * 0.6,
-                            width: size.width * 0.6,
-                            decoration:
-                                BoxDecoration(color: Colors.transparent),
-                            child: Stack(
-                              children: <Widget>[
-                                GaugeChart.withSampleData(),
-                                Center(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      Text(
-                                        "£18,420",
-                                        style: TextStyle(
-                                            fontSize: 21,
-                                            color: Colors.black87),
-                                      ),
-                                      Text(
-                                        "My Nest Pot",
-                                        style: TextStyle(
-                                            fontSize: 16,
-                                            color: Colors.black87),
-                                      ),
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
+                      margin: EdgeInsets.symmetric(horizontal: 4),
+                      padding: EdgeInsets.all(4.0),
+                      height: 90,
+                      width: (size.width * 0.3) - 8,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(25.0),
+                            topRight: Radius.circular(25.0),
+                            bottomLeft: Radius.circular(25.0),
+                            bottomRight: Radius.circular(25.0),
                           ),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      top: 210,
-                      left: 16,
-                      right: 16,
-                      child: Container(
-                        height: 80,
-                        child: Row(
+                          //border: Border.all(color: Color(0xff28465f), width: 2),
+                          color:  Color(0xff28465f)),
+                      child: Center(
+                        child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Container(
-                              margin: EdgeInsets.symmetric(horizontal: 4),
-                              padding: EdgeInsets.all(4.0),
-                              height: 90,
-                              width: (size.width * 0.3) - 8,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(25.0),
-                                    topRight: Radius.circular(25.0),
-                                    bottomLeft: Radius.circular(25.0),
-                                    bottomRight: Radius.circular(25.0),
-                                  ),
-                                  //border: Border.all(color: Color(0xff28465f), width: 2),
-                                  color: Colors.white),
-                              child: Center(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
-                                    Text(
-                                      "+71%",
-                                      style: TextStyle(
-                                          fontSize: 17, color: Colors.black87),
-                                    ),
-                                    Text("target score",
-                                        style: TextStyle(color: Colors.black87))
-                                  ],
-                                ),
-                              ),
+                            Text(
+                              "+71%",
+                              style: TextStyle(
+                                  fontSize: 17, color: Colors.white),
                             ),
-                            Container(
-                              margin: EdgeInsets.symmetric(horizontal: 4),
-                              padding: EdgeInsets.all(4.0),
-                              height: 90,
-                              width: (size.width * 0.3) - 8,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(25.0),
-                                    topRight: Radius.circular(25.0),
-                                    bottomLeft: Radius.circular(25.0),
-                                    bottomRight: Radius.circular(25.0),
-                                  ),
-                                  //border: Border.all(color: Color(0xff28465f), width: 2),
-                                  color: Colors.white),
-                              child: Center(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
-                                    Text(
-                                      "+8.1%",
-                                      style: TextStyle(
-                                          fontSize: 17, color: Colors.black87),
-                                    ),
-                                    Text(
-                                      "since '17",
-                                      style: TextStyle(color: Colors.black87),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.symmetric(horizontal: 4),
-                              padding: EdgeInsets.all(4.0),
-                              height: 90,
-                              width: (size.width * 0.3) - 8,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(25.0),
-                                    topRight: Radius.circular(25.0),
-                                    bottomLeft: Radius.circular(25.0),
-                                    bottomRight: Radius.circular(25.0),
-                                  ),
-                                  //border: Border.all(color: Color(0xff28465f), width: 2),
-                                  color: Colors.white),
-                              child: Center(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
-                                    Text(
-                                      "-£545",
-                                      style: TextStyle(
-                                          fontSize: 17, color: Colors.black87),
-                                    ),
-                                    Text("Shortfall",
-                                        style: TextStyle(color: Colors.black87))
-                                  ],
-                                ),
-                              ),
-                            ),
+                            Text("target score",
+                                style: TextStyle(color: Colors.white))
                           ],
                         ),
                       ),
-                    )
+                    ),
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 4),
+                      padding: EdgeInsets.all(4.0),
+                      height: 90,
+                      width: (size.width * 0.3) - 8,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(25.0),
+                            topRight: Radius.circular(25.0),
+                            bottomLeft: Radius.circular(25.0),
+                            bottomRight: Radius.circular(25.0),
+                          ),
+                          //border: Border.all(color: Color(0xff28465f), width: 2),
+                          color: Color(0xff751248)),
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              "+8.1%",
+                              style: TextStyle(
+                                  fontSize: 17, color: Colors.white),
+                            ),
+                            Text(
+                              "since '17",
+                              style: TextStyle(color: Colors.white),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 4),
+                      padding: EdgeInsets.all(4.0),
+                      height: 90,
+                      width: (size.width * 0.3) - 8,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(25.0),
+                            topRight: Radius.circular(25.0),
+                            bottomLeft: Radius.circular(25.0),
+                            bottomRight: Radius.circular(25.0),
+                          ),
+                          //border: Border.all(color: Color(0xff28465f), width: 2),
+                          color: Color(0xff28465f)),
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              "-£545",
+                              style: TextStyle(
+                                  fontSize: 17, color: Colors.white),
+                            ),
+                            Text("Shortfall",
+                                style: TextStyle(color: Colors.white))
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
                 Container(
@@ -203,7 +166,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: EdgeInsets.all(8.0),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Colors.transparent,
                       borderRadius: BorderRadius.only(
                         topLeft: const Radius.circular(12.0),
                         topRight: const Radius.circular(12.0),
@@ -219,14 +182,14 @@ class _HomeScreenState extends State<HomeScreen> {
                             title: Text(
                               ""
                               "Nest Pension",
-                              style: TextStyle(fontSize: 17, color: Colors.black87),
+                              style: TextStyle(fontSize: 17),
                             ),
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: <Widget>[
                                 Text(
                                   "£18,420",
-                                  style: TextStyle(fontSize: 18, color: Colors.black87),
+                                  style: TextStyle(fontSize: 18),
                                 ),
                                 SizedBox(
                                   width: 10,
@@ -241,14 +204,14 @@ class _HomeScreenState extends State<HomeScreen> {
                             title: Text(
                               ""
                               "Vanguard SIPP",
-                              style: TextStyle(fontSize: 17, color: Colors.black87),
+                              style: TextStyle(fontSize: 17, ),
                             ),
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: <Widget>[
                                 Text(
                                   "£11,260",
-                                  style: TextStyle(fontSize: 18, color: Colors.black87),
+                                  style: TextStyle(fontSize: 18, ),
                                 ),
                                 SizedBox(
                                   width: 10,
@@ -270,14 +233,14 @@ class _HomeScreenState extends State<HomeScreen> {
                             title: Text(
                               ""
                               "Legal & General",
-                              style: TextStyle(fontSize: 17, color: Colors.black87),
+                              style: TextStyle(fontSize: 17, ),
                             ),
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: <Widget>[
                                 Text(
                                   "£2,940",
-                                  style: TextStyle(fontSize: 18, color: Colors.black87),
+                                  style: TextStyle(fontSize: 18, ),
                                 ),
                                 SizedBox(
                                   width: 10,
@@ -299,14 +262,14 @@ class _HomeScreenState extends State<HomeScreen> {
                             title: Text(
                               ""
                               "Aviva Pension",
-                              style: TextStyle(fontSize: 17, color: Colors.black87),
+                              style: TextStyle(fontSize: 17,),
                             ),
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: <Widget>[
                                 Text(
                                   "£1,820",
-                                  style: TextStyle(fontSize: 18, color: Colors.black87),
+                                  style: TextStyle(fontSize: 18, ),
                                 ),
                                 SizedBox(
                                   width: 10,
@@ -334,9 +297,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             title: Text(
                               ""
                               "Add Pension",
-                              style: TextStyle(fontSize: 17, color: Colors.black87),
+                              style: TextStyle(fontSize: 17,),
                             ),
-                            leading: Icon(Icons.add, color: Colors.black87),
+                            leading: Icon(Icons.add,),
                             dense: true,
                             onTap: () {
                               Navigator.push(
@@ -358,13 +321,13 @@ class _HomeScreenState extends State<HomeScreen> {
                               ""
                               "Total",
                               style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87),
+                                  fontSize: 18, fontWeight: FontWeight.bold,),
                             ),
-                            subtitle: Text("My Total Pension Pot Value", style: TextStyle(color: Colors.black87),),
+                            subtitle: Text("My Total Pension Pot Value", style: TextStyle(fontSize: 15),),
                             trailing: Text(
                               "£34,440",
                               style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87),
+                                  fontSize: 18, fontWeight: FontWeight.bold, ),
                             ),
                             dense: true,
                             //onTap: () {},
@@ -374,7 +337,26 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-                Row(
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  child: Container(
+                    height: size.height * 0.4,
+                    padding: EdgeInsets.all(4),
+                    decoration: BoxDecoration(
+                      //color: Color(0xff751248),
+                      borderRadius: BorderRadius.only(
+                        topLeft: const Radius.circular(12.0),
+                        topRight: const Radius.circular(12.0),
+                        bottomLeft: const Radius.circular(12.0),
+                        bottomRight: const Radius.circular(12.0),
+                      ),
+                    ),
+                    child: Center(
+                      child: OrdinalComboBarLineChart.withSampleData(),
+                    ),
+                  ),
+                ),
+                /*Row(
                   children: <Widget>[
                     Expanded(
                       flex: 1,
@@ -419,24 +401,70 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ],
-                ),
-                Container(
-                  height: size.width,
-                  padding: EdgeInsets.all(4),
-                  child: Center(
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                            topLeft: const Radius.circular(12.0),
-                            topRight: const Radius.circular(12.0),
-                            bottomLeft: const Radius.circular(12.0),
-                            bottomRight: const Radius.circular(12.0),
+                ),*/
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  child: Card(
+                    color: Colors.transparent,
+                    elevation: 1.0,
+                    child: Row(
+                      //crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: size.width*0.3,
+                          height: size.width*0.3,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.only(
+                                /*topLeft: const Radius.circular(12.0),
+                                bottomLeft: const Radius.circular(12.0),*/
+                              ),
+                              image: DecorationImage(
+                                  image: NetworkImage(
+                                      "https://source.unsplash.com/random/400x400"),
+                                  fit: BoxFit.cover)),
+                        ),
+                        Container(
+                          //width: 440,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text("hello"),
                           ),
-                          image: DecorationImage(
-                              image: NetworkImage(
-                                  "https://source.unsplash.com/random/800x800"),
-                              fit: BoxFit.cover)),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  child: Card(
+                    color: Colors.transparent,
+                    elevation: 1.0,
+                    child: Row(
+                      //crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: size.width*0.3,
+                          height: size.width*0.3,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.only(
+                                /*topLeft: const Radius.circular(12.0),
+                                bottomLeft: const Radius.circular(12.0),*/
+                              ),
+                              image: DecorationImage(
+                                  image: NetworkImage(
+                                      "https://source.unsplash.com/random/400x400"),
+                                  fit: BoxFit.cover)),
+                        ),
+                        Container(
+                          //width: 440,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text("hello"),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
