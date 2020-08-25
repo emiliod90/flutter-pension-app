@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 //import 'package:charts_flutter/flutter.dart';
 import 'package:animations/animations.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:fluttertemplateapp/ui/charts/stacked_chart.dart';
 
 class HistoryScreen extends StatelessWidget {

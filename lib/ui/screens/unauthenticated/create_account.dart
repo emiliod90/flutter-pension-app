@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertemplateapp/ui/screens/unauthenticated/components/rounded_button.dart';
 import 'package:fluttertemplateapp/ui/screens/unauthenticated/mobile_form.dart';
+import 'package:flutter/services.dart';
 
 class CreateAccountScreen extends StatefulWidget {
   @override
@@ -13,6 +14,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
   bool _showPassword = true;
   String _username;
   String _password;
+  bool _loadingMessage = false;
 
   void _setAgreedToTOS(bool newValue) {
     setState(() {
@@ -77,128 +79,155 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-        //resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          elevation: 0.0,
-          title: Text(
-            "Create login credentials",
-            style: TextStyle(color: Colors.black45),
-          ),
-          centerTitle: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        title: Text(
+          "Create login credentials",
         ),
-        body: SafeArea(
-          left: false,
-          right: false,
+        centerTitle: true,
+      ),
+      body: SafeArea(
+        left: false,
+        right: false,
+        child: Form(
+          key: _formKey,
           child: SingleChildScrollView(
-            child: Form(
-              key: _formKey,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Wrap(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    height:
+                    size.height * 0.3 - MediaQuery.of(context).padding.top - kToolbarHeight,
+                    //color: Colors.grey,
+                    child: Container(
+                      width: size.width - 64,
+                      alignment: Alignment.bottomCenter,
+                      child: RichText(
+                          text: TextSpan(
+                              style: TextStyle(
+                                fontSize: 18,
+                                height: 1.5,
+                              ),
+                              children: <TextSpan>[
+                                TextSpan(
+                                    text:
+                                    "Create a username and password. You can use these same credentials to"
+                                        " login via the app or online.")
+                              ])),
+                    ),
+                  ),
+                  Container(
+                    height: size.height * 0.5,
+                    //color: Colors.blue,
+                    padding: EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Container(
-                          margin: EdgeInsets.only(top: 10, bottom: 10),
-                          child: Card(
-                            color: Colors.white70,
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: RichText(
-                                  text: TextSpan(
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          height: 1.5,
-                                          color: Colors.black45),
-                                      children: <TextSpan>[
-                                    TextSpan(
-                                        text:
-                                            "Create a username and password. You can use these same credentials to"
-                                            " login via the app or online.")
-                                  ])),
+                          padding: EdgeInsets.symmetric(vertical: 4.0),
+                          child: Container(
+                            width: size.width - 64,
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                labelText: 'Username',
+                                labelStyle: TextStyle(fontSize: 18),
+                              ),
+                              inputFormatters: [
+                                FilteringTextInputFormatter.deny(RegExp(r"\s"))
+                              ],
+                              validator: (value) => value.isEmpty
+                                  ? "Please provide Email"
+                                  : null,
+                              onSaved: (value) => _username = value,
                             ),
                           ),
                         ),
-                      ],
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 5, bottom: 5),
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                            labelText: "Provide Email",
-                            icon: Icon(Icons.person)),
-                        validator: (value) =>
-                            value.isEmpty ? "Need Email" : null,
-                        onSaved: (value) => _username = value,
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 5, bottom: 5),
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextFormField(
-                        obscureText: _showPassword,
-                        decoration: InputDecoration(
-                            labelText: "Create a Password",
-                            icon: Icon(Icons.account_box),
-                            suffixIcon: IconButton(
-                              icon: Icon(Icons.remove_red_eye),
-                              onPressed: () {
-                                setState(() => _showPassword = !_showPassword);
-                              },
-                            )),
-                        validator: (value) =>
-                            value.isEmpty ? "Please provide password" : null,
-                        onSaved: (value) => _password = value,
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 5, bottom: 5),
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextFormField(
-                        obscureText: _showPassword,
-                        decoration: InputDecoration(
-                            labelText: "Re-type Password",
-                            icon: Icon(Icons.account_box),
-                            suffixIcon: IconButton(
-                              icon: Icon(Icons.remove_red_eye),
-                              onPressed: () {
-                                setState(() => _showPassword = !_showPassword);
-                              },
-                            )),
-                        validator: (value) =>
-                            value.isEmpty ? "Please provide password" : null,
-                        onSaved: (value) => _password = value,
-                      ),
-                    ),
-                    Row(
-                      children: <Widget>[
-                        Checkbox(
-                          value: _agreedToTOS,
-                          onChanged: _setAgreedToTOS,
-                        ),
-                        GestureDetector(
-                          onTap: () => _setAgreedToTOS(!_agreedToTOS),
-                          child: const Text(
-                            'I agree to the Terms of Services and Privacy Policy',
+                        Container(
+                          width: size.width - 64,
+                          padding: EdgeInsets.symmetric(vertical: 4.0),
+                          child: TextFormField(
+                            obscureText: _showPassword,
+                            decoration: InputDecoration(
+                              labelText: 'Password',
+                              labelStyle: TextStyle(fontSize: 18),
+                              suffixIcon: IconButton(
+                                icon: Icon(Icons.remove_red_eye),
+                                onPressed: () {
+                                  setState(() => _showPassword = !_showPassword);
+                                },
+                              ),
+                            ),
+                            inputFormatters: [
+                              FilteringTextInputFormatter.deny(RegExp(r"\s")),
+                              FilteringTextInputFormatter.allow(
+                                  RegExp(r"[a-zA-Z0-9]+"))
+                            ],
+                            validator: (value) => value.isEmpty
+                                ? "Please create password"
+                                : (value.length < 6
+                                ? "6 characters required"
+                                : null),
+                            onSaved: (value) => _password = value,
                           ),
                         ),
+                        SizedBox(height: 8.0,),
+                        Row(
+                          children: <Widget>[
+                            Checkbox(
+                              value: _agreedToTOS,
+                              onChanged: _setAgreedToTOS,
+                            ),
+                            GestureDetector(
+                              onTap: () => _setAgreedToTOS(!_agreedToTOS),
+                              child: const Text(
+                                'I agree to the Terms of Services',
+                              ),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
-                    RoundedButton(
-                      text: "Create Account",
-                      press: validateAndSubmit,
-                      color: Colors.red,
-                      textColor: Colors.white,
-                    )
-                  ],
-                ),
+                  ),
+                  Container(
+                    height: size.height * 0.2 -
+                        -MediaQuery.of(context).padding.bottom,
+                    //color: Colors.grey,
+                    alignment: Alignment.center,
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                            width: size.width - 64,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(6.0),
+                                gradient: LinearGradient(colors: [Color(0xFFFE6B8B), Color(0xFFFF8E53)])
+                            ),
+                            child: RaisedButton(
+                              color: Colors.transparent,
+                              padding: EdgeInsets.symmetric(vertical: 16.0),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(6.0),
+                                /*side: BorderSide(color: color)*/),
+                              onPressed: validateAndSubmit,
+                              child: (_loadingMessage
+                                  ? Text("Please wait...")
+                                  : Text("Next")),
+                            )),
+                        /*SizedBox(height: 32,),
+                        Text(
+                          "Back to Sign In"
+                        ),*/
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

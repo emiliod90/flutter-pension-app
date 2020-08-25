@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertemplateapp/ui/screens/unauthenticated/components/rounded_input_field.dart';
+import 'package:flutter/services.dart';
+import 'package:fluttertemplateapp/services/login_api.dart';
 import 'package:fluttertemplateapp/ui/screens/unauthenticated/register.dart';
-import 'components/rounded_button.dart';
-import 'components/rounded_password_field.dart';
-import 'components/text_field_container.dart';
 import 'package:fluttertemplateapp/routes.dart';
+
+// Dummy API https://reqres.in/
+// username: eve.holt@reqres.in
+// password cityslicka
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -15,7 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String _username;
   String _password;
-  bool _showPassword = false;
+  bool _loadingMessage = false;
 
   bool validateAndSave() {
     final form = _formKey.currentState;
@@ -27,18 +29,32 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
-  void validateAndSubmit() {
+  void validateAndSubmit() async {
     if (validateAndSave()) {
       print("mock auth api call");
-      //Navigator.pushReplacementNamed(context, "/home");
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) {
-            return HomePage();
-          },
-        ),
-      );
+      setState(() {
+        _loadingMessage = true;
+      });
+      var rsp = await loginUser(_username, _password);
+      print(rsp["token"]);
+      if (rsp["token"] != null) {
+        setState(() {
+          _loadingMessage = false;
+        });
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return HomePage();
+            },
+          ),
+        );
+      }
+      else
+        print("fail");
+      setState(() {
+        _loadingMessage = false;
+      });
     }
   }
 
@@ -48,134 +64,162 @@ class _LoginScreenState extends State<LoginScreen> {
         .of(context)
         .size;
     return Scaffold(
-      //resizeToAvoidBottomInset: false,
-        backgroundColor: Color(0xff28465f),
-        //appBar: AppBar(
-        //backgroundColor: Colors.lightBlue,
-        //title: Text("Login"),
-        //centerTitle: true,
-        //),
-        body: SafeArea(
-          left: false,
-          right: false,
-          child: Center(
-            child: SingleChildScrollView(
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    /*Container(
-                      margin: EdgeInsets.only(bottom: 20),
-                      child: Text(
-                        "Sign In",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                    ),*/
-                    Image(
-                      image: AssetImage('assets/images/rocket1.png'),
-                      width: size.width * 0.6,
-                    ),
-                    TextFieldContainer(
-                      color: Colors.lightBlue[100],
-                      child: TextFormField(
-                        style: TextStyle(
-                          fontSize: 18,
-                        ),
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: "Username",
-                          icon: Icon(Icons.person),
-                        ),
-                        validator: (value) =>
-                        value.isEmpty ? "Please provide username" : null,
-                        onSaved: (value) => _username = value,
-                      ),
-                    ),
-                    TextFieldContainer(
-                      color: Colors.lightBlue[100],
-                      child: TextFormField(
-                        obscureText: _showPassword,
-                        style: TextStyle(
-                          fontSize: 18,
-                        ),
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: "Password",
-                            icon: Icon(Icons.lock),
-                            suffixIcon: IconButton(
-                              icon: Icon(Icons.remove_red_eye),
-                              onPressed: () {
-                                setState(() => _showPassword = !_showPassword);
-                              },
-                            )
-                        ),
-                        validator: (value) =>
-                        value.isEmpty ? "Please provide password" : null,
-                        onSaved: (value) => _password = value,
-                      ),
-                    ),
-                    //RoundedInputField(
-                    //color: Colors.lightBlue[100],
-                    //hintText: "Username",
-                    //onSubmitted: (value) {},
-                    //),
-                    //RoundedPasswordField(
-                    //color: Colors.lightBlue[100],
-                    //hintText: "Password",
-                    //onChanged: (value) {},
-                    //icon: Icons.lock,
-                    //),
-                    RoundedButton(
-                      text: "sign in",
-                      textColor: Colors.white,
-                      color: Color(0xff751248),
-                      press: validateAndSubmit,
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 40),
-
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text(
-                            "Need to Register? ",
-                            style: TextStyle(
-                                fontSize: 16,
-                              color: Colors.white
-
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return RegisterScreen();
-                                  },
+      body: SafeArea(
+        left: false,
+        right: false,
+        child: Form(
+          key: _formKey,
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    height:
+                    size.height * 0.3 - MediaQuery.of(context).padding.top,
+                    //color: Colors.grey,
+                    child: Container(
+                        width: size.width - 64,
+                        alignment: Alignment.bottomCenter,
+                        child: Text(
+                          "Welcome",
+                          style: Theme.of(context).textTheme.headline4,
+                        )),
+                  ),
+                  Container(
+                    height: size.height * 0.5,
+                    //color: Colors.blue,
+                    padding: EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Container(
+                          padding: EdgeInsets.symmetric(vertical: 4.0),
+                          child: Row(
+                            children: <Widget>[
+                              Container(
+                                width: size.width - 64 - 48,
+                                child: TextFormField(
+                                  decoration: InputDecoration(
+                                    prefixIcon: Icon(Icons.perm_identity),
+                                    labelText: 'Username',
+                                    labelStyle: TextStyle(fontSize: 18),
+                                  ),
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.deny(
+                                        RegExp(r"\s"))
+                                  ],
+                                  validator: (value) => value.isEmpty
+                                      ? "Please provide username"
+                                      : null,
+                                  onSaved: (value) => _username = value,
                                 ),
-                              );
-                            },
-                            child: Text(
-                              "Sign up",
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                decoration: TextDecoration.underline,
+                              ),
+                              Container(
+                                width: 48,
+                                child: IconButton(
+                                  icon: Icon(Icons.info_outline),
+                                  onPressed: () {},
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Container(
+                              width: size.width - 64 - 48,
+                              padding: EdgeInsets.symmetric(vertical: 4.0),
+                              child: TextFormField(
+                                decoration: InputDecoration(
+                                  prefixIcon: Icon(Icons.vpn_key),
+                                  labelText: 'Password',
+                                  labelStyle: TextStyle(fontSize: 18),
+                                ),
+                                obscureText: true,
+                                validator: (value) => value.isEmpty
+                                    ? "Please provide Password"
+                                    : null,
+                                onSaved: (value) => _password = value,
                               ),
                             ),
-                          )
-                        ],
-                      ),
+                            Container(
+                              width: 48,
+                              child: IconButton(
+                                icon: Icon(Icons.info_outline),
+                                onPressed: () {},
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                  Container(
+                    height: size.height * 0.2 -
+                        -MediaQuery.of(context).padding.bottom,
+                    //color: Colors.grey,
+                    alignment: Alignment.center,
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                            width: size.width - 64,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(6.0),
+                              gradient: LinearGradient(
+                                  colors: [
+                                    Color(0xFF2196F3),
+                                    Color(0xFF21CBF3)
+                                  ],
+                                  begin: Alignment.bottomLeft,
+                                  end: Alignment.topRight),
+                            ),
+                            child: RaisedButton(
+                              color: Colors.transparent,
+                              padding: EdgeInsets.symmetric(vertical: 16.0),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(6.0),
+                                /*side: BorderSide(color: color)*/
+                              ),
+                              onPressed: validateAndSubmit,
+                              child: (_loadingMessage
+                                  ? Text("Please wait...")
+                                  : Text("Login")),
+                            )),
+                        SizedBox(
+                          height: 32,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return RegisterScreen();
+                                },
+                              ),
+                            );
+                          },
+                          child: Text(
+                            "Register an Account",
+                            style: TextStyle(
+                              //fontSize: 16,
+                              //color: Colors.white,
+                              //fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.underline,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
-        )
+        ),
+      ),
     );
   }
 }

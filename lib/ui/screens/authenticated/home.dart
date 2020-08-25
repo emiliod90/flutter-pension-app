@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertemplateapp/ui/charts/gauge.dart';
-import 'package:fluttertemplateapp/ui/charts/simple_chart.dart';
+
+//import 'package:fluttertemplateapp/ui/charts/simple_chart.dart';
 import 'package:fluttertemplateapp/ui/charts/stacked_chart.dart';
 import 'package:fluttertemplateapp/ui/charts/combo_chart.dart';
 import 'package:fluttertemplateapp/ui/screens/onboarding/onboarding.dart';
@@ -14,9 +15,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery
-        .of(context)
-        .size;
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
@@ -24,10 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Color(0xff28465f),
         title: Text(
           "Nest",
-          style: Theme
-              .of(context)
-              .textTheme
-              .headline6,
+          style: Theme.of(context).textTheme.headline6,
         ),
         centerTitle: true,
         elevation: 0,
@@ -69,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: size.width * 0.6,
                             width: size.width * 0.6,
                             decoration:
-                            BoxDecoration(color: Colors.transparent),
+                                BoxDecoration(color: Colors.transparent),
                             child: Stack(
                               children: <Widget>[
                                 GaugeChart.withSampleData(),
@@ -80,14 +76,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Text(
                                         "£18,420",
                                         style: TextStyle(
-                                          fontSize: 22,
-                                        ),
+                                            fontSize: 21,
+                                            color: Colors.black87),
                                       ),
                                       Text(
                                         "My Nest Pot",
                                         style: TextStyle(
-                                          fontSize: 16,
-                                        ),
+                                            fontSize: 16,
+                                            color: Colors.black87),
                                       ),
                                     ],
                                   ),
@@ -111,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               margin: EdgeInsets.symmetric(horizontal: 10),
                               padding: EdgeInsets.all(4.0),
                               height: 90,
-                              width: 100,
+                              width: size.width * 0.25,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.only(
                                     topLeft: Radius.circular(25.0),
@@ -126,8 +122,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
                                     Text(
-                                      "+71%", style: TextStyle(fontSize: 18),),
-                                    Text("target score")
+                                      "+71%",
+                                      style: TextStyle(
+                                          fontSize: 17, color: Colors.black87),
+                                    ),
+                                    Text("target score",
+                                        style: TextStyle(color: Colors.black87))
                                   ],
                                 ),
                               ),
@@ -136,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               margin: EdgeInsets.symmetric(horizontal: 10),
                               padding: EdgeInsets.all(4.0),
                               height: 90,
-                              width: 100,
+                              width: size.width * 0.25,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.only(
                                     topLeft: Radius.circular(25.0),
@@ -151,8 +151,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
                                     Text(
-                                      "+8.1%", style: TextStyle(fontSize: 18),),
-                                    Text("since '17")
+                                      "+8.1%",
+                                      style: TextStyle(
+                                          fontSize: 17, color: Colors.black87),
+                                    ),
+                                    Text(
+                                      "since '17",
+                                      style: TextStyle(color: Colors.black87),
+                                    )
                                   ],
                                 ),
                               ),
@@ -161,7 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               margin: EdgeInsets.symmetric(horizontal: 10),
                               padding: EdgeInsets.all(4.0),
                               height: 90,
-                              width: 100,
+                              width: size.width * 0.25,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.only(
                                     topLeft: Radius.circular(25.0),
@@ -176,8 +182,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
                                     Text(
-                                      "-£545", style: TextStyle(fontSize: 18),),
-                                    Text("Shortfall")
+                                      "-£545",
+                                      style: TextStyle(
+                                          fontSize: 17, color: Colors.black87),
+                                    ),
+                                    Text("Shortfall",
+                                        style: TextStyle(color: Colors.black87))
                                   ],
                                 ),
                               ),
@@ -206,49 +216,44 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Column(
                         children: <Widget>[
                           ListTile(
-                            title: Text(""
-                                "Nest Pension",
-                              style: TextStyle(
-                                fontSize: 17
-                              ),),
+                            title: Text(
+                              ""
+                              "Nest Pension",
+                              style: TextStyle(fontSize: 17, color: Colors.black87),
+                            ),
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: <Widget>[
                                 Text(
                                   "£18,420",
-                                  style: TextStyle(
-                                    fontSize: 18
-                                  ),
+                                  style: TextStyle(fontSize: 18, color: Colors.black87),
                                 ),
                                 SizedBox(
                                   width: 10,
                                 ),
-                                Icon(Icons.star)
+                                Icon(Icons.star, color: Colors.deepOrange)
                               ],
                             ),
                             onTap: () {},
                             dense: true,
-
                           ),
                           ListTile(
-                            title: Text(""
-                                "Vanguard SIPP",
-                              style: TextStyle(
-                                  fontSize: 17
-                              ),),
+                            title: Text(
+                              ""
+                              "Vanguard SIPP",
+                              style: TextStyle(fontSize: 17, color: Colors.black87),
+                            ),
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: <Widget>[
                                 Text(
                                   "£11,260",
-                                  style: TextStyle(
-                                      fontSize: 18
-                                  ),
+                                  style: TextStyle(fontSize: 18, color: Colors.black87),
                                 ),
                                 SizedBox(
                                   width: 10,
                                 ),
-                                Icon(Icons.compare_arrows)
+                                Icon(Icons.compare_arrows, color: Colors.lightBlue)
                               ],
                             ),
                             dense: true,
@@ -260,27 +265,24 @@ class _HomeScreenState extends State<HomeScreen> {
                                     fullscreenDialog: true),
                               );
                             },
-
                           ),
                           ListTile(
-                            title: Text(""
-                                "Legal & General",
-                              style: TextStyle(
-                                  fontSize: 17
-                              ),),
+                            title: Text(
+                              ""
+                              "Legal & General",
+                              style: TextStyle(fontSize: 17, color: Colors.black87),
+                            ),
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: <Widget>[
                                 Text(
                                   "£2,940",
-                                  style: TextStyle(
-                                      fontSize: 18
-                                  ),
+                                  style: TextStyle(fontSize: 18, color: Colors.black87),
                                 ),
                                 SizedBox(
                                   width: 10,
                                 ),
-                                Icon(Icons.compare_arrows)
+                                Icon(Icons.compare_arrows, color: Colors.lightBlue)
                               ],
                             ),
                             dense: true,
@@ -292,27 +294,24 @@ class _HomeScreenState extends State<HomeScreen> {
                                     fullscreenDialog: true),
                               );
                             },
-
                           ),
                           ListTile(
-                            title: Text(""
-                                "Aviva Pension",
-                              style: TextStyle(
-                                  fontSize: 17
-                              ),),
+                            title: Text(
+                              ""
+                              "Aviva Pension",
+                              style: TextStyle(fontSize: 17, color: Colors.black87),
+                            ),
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: <Widget>[
                                 Text(
                                   "£1,820",
-                                  style: TextStyle(
-                                      fontSize: 18
-                                  ),
+                                  style: TextStyle(fontSize: 18, color: Colors.black87),
                                 ),
                                 SizedBox(
                                   width: 10,
                                 ),
-                                Icon(Icons.compare_arrows)
+                                Icon(Icons.compare_arrows, color: Colors.lightBlue)
                               ],
                             ),
                             dense: true,
@@ -324,7 +323,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                     fullscreenDialog: true),
                               );
                             },
-
                           ),
                           Divider(
                             height: 1,
@@ -333,12 +331,12 @@ class _HomeScreenState extends State<HomeScreen> {
                             color: Colors.grey,
                           ),
                           ListTile(
-                            title: Text(""
-                                "Add Pension",
-                              style: TextStyle(
-                                  fontSize: 17
-                              ),),
-                            leading: Icon(Icons.add),
+                            title: Text(
+                              ""
+                              "Add Pension",
+                              style: TextStyle(fontSize: 17, color: Colors.black87),
+                            ),
+                            leading: Icon(Icons.add, color: Colors.black87),
                             dense: true,
                             onTap: () {
                               Navigator.push(
@@ -348,7 +346,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                     fullscreenDialog: true),
                               );
                             },
-
                           ),
                           Divider(
                             height: 1,
@@ -357,24 +354,21 @@ class _HomeScreenState extends State<HomeScreen> {
                             color: Colors.grey,
                           ),
                           ListTile(
-                            title: Text(""
-                                "Total",
+                            title: Text(
+                              ""
+                              "Total",
                               style: TextStyle(
-                                  fontSize: 18,
-                                fontWeight: FontWeight.bold
-                              ),),
-                            subtitle: Text("My Total Pension Pot Value"),
+                                  fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87),
+                            ),
+                            subtitle: Text("My Total Pension Pot Value", style: TextStyle(color: Colors.black87),),
                             trailing: Text(
                               "£34,440",
                               style: TextStyle(
-                                  fontSize: 18,
-                                fontWeight: FontWeight.bold
-                              ),
+                                  fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87),
                             ),
                             dense: true,
                             //onTap: () {},
                           ),
-
                         ],
                       ),
                     ),
@@ -412,7 +406,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           height: size.width * 0.5,
                           padding: EdgeInsets.all(4),
                           decoration: BoxDecoration(
-                            //color: Color(0xff4f2a5f),
+                              //color: Color(0xff4f2a5f),
                               borderRadius: BorderRadius.only(
                                   topLeft: const Radius.circular(12.0),
                                   topRight: const Radius.circular(12.0),
@@ -456,9 +450,7 @@ class _HomeScreenState extends State<HomeScreen> {
 class AddPension extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery
-        .of(context)
-        .size;
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xff00515e),
@@ -501,7 +493,9 @@ class AddPension extends StatelessWidget {
                   minWidth: size.width * 0.75,
                   color: Color(0xff751248),
                   padding: EdgeInsets.all(16.0),
-                  onPressed: () {Navigator.pop(context);},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   child: Text(
                     "Add Pension",
                     style: TextStyle(color: Colors.white, fontSize: 16),
@@ -535,9 +529,7 @@ class AddPension extends StatelessWidget {
 class EditPension extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery
-        .of(context)
-        .size;
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xff00515e),
@@ -600,21 +592,21 @@ class EditPension extends StatelessWidget {
                   minWidth: size.width * 0.75,
                   color: Color(0xff751248),
                   padding: EdgeInsets.all(16.0),
-                  onPressed: () {Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return OnboardingScreen();
-                      },
-                    ),
-                  );},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return OnboardingScreen();
+                        },
+                      ),
+                    );
+                  },
                   child: Text(
                     "Transfer to Nest",
                     style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
                 ),
-
-
               ],
             ),
           ),
@@ -623,4 +615,3 @@ class EditPension extends StatelessWidget {
     );
   }
 }
-

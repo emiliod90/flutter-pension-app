@@ -1,39 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertemplateapp/ui/screens/authenticated/analysis.dart';
-import 'package:fluttertemplateapp/ui/screens/authenticated/contact.dart';
 import 'package:fluttertemplateapp/ui/screens/authenticated/history.dart';
 import 'package:fluttertemplateapp/ui/screens/authenticated/home.dart';
-import 'package:fluttertemplateapp/ui/screens/authenticated/notifications.dart';
 import 'package:fluttertemplateapp/ui/screens/authenticated/portfolio.dart';
 import 'package:fluttertemplateapp/ui/screens/authenticated/profile.dart';
 import 'package:fluttertemplateapp/ui/screens/unauthenticated/login.dart';
 import 'package:fluttertemplateapp/ui/screens/unauthenticated/public.dart';
-import 'package:fluttertemplateapp/ui/screens/authenticated/settings.dart';
-
-//import 'package:fluttertemplateapp/ui/screens/unauthenticated/register.dart';
-//import 'package:fluttertemplateapp/ui/screens/unauthenticated/register_form.dart';
-import 'package:fluttertemplateapp/ui/screens/unauthenticated/welcome.dart';
-//import 'package:provider/provider.dart';
-
-class RootRoute extends StatefulWidget {
-  @override
-  _RootRouteState createState() => _RootRouteState();
-}
-
-class _RootRouteState extends State<RootRoute> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
-class PublicRoute extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return WelcomeScreen();
-  }
-}
 
 // Route parameters:
 const String HomeViewRoute = '/home';
@@ -104,66 +77,6 @@ class _HomePageState extends State<HomePage>
     return WillPopScope(
       onWillPop: () => Future.value(false),
       child: Scaffold(
-        /*appBar: AppBar(
-          title: Text(_title),
-        ),*/
-        /*appBar: AppBar(
-          elevation: 0,
-          leading: IconButton(
-            icon: Icon(CupertinoIcons.settings),
-            onPressed: () {},
-          ),
-        ),*/
-/*        drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              DrawerHeader(
-                child: Text('Drawer Header'),
-                decoration: BoxDecoration(
-                  color: Colors.grey,
-                ),
-              ),
-              ListTile(
-                title: Text('Notifications'),
-                onTap: () {Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => NotificationsScreen()
-                ));
-                },
-              ),
-              ListTile(
-                title: Text('Settings'),
-                onTap: () {Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => SettingsScreen()
-                ));
-                },
-              ),
-              ListTile(
-                title: Text('Contact'),
-                onTap: () {Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => ContactScreen()
-                ));
-                },
-              ),
-              ListTile(
-                title: Text('Help'),
-                onTap: () {
-                  // Update the state of the app.
-                  // ...
-                },
-              ),
-              ListTile(),
-              ListTile(),
-              ListTile(
-                title: Text('Log out'),
-                onTap: () {
-                  // Update the state of the app.
-                  // ...
-                },
-              ),
-            ],
-          ),
-        ),*/
         body: IndexedStack(
           index: _currentIndex,
           children: <Widget>[

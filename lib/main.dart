@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertemplateapp/routes.dart';
 import 'package:fluttertemplateapp/theme.dart';
-import 'package:fluttertemplateapp/ui/screens/unauthenticated/welcome.dart';
+import 'package:fluttertemplateapp/ui/screens/unauthenticated/login.dart';
 import 'package:provider/provider.dart';
-//import 'package:provider/provider.dart';
 
 void main() => runApp(MyApp());
 
@@ -25,9 +23,24 @@ class MaterialAppWithTheme extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       //title: "Prototype App",
-      theme: theme.getTheme(),
+      //theme: theme.getTheme(),
+      theme: ThemeData(
+          brightness: Brightness.dark,
+          textTheme: TextTheme(
+            bodyText1: TextStyle(
+                fontSize: 18.0
+            ),
+            bodyText2: TextStyle(
+                fontSize: 16.0
+            ),
+            button: TextStyle(
+                fontSize: 18.0
+            ),
+          )
+
+      ),
       darkTheme: dark,
-      home: WelcomeScreen(),
+      home: LoginScreen(),
     );
   }
 }

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertemplateapp/ui/screens/unauthenticated/components/text_field_container.dart';
-import 'package:fluttertemplateapp/ui/screens/unauthenticated/login.dart';
-import 'package:fluttertemplateapp/ui/screens/unauthenticated/register_form.dart';
-import 'components/rounded_button.dart';
+import 'package:flutter/services.dart';
+import 'package:fluttertemplateapp/ui/screens/unauthenticated/register_form_success.dart';
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -10,8 +8,14 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
   String _id;
+
+  //String _surname;
+  String _birthday;
+  String _ni;
+
+  bool _loadingMessage = false;
 
   bool validateAndSave() {
     final form = _formKey.currentState;
@@ -26,19 +30,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
   void validateAndSubmit() {
     if (validateAndSave()) {
       print("mock auth api call");
+      setState(() {
+        _loadingMessage = true;
+      });
       // await API call
-
-
       // if successful push to register form
+      print("success");
       Navigator.push(
         context,
         MaterialPageRoute(
           builder: (context) {
-            return RegisterFormScreen();
+            return RegisterFormSuccessScreen();
           },
         ),
       );
       // if failed return API response
+      print("fail");
     }
   }
 
@@ -46,109 +53,177 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-        //resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.lightBlue,
-        //appBar: AppBar(
-        //backgroundColor: Colors.lightBlue,
-        //title: Text("Login"),
-        //centerTitle: true,
-        //),
-        body: SafeArea(
-          left: false,
-          right: false,
-          child: Center(
-            child: SingleChildScrollView(
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Image(
-                      image: AssetImage('assets/images/mobile.png'),
-                      width: size.width * 0.6,
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 20),
-                      child: Text(
-                        "Register",
-                        style: TextStyle(
-                          color: Colors.black45,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 32,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: size.width * 0.7,
-                      margin: EdgeInsets.only(top: 10),
-                      child: Text(
-                        "When you've received your NAP ID via the post, enter it below "
-                        "to start the registration process. ",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 18,
-                        ),
-                      ),
-                    ),
-                    TextFieldContainer(
-                      color: Colors.lightBlue[100],
-                      child: TextFormField(
-                        style: TextStyle(
-                            fontSize: 18,
-                        ),
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: "NAP ID",
-                          icon: Icon(Icons.account_box),
-                        ),
-                        validator: (value) =>
-                        value.isEmpty ? "Please provide ID" : null,
-                        onSaved: (value) => _id = value,
-                      ),
-                    ),
-                    RoundedButton(
-                      text: "Start",
-                      textColor: Colors.white,
-                      color: Colors.purple,
-                      press: validateAndSubmit,
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 40),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text(
-                            "Already registered? ",
-                            style: TextStyle(fontSize: 16),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return LoginScreen();
-                                  },
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
+      body: SafeArea(
+        left: false,
+        right: false,
+        child: Form(
+          key: _formKey,
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    height:
+                    size.height * 0.3 - MediaQuery.of(context).padding.top - kToolbarHeight,
+                    //color: Colors.grey,
+                    child: Container(
+                        width: size.width - 64,
+                        alignment: Alignment.bottomCenter,
+                        child: Text(
+                          "Register",
+                          style: Theme.of(context).textTheme.headline4,
+                        )),
+                  ),
+                  Container(
+                    height: size.height * 0.5,
+                    //color: Colors.blue,
+                    padding: EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Container(
+                          padding: EdgeInsets.symmetric(vertical: 4.0),
+                          child: Row(
+                            children: <Widget>[
+                              Container(
+                                width: size.width - 64 - 48,
+                                child: TextFormField(
+                                  decoration: InputDecoration(
+                                    labelText: 'Nest ID',
+                                    labelStyle: TextStyle(fontSize: 18),
+                                  ),
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.deny(RegExp(r"\s"))
+                                  ],
+                                  validator: (value) => value.isEmpty
+                                      ? "Please provide ID"
+                                      : null,
+                                  onSaved: (value) => _id = value,
                                 ),
-                              );
-                            },
-                            child: Text(
-                              "Sign In",
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                decoration: TextDecoration.underline,
+                              ),
+                              Container(
+                                width: 48,
+                                child: IconButton(
+                                  icon: Icon(Icons.info_outline),
+                                  onPressed: () {},
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          width: size.width - 64 - 48,
+                          padding: EdgeInsets.symmetric(vertical: 4.0),
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                                labelText: 'Date of Birth',
+                                labelStyle: TextStyle(fontSize: 18),
+                                hintText: "DD/MM/YYYY"),
+                            keyboardType: TextInputType.datetime,
+                            maxLength: 10,
+                            inputFormatters: [
+                              FilteringTextInputFormatter.deny(RegExp(r"\s")),
+                            ],
+                            validator: (value) => value.isEmpty
+                                ? "Please provide DOB"
+                                : (!RegExp(r"^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$")
+                                .hasMatch(value)
+                                ? "Date format not correct"
+                                : null),
+                            onSaved: (value) => _birthday = value,
+                          ),
+                        ),
+                        /*Container(
+                          padding: EdgeInsets.symmetric(vertical: 4.0),
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              labelText: 'Surname',
+                              labelStyle: TextStyle(fontSize: 18),
+                            ),
+                            validator: (value) => value.isEmpty
+                                ? "Please provide last name"
+                                : null,
+                            onSaved: (value) => _surname = value,
+                          ),
+                        ),*/
+                        Row(
+                          children: <Widget>[
+                            Container(
+                              width: size.width - 64 - 48,
+                              padding: EdgeInsets.symmetric(vertical: 4.0),
+                              child: TextFormField(
+                                decoration: InputDecoration(
+                                  labelText: 'N.I. number or Alternative ID',
+                                  labelStyle: TextStyle(fontSize: 18),
+                                ),
+                                inputFormatters: [
+                                  FilteringTextInputFormatter.deny(RegExp(r"\s")),
+                                  FilteringTextInputFormatter.allow(
+                                      RegExp(r"[a-zA-Z0-9]+"))
+                                ],
+                                validator: (value) => value.isEmpty
+                                    ? "Please provide NI"
+                                    : (value.length != 9
+                                    ? "9 characters required"
+                                    : null),
+                                onSaved: (value) => _ni = value,
                               ),
                             ),
-                          )
-                        ],
-                      ),
+                            Container(
+                              width: 48,
+                              child: IconButton(
+                                icon: Icon(Icons.info_outline),
+                                onPressed: () {},
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                  Container(
+                    height: size.height * 0.2 -
+                        -MediaQuery.of(context).padding.bottom,
+                    //color: Colors.grey,
+                    alignment: Alignment.center,
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                            width: size.width - 64,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(6.0),
+                                gradient: LinearGradient(colors: [Color(0xFFFE6B8B), Color(0xFFFF8E53)])
+                            ),
+                            child: RaisedButton(
+                              color: Colors.transparent,
+                              padding: EdgeInsets.symmetric(vertical: 16.0),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(6.0),
+                                /*side: BorderSide(color: color)*/),
+                              onPressed: validateAndSubmit,
+                              child: (_loadingMessage
+                                  ? Text("Please wait...")
+                                  : Text("Next")),
+                            )),
+                        /*SizedBox(height: 32,),
+                        Text(
+                          "Back to Sign In"
+                        ),*/
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

@@ -10,11 +10,6 @@ class RegisterFormSuccessScreen extends StatelessWidget {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.lightBlue,
-        //appBar: AppBar(
-        //backgroundColor: Colors.lightBlue,
-        //title: Text("Login"),
-        //centerTitle: true,
-        //),
         body: SafeArea(
           left: false,
           right: false,
