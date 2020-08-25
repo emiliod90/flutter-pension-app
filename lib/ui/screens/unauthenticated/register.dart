@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertemplateapp/services/registration_api.dart';
 import 'package:fluttertemplateapp/ui/screens/unauthenticated/register_form_success.dart';
+
+import 'login.dart';
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -27,25 +30,31 @@ class _RegisterScreenState extends State<RegisterScreen> {
     }
   }
 
-  void validateAndSubmit() {
+  void validateAndSubmit() async {
     if (validateAndSave()) {
       print("mock auth api call");
       setState(() {
         _loadingMessage = true;
       });
-      // await API call
-      // if successful push to register form
-      print("success");
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) {
-            return RegisterFormSuccessScreen();
-          },
-        ),
-      );
-      // if failed return API response
-      print("fail");
+      var rsp = await RegisterUser(_id, _birthday, _ni);
+      print(rsp["token"]);
+      if (rsp["token"] != null) {
+        setState(() {
+          _loadingMessage = false;
+        });
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return RegisterFormSuccessScreen();
+            },
+          ),
+        );
+      } else
+        print("fail");
+      setState(() {
+        _loadingMessage = false;
+      });
     }
   }
 
@@ -216,7 +225,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) {
-                                  return RegisterScreen();
+                                  return LoginScreen();
                                 },
                               ),
                             );

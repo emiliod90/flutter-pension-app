@@ -25,7 +25,7 @@ class MaterialAppWithTheme extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       //title: "Prototype App",
       theme: theme.getTheme(),
-      home: HomePage(),
+      home: LoginScreen(),
     );
   }
 }

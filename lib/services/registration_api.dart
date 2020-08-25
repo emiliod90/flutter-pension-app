@@ -1,14 +1,11 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-// Dummy API https://reqres.in/
-// username: eve.holt@reqres.in
-// password cityslicka
 Future RegisterUser(String id, String dob, String ni) async {
-  String endpoint = 'https://reqres.in/api/login';
-  final response = await http.post(endpoint,
-      headers: {"Accept": "Application/json"},
-      body: {'id': id, 'dob': dob, 'ni': ni});
+  String endpoint = 'http://52.213.247.254:8080/appregistration/v1/gettokeninfo';
+  final response = await http.put(endpoint,
+      headers: {"Accept": "Application/json", "Content-Type": "application/json"},
+      body: jsonEncode({'mem_id': id, 'dob': dob, 'ni_num': ni}));
   if (response.statusCode != null) {
     var jsonResponse = jsonDecode(response.body);
     return jsonResponse;

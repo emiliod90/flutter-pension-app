@@ -36,6 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
         _loadingMessage = true;
       });
       var rsp = await loginUser(_username, _password);
+      //print(rsp.statusCode);
       print(rsp["token"]);
       if (rsp["token"] != null) {
         setState(() {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 //import 'package:fluttertemplateapp/ui/screens/unauthenticated/components/rounded_button.dart';
 //import 'package:fluttertemplateapp/ui/screens/unauthenticated/mobile_form.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertemplateapp/services/activation_api.dart';
 
 import 'account_success.dart';
 
@@ -18,10 +19,16 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
   String _password;
   String _mobile;
   bool _loadingMessage = false;
+  //int _tnc;
 
   void _setAgreedToTOS(bool newValue) {
     setState(() {
       _agreedToTOS = newValue;
+      /*if (_agreedToTOS) {
+        _tnc = 1;
+      } else {
+        _tnc = 0;
+      }*/
     });
   }
 
@@ -60,20 +67,37 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
     }
   }
 
-  void validateAndSubmit() {
+  void validateAndSubmit() async {
     if (validateAndSave()) {
       print("mock auth api call");
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) {
-            return AccountSuccessScreen();
-          },
-        ),
-      );
-    } else if (!_agreedToTOS) {
+      setState(() {
+        _loadingMessage = true;
+      });
+      var rsp = await ActivateUser(_email, _password, _mobile);
+      print(rsp["token"]);
+      if (rsp["token"] != null) {
+        setState(() {
+          _loadingMessage = false;
+        });
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return AccountSuccessScreen();
+            },
+          ),
+        );
+      } else if (!_agreedToTOS) {
       print("agree to TOS");
       createAlertDialog(context);
+      setState(() {
+        _loadingMessage = false;
+      });
+    } else
+        print("fail");
+      setState(() {
+        _loadingMessage = false;
+      });
     }
   }
 
