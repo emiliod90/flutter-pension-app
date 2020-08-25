@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<ThemeChanger>(
-      create: (_) => ThemeChanger(cool),
+      create: (_) => ThemeChanger(dark),
       child: MaterialAppWithTheme(),
     );
   }
@@ -23,23 +23,7 @@ class MaterialAppWithTheme extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       //title: "Prototype App",
-      //theme: theme.getTheme(),
-      theme: ThemeData(
-          brightness: Brightness.dark,
-          textTheme: TextTheme(
-            bodyText1: TextStyle(
-                fontSize: 18.0
-            ),
-            bodyText2: TextStyle(
-                fontSize: 16.0
-            ),
-            button: TextStyle(
-                fontSize: 18.0
-            ),
-          )
-
-      ),
-      darkTheme: dark,
+      theme: theme.getTheme(),
       home: LoginScreen(),
     );
   }

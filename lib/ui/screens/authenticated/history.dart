@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-//import 'package:charts_flutter/flutter.dart';
 import 'package:animations/animations.dart';
 import 'package:fluttertemplateapp/ui/charts/stacked_chart.dart';
 
@@ -96,8 +95,8 @@ class SummaryHistory extends StatelessWidget {
                           fontFamily: "Open Sans"),
                     ),
                     onTap: () {},
-                    leading: Icon(Icons.person_pin),
-                    subtitle: Text("My Contributions"),
+                    leading: Icon(Icons.person_pin, color: Colors.blue,),
+                    subtitle: Text("My Contributions", style: TextStyle(color: Colors.black54),),
                   ),
                   ListTile(
                     title: Text(
@@ -108,8 +107,8 @@ class SummaryHistory extends StatelessWidget {
                           fontFamily: "Open Sans"),
                     ),
                     onTap: () {},
-                    leading: Icon(Icons.work),
-                    subtitle: Text("Employer Contributions"),
+                    leading: Icon(Icons.work, color: Colors.red,),
+                    subtitle: Text("Employer Contributions", style: TextStyle(color: Colors.black54)),
                   ),
                   ListTile(
                     title: Text(
@@ -120,8 +119,8 @@ class SummaryHistory extends StatelessWidget {
                           fontFamily: "Open Sans"),
                     ),
                     onTap: () {},
-                    leading: Icon(Icons.monetization_on),
-                    subtitle: Text("Tax Relief"),
+                    leading: Icon(Icons.monetization_on, color: Colors.orange,),
+                    subtitle: Text("Tax Relief", style: TextStyle(color: Colors.black54)),
                     enabled: true,
                   ),
                 ],
@@ -151,7 +150,7 @@ class SummaryHistory extends StatelessWidget {
             Container(
               padding: EdgeInsets.symmetric(vertical: 16.0),
               decoration: BoxDecoration(
-                  color: Colors.grey[300],
+                  color: Colors.grey,
                   borderRadius: BorderRadius.only(
                       bottomRight: Radius.circular(20),
                       bottomLeft: Radius.circular(20),
@@ -356,7 +355,7 @@ class _DetailHistoryState extends State<DetailHistory> {
                 Container(
                   margin: EdgeInsets.only(bottom: 8.0),
                   decoration: BoxDecoration(
-                      color: Colors.grey[300],
+                      color: Colors.red[200],
                       borderRadius: BorderRadius.only(
                           bottomRight: Radius.circular(20),
                           bottomLeft: Radius.circular(20),
@@ -522,27 +521,6 @@ class DetailSettings extends StatelessWidget {
         padding: EdgeInsets.all(16),
         child: Column(
           children: <Widget>[
-            /*ListTile(
-              title: Text(
-                "More Settings",
-                style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                    fontFamily: "Open Sans"),
-              ),
-              leading: Icon(
-                Icons.tune,
-                color: Colors.white70,
-              ),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => DetailSettings(),
-                      fullscreenDialog: true),
-                );
-              },
-            ),*/
             ListTile(
               title: Text(
                 "Start Date: ",

@@ -17,7 +17,7 @@ class SettingsScreen extends StatelessWidget {
             padding: EdgeInsets.all(8.0),
             child: Column(
               children: <Widget>[
-                ListTile(
+                /*ListTile(
                   title: Text(
                     "Large Text",
 
@@ -34,7 +34,7 @@ class SettingsScreen extends StatelessWidget {
                   trailing: Switch(
                     value: true,
                   ),
-                ),
+                ),*/
                 FlatButton(
                   child: const Text('Light Mode'),
                   onPressed: () => _themeChanger.setTheme(light),
@@ -43,10 +43,10 @@ class SettingsScreen extends StatelessWidget {
                   child: const Text('Dark Mode'),
                   onPressed: () => _themeChanger.setTheme(dark),
                 ),
-                FlatButton(
+                /*FlatButton(
                   child: const Text('Cool Mode'),
                   onPressed: () => _themeChanger.setTheme(cool),
-                ),
+                ),*/
               ],
             ),
           ),

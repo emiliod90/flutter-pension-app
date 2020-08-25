@@ -52,7 +52,7 @@ class AccountSuccessScreen extends StatelessWidget {
                   textColor: Colors.white,
                   color: Colors.purple,
                   press: () {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                         builder: (context) {
