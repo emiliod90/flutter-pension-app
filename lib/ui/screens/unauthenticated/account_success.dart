@@ -9,7 +9,7 @@ class AccountSuccessScreen extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.indigo,
+        backgroundColor: Color(0xff3c3c3c),
         //appBar: AppBar(
         //backgroundColor: Colors.lightBlue,
         //title: Text("Login"),
@@ -47,22 +47,35 @@ class AccountSuccessScreen extends StatelessWidget {
                         ),
                   ),
                 ),
-                RoundedButton(
-                  text: "Go to Dashboard",
-                  textColor: Colors.white,
-                  color: Colors.purple,
-                  press: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return HomePage();
-                        },
-                      ),
-                    );
-
-                  },
+                SizedBox(
+                  height: 40,
                 ),
+                Container(
+                    width: size.width - 64,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(24.0),
+                        gradient: LinearGradient(colors: [Color(0xFF2196F3), Color(0xFF21CBF3)])
+                    ),
+                    child: RaisedButton(
+                      color: Colors.transparent,
+                      padding: EdgeInsets.symmetric(vertical: 16.0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(24.0),
+                        /*side: BorderSide(color: color)*/),
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return HomePage();
+                            },
+                          ),
+                        );
+
+                      },
+                      child: Text("My Dashboard")
+                          ,
+                    )),
               ],
             ),
           ),

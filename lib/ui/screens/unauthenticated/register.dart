@@ -54,7 +54,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        //backgroundColor: Colors.transparent,
         elevation: 0,
       ),
       body: SafeArea(
@@ -197,14 +197,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         Container(
                             width: size.width - 64,
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(6.0),
+                                borderRadius: BorderRadius.circular(24.0),
                                 gradient: LinearGradient(colors: [Color(0xFFFE6B8B), Color(0xFFFF8E53)])
                             ),
                             child: RaisedButton(
                               color: Colors.transparent,
                               padding: EdgeInsets.symmetric(vertical: 16.0),
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(6.0),
+                                borderRadius: BorderRadius.circular(24.0),
                                 /*side: BorderSide(color: color)*/),
                               onPressed: validateAndSubmit,
                               child: (_loadingMessage

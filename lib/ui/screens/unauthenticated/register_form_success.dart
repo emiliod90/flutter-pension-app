@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertemplateapp/ui/screens/unauthenticated/create_account.dart';
 
-import 'components/rounded_button.dart';
+//import 'components/rounded_button.dart';
 
 class RegisterFormSuccessScreen extends StatelessWidget {
   @override
@@ -9,7 +9,7 @@ class RegisterFormSuccessScreen extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Color(0xff3c3c3c),
         body: SafeArea(
           left: false,
           right: false,
@@ -37,47 +37,46 @@ class RegisterFormSuccessScreen extends StatelessWidget {
                   child: RichText(
                     text: TextSpan(
                       style: TextStyle(
-                          fontSize: 19, height: 1.5, color: Colors.black87),
+                          fontSize: 19, height: 1.5, color: Colors.white),
                       children: <TextSpan>[
                         TextSpan(
                             text:
-                                "We found your details! Here are the next steps to activate your account:")
+                                "We found your details! Now we can activate your account!")
                       ],
                     ),
                   ),
                 ),
-                Container(
-                  width: size.width * 0.7,
-                  margin: EdgeInsets.only(top: 10),
-                  child: Text(
-                    "1. Provide an email and password",
-                    textAlign: TextAlign.left,
-                    style: TextStyle(fontSize: 19, color: Colors.black87),
-                  ),
+                SizedBox(
+                  height: 32,
                 ),
                 Container(
-                  width: size.width * 0.7,
-                  margin: EdgeInsets.only(top: 10),
-                  child: Text(
-                    "2. Pair your mobile or tablet",
-                    textAlign: TextAlign.left,
-                    style: TextStyle(fontSize: 19, color: Colors.black87),
+                  width: size.width - 64,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(24.0),
+                    gradient: LinearGradient(
+                        colors: [Color(0xFF2196F3), Color(0xFF21CBF3)],
+                        begin: Alignment.bottomLeft,
+                        end: Alignment.topRight),
                   ),
-                ),
-                RoundedButton(
-                  text: "continue",
-                  textColor: Colors.white,
-                  color: Colors.purple,
-                  press: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return CreateAccountScreen();
-                        },
-                      ),
-                    );
-                  },
+                  child: RaisedButton(
+                    color: Colors.transparent,
+                    padding: EdgeInsets.symmetric(vertical: 16.0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(24.0),
+                      /*side: BorderSide(color: color)*/
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return CreateAccountScreen();
+                          },
+                        ),
+                      );
+                    },
+                    child: Text("continue"),
+                  ),
                 ),
               ],
             ),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertemplateapp/ui/screens/unauthenticated/components/rounded_button.dart';
-import 'package:fluttertemplateapp/ui/screens/unauthenticated/mobile_form.dart';
+//import 'package:fluttertemplateapp/ui/screens/unauthenticated/components/rounded_button.dart';
+//import 'package:fluttertemplateapp/ui/screens/unauthenticated/mobile_form.dart';
 import 'package:flutter/services.dart';
+
+import 'account_success.dart';
 
 class CreateAccountScreen extends StatefulWidget {
   @override
@@ -12,8 +14,9 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool _agreedToTOS = false;
   bool _showPassword = true;
-  String _username;
+  String _email;
   String _password;
+  String _mobile;
   bool _loadingMessage = false;
 
   void _setAgreedToTOS(bool newValue) {
@@ -64,7 +67,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
         context,
         MaterialPageRoute(
           builder: (context) {
-            return MobileFormScreen();
+            return AccountSuccessScreen();
           },
         ),
       );
@@ -80,7 +83,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        //backgroundColor: Colors.transparent,
         elevation: 0,
         title: Text(
           "Create login credentials",
@@ -99,27 +102,15 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                 children: <Widget>[
                   Container(
                     height:
-                    size.height * 0.3 - MediaQuery.of(context).padding.top - kToolbarHeight,
+                    size.height * 0.2 - MediaQuery.of(context).padding.top - kToolbarHeight,
                     //color: Colors.grey,
                     child: Container(
                       width: size.width - 64,
                       alignment: Alignment.bottomCenter,
-                      child: RichText(
-                          text: TextSpan(
-                              style: TextStyle(
-                                fontSize: 18,
-                                height: 1.5,
-                              ),
-                              children: <TextSpan>[
-                                TextSpan(
-                                    text:
-                                    "Create a username and password. You can use these same credentials to"
-                                        " login via the app or online.")
-                              ])),
                     ),
                   ),
                   Container(
-                    height: size.height * 0.5,
+                    height: size.height * 0.6,
                     //color: Colors.blue,
                     padding: EdgeInsets.all(16.0),
                     child: Column(
@@ -132,7 +123,28 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                             width: size.width - 64,
                             child: TextFormField(
                               decoration: InputDecoration(
-                                labelText: 'Username',
+                                labelText: '*Mobile no.',
+                                labelStyle: TextStyle(fontSize: 18),
+                              ),
+                              keyboardType: TextInputType.numberWithOptions(),
+                              inputFormatters: [
+                                FilteringTextInputFormatter.deny(RegExp(r"\s")),
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
+                              validator: (value) => value.isEmpty
+                                  ? "Please provide Mobile no."
+                                  : null,
+                              onSaved: (value) => _email = value,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.symmetric(vertical: 4.0),
+                          child: Container(
+                            width: size.width - 64,
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                labelText: 'Email',
                                 labelStyle: TextStyle(fontSize: 18),
                               ),
                               inputFormatters: [
@@ -141,7 +153,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                               validator: (value) => value.isEmpty
                                   ? "Please provide Email"
                                   : null,
-                              onSaved: (value) => _username = value,
+                              onSaved: (value) => _email = value,
                             ),
                           ),
                         ),
@@ -168,7 +180,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                             validator: (value) => value.isEmpty
                                 ? "Please create password"
                                 : (value.length < 6
-                                ? "6 characters required"
+                                ? "Must be > 6 characters"
                                 : null),
                             onSaved: (value) => _password = value,
                           ),
@@ -201,19 +213,19 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                         Container(
                             width: size.width - 64,
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(6.0),
+                                borderRadius: BorderRadius.circular(24.0),
                                 gradient: LinearGradient(colors: [Color(0xFFFE6B8B), Color(0xFFFF8E53)])
                             ),
                             child: RaisedButton(
                               color: Colors.transparent,
                               padding: EdgeInsets.symmetric(vertical: 16.0),
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(6.0),
+                                borderRadius: BorderRadius.circular(24.0),
                                 /*side: BorderSide(color: color)*/),
                               onPressed: validateAndSubmit,
                               child: (_loadingMessage
                                   ? Text("Please wait...")
-                                  : Text("Next")),
+                                  : Text("Sign Up")),
                             )),
                         /*SizedBox(height: 32,),
                         Text(

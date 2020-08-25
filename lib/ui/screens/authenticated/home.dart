@@ -23,7 +23,8 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Color(0xff28465f),
         title: Text(
           "Nest",
-          style: Theme.of(context).textTheme.headline6,
+
+         // style: Theme.of(context).textTheme.headline6,
         ),
         centerTitle: true,
         elevation: 1,
@@ -83,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             bottomRight: Radius.circular(25.0),
                           ),
                           //border: Border.all(color: Color(0xff28465f), width: 2),
-                          color:  Color(0xff28465f)),
+                          color:  Colors.blueAccent),
                       child: Center(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -112,7 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             bottomRight: Radius.circular(25.0),
                           ),
                           //border: Border.all(color: Color(0xff28465f), width: 2),
-                          color: Color(0xff751248)),
+                          color: Colors.green),
                       child: Center(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -143,7 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             bottomRight: Radius.circular(25.0),
                           ),
                           //border: Border.all(color: Color(0xff28465f), width: 2),
-                          color: Color(0xff28465f)),
+                          color: Colors.teal),
                       child: Center(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -182,7 +183,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             title: Text(
                               ""
                               "Nest Pension",
-                              style: TextStyle(fontSize: 17),
+                              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold,color: Color(0xffe66e00)),
                             ),
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
@@ -204,7 +205,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             title: Text(
                               ""
                               "Vanguard SIPP",
-                              style: TextStyle(fontSize: 17, ),
+                              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold,color: Color(0xff792a86)),
                             ),
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
@@ -233,7 +234,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             title: Text(
                               ""
                               "Legal & General",
-                              style: TextStyle(fontSize: 17, ),
+                              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold,color: Color(0xff009ddb)),
                             ),
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
@@ -262,7 +263,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             title: Text(
                               ""
                               "Aviva Pension",
-                              style: TextStyle(fontSize: 17,),
+                              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold,color: Color(0xff00a0a4)),
                             ),
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
@@ -403,7 +404,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),*/
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                   child: Card(
                     color: Colors.transparent,
                     elevation: 1.0,
@@ -421,14 +422,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               image: DecorationImage(
                                   image: NetworkImage(
-                                      "https://source.unsplash.com/random/400x400"),
+                                      "https://source.unsplash.com/400x400/?happy"),
                                   fit: BoxFit.cover)),
                         ),
                         Container(
                           //width: 440,
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Text("hello"),
+                            child: Text("Latest Articles", style: TextStyle(fontSize: 20),),
                           ),
                         ),
                       ],
@@ -436,7 +437,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                   child: Card(
                     color: Colors.transparent,
                     elevation: 1.0,
@@ -454,14 +455,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               image: DecorationImage(
                                   image: NetworkImage(
-                                      "https://source.unsplash.com/random/400x400"),
+                                      "https://source.unsplash.com/400x400/?city"),
                                   fit: BoxFit.cover)),
                         ),
                         Container(
                           //width: 440,
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Text("hello"),
+                            child: Text("Market News", style: TextStyle(fontSize: 20),),
                           ),
                         ),
                       ],

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:animations/animations.dart';
 import 'package:fluttertemplateapp/ui/charts/stacked_chart.dart';
 
+import 'components/vertical_fraction_bar.dart';
+
 class HistoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -660,91 +662,6 @@ class MyActionSheet extends StatelessWidget {
   }
 }
 
-class EmployerEntityView extends StatelessWidget {
-  final Color indicatorColor;
-  final double indicatorFraction;
-  final String title;
-  final String subtitle;
-  final String semanticsLabel;
-  final String amount;
-  final Widget suffix;
-
-  const EmployerEntityView(
-      {Key key,
-      this.indicatorColor,
-      this.indicatorFraction,
-      this.title,
-      this.subtitle,
-      this.semanticsLabel,
-      this.amount,
-      this.suffix})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return FlatButton(
-      onPressed: () {},
-      child: Column(
-        children: <Widget>[
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 16),
-            child: Row(
-              children: <Widget>[
-                Container(
-                  alignment: Alignment.center,
-                  //height: ,
-                  padding: EdgeInsets.symmetric(horizontal: 12),
-                  child: VerticalFractionBar(
-                    color: indicatorColor,
-                    fraction: indicatorFraction,
-                  ),
-                ),
-                Expanded(
-                  child: Wrap(
-                    alignment: WrapAlignment.spaceBetween,
-                    crossAxisAlignment: WrapCrossAlignment.center,
-                    children: <Widget>[
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(title),
-                          Text(
-                            "Last Date: $subtitle",
-                            style: TextStyle(
-                              fontFamily: "Source Sans",
-                              fontWeight: FontWeight.normal,
-                            ),
-                          )
-                        ],
-                      ),
-                      Text(
-                        amount,
-                        style: TextStyle(fontSize: 20, color: Colors.grey),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  constraints: BoxConstraints(minWidth: 32),
-                  padding: EdgeInsetsDirectional.only(start: 12),
-                  child: suffix,
-                )
-              ],
-            ),
-          ),
-          Divider(
-            height: 1,
-            indent: 16,
-            endIndent: 16,
-            color: Colors.grey,
-          )
-        ],
-      ),
-    );
-  }
-}
-
 class EmployerEntity extends StatelessWidget {
   final Color indicatorColor;
   final double indicatorFraction;
@@ -1018,32 +935,5 @@ class GSKEntityDetail extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class VerticalFractionBar extends StatelessWidget {
-  VerticalFractionBar({this.color, this.fraction});
-
-  final Color color;
-  final double fraction;
-
-  @override
-  Widget build(BuildContext context) {
-    // TODO: use paint?
-    return SizedBox(
-        height: 32.0,
-        width: 4.0,
-        child: Column(children: <Widget>[
-          SizedBox(
-            height: (1 - fraction) * 32.0,
-            child: Container(
-              color: Colors.black,
-            ),
-          ),
-          SizedBox(
-            height: fraction * 32.0,
-            child: Container(color: color),
-          ),
-        ]));
   }
 }

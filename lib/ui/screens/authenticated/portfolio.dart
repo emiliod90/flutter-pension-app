@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertemplateapp/ui/charts/stacked_line.dart';
-import 'package:fluttertemplateapp/ui/screens/authenticated/pie_chart.dart';
+import 'package:fluttertemplateapp/ui/charts/pie_chart.dart';
+//import 'package:fluttertemplateapp/ui/charts/stacked_line.dart';
+
+import 'components/fraction_tile.dart';
 
 class PortfolioScreen extends StatelessWidget {
   @override
@@ -27,17 +29,47 @@ class PortfolioScreen extends StatelessWidget {
                 child: Center(
                   child: Container(
                     decoration: BoxDecoration(
-                        color: Colors.black45,
+                        color: Colors.transparent,
                         borderRadius: BorderRadius.only(
                             topLeft: const Radius.circular(12.0),
                             topRight: const Radius.circular(12.0),
                             bottomLeft: const Radius.circular(12.0),
                             bottomRight: const Radius.circular(12.0))),
-                    child: PieOutsideLabelChart.withSampleData(),
+                    child: DonutPieChart.withSampleData(),
                   ),
                 ),
               ),
-              Row(
+              FractionTile(
+                indicatorFraction: 0.45,
+                indicatorColor: Colors.indigo,
+                title: "Nest 2055 Retirement Fund",
+                subtitle: "Nest",
+                amount: "333",
+
+              ),
+              FractionTile(
+                indicatorFraction: 0.35,
+                indicatorColor: Colors.blue,
+                title: "FTSE Developed World ETF",
+                subtitle: "Vanguard",
+                amount: "333",
+              ),
+              FractionTile(
+                indicatorFraction: 0.15,
+                indicatorColor: Colors.lightBlue,
+                title: "MSCI China ETF",
+                subtitle: "HSBC",
+                amount: "333",
+              ),
+              FractionTile(
+                indicatorFraction: 0.05,
+                indicatorColor: Colors.teal,
+                title: "UK Gilts 0 - 5yr ETF",
+                subtitle: "iShares",
+                amount: "333",
+              ),
+
+              /*Row(
                 children: <Widget>[
                   Expanded(
                     flex: 1,
@@ -81,7 +113,7 @@ class PortfolioScreen extends StatelessWidget {
                     ),
                   ),
                 ],
-              ),
+              ),*/
               /*Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(

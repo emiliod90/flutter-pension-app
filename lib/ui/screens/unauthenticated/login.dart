@@ -49,8 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
             },
           ),
         );
-      }
-      else
+      } else
         print("fail");
       setState(() {
         _loadingMessage = false;
@@ -60,9 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery
-        .of(context)
-        .size;
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: SafeArea(
         left: false,
@@ -76,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: <Widget>[
                   Container(
                     height:
-                    size.height * 0.3 - MediaQuery.of(context).padding.top,
+                        size.height * 0.3 - MediaQuery.of(context).padding.top,
                     //color: Colors.grey,
                     child: Container(
                         width: size.width - 64,
@@ -164,29 +161,27 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Column(
                       children: <Widget>[
                         Container(
-                            width: size.width - 64,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(6.0),
-                              gradient: LinearGradient(
-                                  colors: [
-                                    Color(0xFF2196F3),
-                                    Color(0xFF21CBF3)
-                                  ],
-                                  begin: Alignment.bottomLeft,
-                                  end: Alignment.topRight),
+                          width: size.width - 64,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(24.0),
+                            gradient: LinearGradient(
+                                colors: [Color(0xFF2196F3), Color(0xFF21CBF3)],
+                                begin: Alignment.bottomLeft,
+                                end: Alignment.topRight),
+                          ),
+                          child: RaisedButton(
+                            color: Colors.transparent,
+                            padding: EdgeInsets.symmetric(vertical: 16.0),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(24.0),
+                              /*side: BorderSide(color: color)*/
                             ),
-                            child: RaisedButton(
-                              color: Colors.transparent,
-                              padding: EdgeInsets.symmetric(vertical: 16.0),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(6.0),
-                                /*side: BorderSide(color: color)*/
-                              ),
-                              onPressed: validateAndSubmit,
-                              child: (_loadingMessage
-                                  ? Text("Please wait...")
-                                  : Text("Login")),
-                            )),
+                            onPressed: validateAndSubmit,
+                            child: (_loadingMessage
+                                ? Text("Please wait...")
+                                : Text("Login")),
+                          ),
+                        ),
                         SizedBox(
                           height: 32,
                         ),
@@ -223,6 +218,3 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-
-
-

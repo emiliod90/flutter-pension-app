@@ -4,18 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 
-class PieOutsideLabelChart extends StatelessWidget {
+class DonutPieChart extends StatelessWidget {
   final List<charts.Series> seriesList;
   final bool animate;
 
-  PieOutsideLabelChart(this.seriesList, {this.animate});
+  DonutPieChart(this.seriesList, {this.animate});
 
   /// Creates a [PieChart] with sample data and no transition.
-  factory PieOutsideLabelChart.withSampleData() {
-    return new PieOutsideLabelChart(
+  factory DonutPieChart.withSampleData() {
+    return new DonutPieChart(
       _createSampleData(),
       // Disable animations for image tests.
-      animate: false,
+      animate: true,
     );
   }
 
@@ -24,28 +24,19 @@ class PieOutsideLabelChart extends StatelessWidget {
   Widget build(BuildContext context) {
     return new charts.PieChart(seriesList,
         animate: animate,
-        // Add an [ArcLabelDecorator] configured to render labels outside of the
-        // arc with a leader line.
-        //
-        // Text style for inside / outside can be controlled independently by
-        // setting [insideLabelStyleSpec] and [outsideLabelStyleSpec].
-        //
-        // Example configuring different styles for inside/outside:
-        //       new charts.ArcLabelDecorator(
-        //          insideLabelStyleSpec: new charts.TextStyleSpec(...),
-        //          outsideLabelStyleSpec: new charts.TextStyleSpec(...)),
-        defaultRenderer: new charts.ArcRendererConfig(arcRendererDecorators: [
+
+        defaultRenderer: new charts.ArcRendererConfig(arcWidth: 60, arcRendererDecorators: [
           new charts.ArcLabelDecorator(
-              labelPosition: charts.ArcLabelPosition.outside)
+              labelPosition: charts.ArcLabelPosition.inside)
         ]));
   }
 
   /// Create one series with sample hard coded data.
   static List<charts.Series<LinearSales, int>> _createSampleData() {
     final data = [
-      new LinearSales(0, 100),
-      new LinearSales(1, 75),
-      new LinearSales(2, 25),
+      new LinearSales(0, 45),
+      new LinearSales(1, 35),
+      new LinearSales(2, 15),
       new LinearSales(3, 5),
     ];
 
@@ -56,7 +47,7 @@ class PieOutsideLabelChart extends StatelessWidget {
         measureFn: (LinearSales sales, _) => sales.sales,
         data: data,
         // Set a label accessor to control the text of the arc label.
-        labelAccessorFn: (LinearSales row, _) => '${row.year}: ${row.sales}',
+        labelAccessorFn: (LinearSales row, _) => '${row.sales}',
       )
     ];
   }
