@@ -226,67 +226,55 @@ class ForecastSettings extends StatelessWidget {
         title: Text("Edit Details"),
         centerTitle: true,
       ),
-      body: Container(
+      body: Padding(
         //height: size.height * 0.45,
         padding: EdgeInsets.all(4),
-        child: Center(
-          child: Container(
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                    topLeft: const Radius.circular(12.0),
-                    topRight: const Radius.circular(12.0),
-                    bottomLeft: const Radius.circular(12.0),
-                    bottomRight: const Radius.circular(12.0))),
-            child: Column(
-              children: <Widget>[
-                CustomTile(
-                  title: "Retirement Date",
-                  suffix: Icon(Icons.edit),
-                  amount: "13/08/2055",
-                  subtitle: "(or age)",
-                ),
-                CustomTile(
-                  title: "Additional Pensions",
-                  suffix: Icon(Icons.edit),
-                  amount: "£4,300",
-                  subtitle: "(Total £)",
-                ),
-                /*CustomTile(
-                          title: "Salary",
-                          suffix: Icon(Icons.edit),
-                          amount: "£31,500",
-                          subtitle: "",
-                        ),*/
-                CustomTile(
-                  title: "Pension Contribution",
-                  suffix: Icon(Icons.edit),
-                  amount: "£275",
-                  subtitle: "(% or amount)",
-                ),
-                CustomTile(
-                  title: "Target Retirement Income",
-                  suffix: Icon(Icons.edit),
-                  amount: "£25K/year",
-                  subtitle: "optional (annual)",
-                ),
-                ListTile(
-                  title: Text(
-                    "Assumptions",
-                    style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.black87,
-                        fontFamily: "Open Sans"),
-                  ),
-                  onTap: () {},
-                  leading: Icon(Icons.info_outline, color: Colors.blue,),
-                  subtitle: Text(
-                      "Learn about some of the basic assumptions included in the model", style: TextStyle(color: Colors.black54),),
-                  isThreeLine: true,
-                ),
-              ],
+        child: Column(
+          children: <Widget>[
+            CustomTile(
+              title: "Retirement Date",
+              suffix: Icon(Icons.edit),
+              amount: "13/08/2055",
+              subtitle: "(or age)",
             ),
-          ),
+            CustomTile(
+              title: "Additional Pensions",
+              suffix: Icon(Icons.edit),
+              amount: "£4,300",
+              subtitle: "(Total £)",
+            ),
+            /*CustomTile(
+                      title: "Salary",
+                      suffix: Icon(Icons.edit),
+                      amount: "£31,500",
+                      subtitle: "",
+                    ),*/
+            CustomTile(
+              title: "Pension Contribution",
+              suffix: Icon(Icons.edit),
+              amount: "£275",
+              subtitle: "(% or amount)",
+            ),
+            CustomTile(
+              title: "Target Retirement Income",
+              suffix: Icon(Icons.edit),
+              amount: "£25K/year",
+              subtitle: "optional (annual)",
+            ),
+            ListTile(
+              title: Text(
+                "Assumptions",
+                style: TextStyle(
+                    fontSize: 16,
+                    fontFamily: "Open Sans"),
+              ),
+              onTap: () {},
+              leading: Icon(Icons.info_outline, color: Colors.blue,),
+              subtitle: Text(
+                  "Learn about some of the basic assumptions included in the model",),
+              isThreeLine: true,
+            ),
+          ],
         ),
       ),
     );

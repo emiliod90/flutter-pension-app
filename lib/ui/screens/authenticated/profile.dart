@@ -1,14 +1,17 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertemplateapp/ui/screens/authenticated/notifications.dart';
 import 'package:fluttertemplateapp/ui/screens/authenticated/settings.dart';
 import 'package:fluttertemplateapp/ui/screens/onboarding/onboarding.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import 'contact.dart';
 
 class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Color(0xff28465f),
+      //backgroundColor: Color(0xff28465f),
       appBar: AppBar(
         backgroundColor: Color(0xff28465f),
         title: Text("Account"),
@@ -44,7 +47,7 @@ class ProfileScreen extends StatelessWidget {
                                   shape: BoxShape.circle,
                                   color: Color(0xff751248)),
                               child: Text(
-                                "ED",
+                                "BR",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: size.width * 0.1),
@@ -55,7 +58,9 @@ class ProfileScreen extends StatelessWidget {
                               child: Text(
                                 "Joined 01/08/2017",
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 16),
+                                    //color: Colors.white,
+                                    fontSize: 16,
+                                    fontFamily: "Open Sans"),
                               ),
                             ),
                             Padding(
@@ -63,7 +68,9 @@ class ProfileScreen extends StatelessWidget {
                               child: Text(
                                 "Last active 01/08/2017",
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 16),
+                                    //color: Colors.white,
+                                    fontSize: 16,
+                                fontFamily: "Open Sans"),
                               ),
                             )
                           ],
@@ -81,7 +88,7 @@ class ProfileScreen extends StatelessWidget {
                         padding: EdgeInsets.all(4),
                         child: Container(
                           decoration: BoxDecoration(
-                              color: Colors.black45,
+                              color: Color(0xff751248),
                               borderRadius: BorderRadius.only(
                                   topLeft: const Radius.circular(12.0),
                                   topRight: const Radius.circular(12.0),
@@ -122,100 +129,28 @@ class ProfileScreen extends StatelessWidget {
                         padding: EdgeInsets.all(4),
                         child: Container(
                           decoration: BoxDecoration(
-                              color: Colors.black45,
+                              color: Color(0xff28465f),
                               borderRadius: BorderRadius.only(
                                   topLeft: const Radius.circular(12.0),
                                   topRight: const Radius.circular(12.0),
                                   bottomLeft: const Radius.circular(12.0),
                                   bottomRight: const Radius.circular(12.0))),
                           child: FlatButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => NotificationsScreen(),
+                                ),
+                              );
+                            },
                             splashColor: Color(0xff751248),
                             child: Center(
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
                                   Text(
-                                    "Secure Inbox",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      flex: 1,
-                      child: Container(
-                        height: size.height * 0.25,
-                        padding: EdgeInsets.all(4),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: Colors.black45,
-                              borderRadius: BorderRadius.only(
-                                  topLeft: const Radius.circular(12.0),
-                                  topRight: const Radius.circular(12.0),
-                                  bottomLeft: const Radius.circular(12.0),
-                                  bottomRight: const Radius.circular(12.0))),
-                          child: FlatButton(
-                            splashColor: Color(0xff751248),
-                            onPressed: () {},
-                            child: Center(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Text(
-                                    "Address &",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18,
-                                    ),
-                                  ),
-                                  Text(
-                                    "Contact",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Container(
-                        height: size.height * 0.25,
-                        padding: EdgeInsets.all(4),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: Colors.black45,
-                              borderRadius: BorderRadius.only(
-                                  topLeft: const Radius.circular(12.0),
-                                  topRight: const Radius.circular(12.0),
-                                  bottomLeft: const Radius.circular(12.0),
-                                  bottomRight: const Radius.circular(12.0))),
-                          child: FlatButton(
-                            onPressed: () {},
-                            splashColor: Color(0xff751248),
-                            child: Center(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Text(
-                                    "Beneficiaries",
+                                    "Secure Mail",
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 18,
@@ -231,10 +166,55 @@ class ProfileScreen extends StatelessWidget {
                   ],
                 ),
                 Container(
+                  //height: size.width * 0.5,
+                  padding: EdgeInsets.all(4),
+                  child: Center(
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Color(0xff4f2a5f),
+                          borderRadius: BorderRadius.only(
+                              topLeft: const Radius.circular(12.0),
+                              topRight: const Radius.circular(12.0),
+                              bottomLeft: const Radius.circular(12.0),
+                              bottomRight: const Radius.circular(12.0))),
+                      child: Column(
+                        children: <Widget>[
+                          ListTile(
+                            leading: Icon(
+                              Icons.people,
+                              color: Colors.white,
+                            ),
+                            title: Text(
+                              "Manage Beneficiaries",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "Open Sans",
+                              ),
+                            ),
+                          ),
+                          ListTile(
+                            leading: Icon(
+                              Icons.person_add,
+                              color: Colors.white,
+                            ),
+                            title: Text(
+                              "Manage additional users",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "Open Sans",
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
                   padding: EdgeInsets.all(4),
                   child: Container(
                     decoration: BoxDecoration(
-                        color: Color(0xff4f2a5f),
+                        color: Color(0xff751248),
                         borderRadius: BorderRadius.only(
                             topLeft: const Radius.circular(12.0),
                             topRight: const Radius.circular(12.0),
@@ -324,6 +304,8 @@ class ProfileScreen extends StatelessWidget {
                                 fontFamily: "Open Sans",
                               ),
                             ),
+                            onTap: () => launch(
+                                'https://www.nestpensions.org.uk/schemeweb/memberhelpcentre/frequently-asked-questions.html'),
                           ),
                           ListTile(
                             leading: Icon(
@@ -337,6 +319,14 @@ class ProfileScreen extends StatelessWidget {
                                 fontFamily: "Open Sans",
                               ),
                             ),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ContactScreen(),
+                                ),
+                              );
+                            },
                           ),
                           ListTile(
                             leading: Icon(

@@ -57,9 +57,7 @@ class HistoryScreen extends StatelessWidget {
 class SummaryHistory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery
-        .of(context)
-        .size;
+    Size size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
@@ -79,35 +77,43 @@ class SummaryHistory extends StatelessWidget {
                   ListTile(
                     title: Text(
                       "£5,070",
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontFamily: "Open Sans"),
+                      style: TextStyle(fontSize: 18, fontFamily: "Open Sans"),
                     ),
                     onTap: () {},
-                    leading: Icon(Icons.person_pin, color: Colors.blue,),
-                    subtitle: Text("My Contributions", style: TextStyle(fontFamily: "Open Sans"),),
+                    leading: Icon(
+                      Icons.person_pin,
+                      color: Colors.blue,
+                    ),
+                    subtitle: Text(
+                      "My Contributions",
+                      style: TextStyle(fontFamily: "Open Sans"),
+                    ),
                   ),
                   ListTile(
                     title: Text(
                       "£8,700",
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontFamily: "Open Sans"),
+                      style: TextStyle(fontSize: 18, fontFamily: "Open Sans"),
                     ),
                     onTap: () {},
-                    leading: Icon(Icons.work, color: Colors.red,),
-                    subtitle: Text("Employer Contributions", style: TextStyle(fontFamily: "Open Sans")),
+                    leading: Icon(
+                      Icons.work,
+                      color: Colors.red,
+                    ),
+                    subtitle: Text("Employer Contributions",
+                        style: TextStyle(fontFamily: "Open Sans")),
                   ),
                   ListTile(
                     title: Text(
                       "£3,240",
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontFamily: "Open Sans"),
+                      style: TextStyle(fontSize: 18, fontFamily: "Open Sans"),
                     ),
                     onTap: () {},
-                    leading: Icon(Icons.monetization_on, color: Colors.orange,),
-                    subtitle: Text("Tax Relief", style: TextStyle(fontFamily: "Open Sans")),
+                    leading: Icon(
+                      Icons.monetization_on,
+                      color: Colors.orange,
+                    ),
+                    subtitle: Text("Tax Relief",
+                        style: TextStyle(fontFamily: "Open Sans")),
                     enabled: true,
                   ),
                 ],
@@ -333,144 +339,115 @@ class _DetailHistoryState extends State<DetailHistory> {
                 SizedBox(
                   height: 12,
                 ),
-                Container(
-                  margin: EdgeInsets.only(bottom: 8.0),
-                  decoration: BoxDecoration(
-                      color: Colors.blue[600],
-                      borderRadius: BorderRadius.only(
-                          bottomRight: Radius.circular(20),
-                          bottomLeft: Radius.circular(20),
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20))),
-                  child: ListTile(
-                    title: Text(
-                      "01/08/2020",
-                      style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.white,
-                          fontFamily: "Open Sans"),
-                    ),
-                    subtitle: Text("Employer Contribution"),
-                    //onTap: () {},
-                    leading: Icon(Icons.work),
-                    //subtitle: Text("12 Units"),
-                    enabled: true,
-                    trailing: Text(
-                      "£320",
-                      style: TextStyle(fontSize: 20),
-                    ),
+                ListTile(
+                  title: Text(
+                    "01/08/2020",
+                    style: TextStyle(
+                        fontSize: 18,
+                        ),
+                  ),
+                  subtitle: Text(
+                    "Employer Contribution",
+                    style: TextStyle(
+                         fontFamily: "Open Sans"),
+                  ),
+                  onTap: () {},
+                  leading: Icon(Icons.work, color: Colors.deepPurpleAccent,),
+                  //subtitle: Text("12 Units"),
+                  enabled: true,
+                  trailing: Text(
+                    "£320",
+                    style: TextStyle(fontSize: 20),
                   ),
                 ),
-                Container(
-                  margin: EdgeInsets.only(bottom: 8.0),
-                  decoration: BoxDecoration(
-                      color: Colors.indigo,
-                      borderRadius: BorderRadius.only(
-                          bottomRight: Radius.circular(20),
-                          bottomLeft: Radius.circular(20),
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20))),
-                  child: ListTile(
-                    title: Text(
-                      "01/08/2020",
-                      style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.white,
-                          fontFamily: "Open Sans"),
-                    ),
-                    subtitle: Text("My Contribution"),
-                    //onTap: () {},
-                    leading: Icon(Icons.person_pin),
-                    //subtitle: Text("12 Units"),
-                    enabled: true,
-                    trailing: Text(
-                      "£320",
-                      style: TextStyle(fontSize: 20),
-                    ),
+                ListTile(
+                  title: Text(
+                    "01/08/2020",
+                    style: TextStyle(
+                        fontSize: 18,
+                        ),
+                  ),
+                  subtitle: Text("My Contribution", style: TextStyle(
+                      fontFamily: "Open Sans"),),
+                  onTap: () {},
+                  leading: Icon(Icons.person, color: Colors.blueAccent,),
+                  //subtitle: Text("12 Units"),
+                  enabled: true,
+                  trailing: Text(
+                    "£320",
+                    style: TextStyle(fontSize: 20),
                   ),
                 ),
-                Container(
-                  margin: EdgeInsets.only(bottom: 8.0),
-                  decoration: BoxDecoration(
-                      color: Colors.deepPurple,
-                      borderRadius: BorderRadius.only(
-                          bottomRight: Radius.circular(20),
-                          bottomLeft: Radius.circular(20),
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20))),
-                  child: ListTile(
-                    title: Text(
-                      "15/07/2020",
-                      style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.white,
-                          fontFamily: "Open Sans"),
-                    ),
-                    subtitle: Text("Tax Relief"),
-                    //onTap: () {},
-                    leading: Icon(Icons.attach_money),
-                    //subtitle: Text("12 Units"),
-                    enabled: true,
-                    trailing: Text(
-                      "£85",
-                      style: TextStyle(fontSize: 20),
-                    ),
+                ListTile(
+                  title: Text(
+                    "15/07/2020",
+                    style: TextStyle(
+                        fontSize: 18,
+                        ),
+                  ),
+                  subtitle: Text("Tax Relief", style: TextStyle(
+                      fontFamily: "Open Sans"),),
+                  onTap: () {},
+                  leading: Icon(Icons.reply, color: Colors.orangeAccent,),
+                  //subtitle: Text("12 Units"),
+                  enabled: true,
+                  trailing: Text(
+                    "£85",
+                    style: TextStyle(fontSize: 20),
                   ),
                 ),
-                Container(
-                  margin: EdgeInsets.only(bottom: 8.0),
-                  decoration: BoxDecoration(
-                      color: Colors.blue[600],
-                      borderRadius: BorderRadius.only(
-                          bottomRight: Radius.circular(20),
-                          bottomLeft: Radius.circular(20),
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20))),
-                  child: ListTile(
-                    title: Text(
-                      "01/07/2020",
-                      style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.white,
-                          fontFamily: "Open Sans"),
-                    ),
-                    subtitle: Text("Employer Contribution"),
-                    //onTap: () {},
-                    leading: Icon(Icons.work),
-                    //subtitle: Text("12 Units"),
-                    enabled: true,
-                    trailing: Text(
-                      "£420",
-                      style: TextStyle(fontSize: 20),
-                    ),
+                ListTile(
+                  title: Text(
+                    "01/07/2020",
+                    style: TextStyle(
+                        fontSize: 18,
+                        ),
+                  ),
+                  subtitle: Text("Employer Contribution", style: TextStyle(
+                      fontFamily: "Open Sans"),),
+                  onTap: () {},
+                  leading: Icon(Icons.work, color: Colors.deepPurpleAccent,),
+                  //subtitle: Text("12 Units"),
+                  enabled: true,
+                  trailing: Text(
+                    "£420",
+                    style: TextStyle(fontSize: 20),
                   ),
                 ),
-                Container(
-                  margin: EdgeInsets.only(bottom: 8.0),
-                  decoration: BoxDecoration(
-                      color: Colors.indigo,
-                      borderRadius: BorderRadius.only(
-                          bottomRight: Radius.circular(20),
-                          bottomLeft: Radius.circular(20),
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20))),
-                  child: ListTile(
-                    title: Text(
-                      "01/07/2020",
-                      style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.white,
-                          fontFamily: "Open Sans"),
+                ListTile(
+                  title: Text(
+                    "01/07/2020",
+                    style: TextStyle(
+                        fontSize: 18,
+                        ),
+                  ),
+                  subtitle: Text("My Contribution", style: TextStyle(
+                      fontFamily: "Open Sans"),),
+                  onTap: () {},
+                  leading: Icon(Icons.person, color: Colors.blueAccent,),
+                  //subtitle: Text("12 Units"),
+                  enabled: true,
+                  trailing: Text(
+                    "£420",
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
+                ListTile(
+                  title: Text(
+                    "15/06/2020",
+                    style: TextStyle(
+                      fontSize: 18,
                     ),
-                    subtitle: Text("My Contribution"),
-                    //onTap: () {},
-                    leading: Icon(Icons.person_pin),
-                    //subtitle: Text("12 Units"),
-                    enabled: true,
-                    trailing: Text(
-                      "£420",
-                      style: TextStyle(fontSize: 20),
-                    ),
+                  ),
+                  subtitle: Text("Tax Relief", style: TextStyle(
+                      fontFamily: "Open Sans"),),
+                  onTap: () {},
+                  leading: Icon(Icons.reply, color: Colors.orangeAccent,),
+                  //subtitle: Text("12 Units"),
+                  enabled: true,
+                  trailing: Text(
+                    "£125",
+                    style: TextStyle(fontSize: 20),
                   ),
                 ),
                 FloatingActionButton(
@@ -505,9 +482,7 @@ class DetailSettings extends StatelessWidget {
             ListTile(
               title: Text(
                 "Start Date: ",
-                style: TextStyle(
-                    fontSize: 18,
-                    fontFamily: "Open Sans"),
+                style: TextStyle(fontSize: 18, fontFamily: "Open Sans"),
               ),
               leading: Icon(
                 Icons.date_range,
@@ -516,17 +491,13 @@ class DetailSettings extends StatelessWidget {
               trailing: Text(
                 //"${_startDate.day}/${_startDate.month}/${_startDate.year}",
                 "01/09/2017",
-                style: TextStyle(
-                    fontSize: 18,
-                    fontFamily: "Open Sans"),
+                style: TextStyle(fontSize: 18, fontFamily: "Open Sans"),
               ),
             ),
             ListTile(
               title: Text(
                 "End Date: ",
-                style: TextStyle(
-                    fontSize: 18,
-                    fontFamily: "Open Sans"),
+                style: TextStyle(fontSize: 18, fontFamily: "Open Sans"),
               ),
               leading: Icon(
                 Icons.date_range,
@@ -535,9 +506,7 @@ class DetailSettings extends StatelessWidget {
               trailing: Text(
                 //"${_dateTime.day}/${_dateTime.month}/${_dateTime.year}",
                 "13/08/2020",
-                style: TextStyle(
-                    fontSize: 18,
-                    fontFamily: "Open Sans"),
+                style: TextStyle(fontSize: 18, fontFamily: "Open Sans"),
               ),
             ),
             Divider(
@@ -549,9 +518,7 @@ class DetailSettings extends StatelessWidget {
             CheckboxListTile(
               title: Text(
                 "Incl. Employer Contributions?",
-                style: TextStyle(
-                    fontSize: 18,
-                    fontFamily: "Open Sans"),
+                style: TextStyle(fontSize: 18, fontFamily: "Open Sans"),
               ),
               checkColor: Colors.white,
               activeColor: Colors.green,
@@ -563,9 +530,7 @@ class DetailSettings extends StatelessWidget {
             CheckboxListTile(
               title: Text(
                 "Incl. Tax Relief?",
-                style: TextStyle(
-                    fontSize: 18,
-                    fontFamily: "Open Sans"),
+                style: TextStyle(fontSize: 18, fontFamily: "Open Sans"),
               ),
               checkColor: Colors.white,
               activeColor: Colors.green,
@@ -584,14 +549,11 @@ class DetailSettings extends StatelessWidget {
               leading: Icon(Icons.file_download),
               onTap: () {
                 showCupertinoModalPopup(
-                    context: context,
-                    builder: (context) => MyActionSheet());
+                    context: context, builder: (context) => MyActionSheet());
               },
               title: Text(
                 "Download selected",
-                style: TextStyle(
-                    fontSize: 18,
-                    fontFamily: "Open Sans"),
+                style: TextStyle(fontSize: 18, fontFamily: "Open Sans"),
               ),
             )
           ],
@@ -643,7 +605,8 @@ class EmployerEntity extends StatelessWidget {
       this.subtitle,
       this.semanticsLabel,
       this.amount,
-      this.suffix, this.child})
+      this.suffix,
+      this.child})
       : super(key: key);
 
   @override
@@ -726,7 +689,7 @@ class NestEntityDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:  Color(0xff751248),
+        backgroundColor: Color(0xff751248),
         elevation: 0,
         title: Text(
           "Nest Corp.",
@@ -743,7 +706,6 @@ class NestEntityDetail extends StatelessWidget {
                   "01/08/2020",
                   style: TextStyle(
                       fontSize: 18,
-                      color: Colors.black87,
                       fontFamily: "Open Sans"),
                 ),
                 //onTap: () {},
@@ -759,7 +721,6 @@ class NestEntityDetail extends StatelessWidget {
                   "01/07/2020",
                   style: TextStyle(
                       fontSize: 18,
-                      color: Colors.black87,
                       fontFamily: "Open Sans"),
                 ),
                 //onTap: () {},
@@ -775,7 +736,6 @@ class NestEntityDetail extends StatelessWidget {
                   "01/06/2020",
                   style: TextStyle(
                       fontSize: 18,
-                      color: Colors.black87,
                       fontFamily: "Open Sans"),
                 ),
                 //onTap: () {},
@@ -791,7 +751,6 @@ class NestEntityDetail extends StatelessWidget {
                   "01/05/2020",
                   style: TextStyle(
                       fontSize: 18,
-                      color: Colors.black87,
                       fontFamily: "Open Sans"),
                 ),
                 //onTap: () {},
@@ -816,7 +775,7 @@ class GSKEntityDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:  Color(0xff751248),
+        backgroundColor: Color(0xff751248),
         elevation: 0,
         title: Text(
           "GSK",
@@ -833,7 +792,6 @@ class GSKEntityDetail extends StatelessWidget {
                   "01/08/2020",
                   style: TextStyle(
                       fontSize: 18,
-                      color: Colors.black87,
                       fontFamily: "Open Sans"),
                 ),
                 //onTap: () {},
@@ -849,7 +807,6 @@ class GSKEntityDetail extends StatelessWidget {
                   "01/07/2020",
                   style: TextStyle(
                       fontSize: 18,
-                      color: Colors.black87,
                       fontFamily: "Open Sans"),
                 ),
                 //onTap: () {},
@@ -865,7 +822,6 @@ class GSKEntityDetail extends StatelessWidget {
                   "01/06/2020",
                   style: TextStyle(
                       fontSize: 18,
-                      color: Colors.black87,
                       fontFamily: "Open Sans"),
                 ),
                 //onTap: () {},
@@ -881,7 +837,6 @@ class GSKEntityDetail extends StatelessWidget {
                   "01/05/2020",
                   style: TextStyle(
                       fontSize: 18,
-                      color: Colors.black87,
                       fontFamily: "Open Sans"),
                 ),
                 //onTap: () {},
