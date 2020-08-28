@@ -34,6 +34,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text("Transfer Pension"),
+        centerTitle: true,
         backgroundColor: Color(0xff751248),
       ),
       body: SafeArea(

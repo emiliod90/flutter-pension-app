@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertemplateapp/routes.dart';
 import 'package:fluttertemplateapp/theme.dart';
+import 'package:fluttertemplateapp/ui/screens/unauthenticated/account_success.dart';
+import 'package:fluttertemplateapp/ui/screens/unauthenticated/create_account.dart';
 import 'package:fluttertemplateapp/ui/screens/unauthenticated/login.dart';
+import 'package:fluttertemplateapp/ui/screens/unauthenticated/register_form_success.dart';
 import 'package:provider/provider.dart';
 
 void main() => runApp(MyApp());

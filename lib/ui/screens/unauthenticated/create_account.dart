@@ -158,7 +158,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                               validator: (value) => value.isEmpty
                                   ? "Please provide Mobile no."
                                   : null,
-                              onSaved: (value) => _email = value,
+                              onSaved: (value) => _mobile = value,
                             ),
                           ),
                         ),
