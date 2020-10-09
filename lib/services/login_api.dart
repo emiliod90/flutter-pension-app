@@ -6,10 +6,10 @@ import 'dart:convert';
 // Bhardwaj API - http://52.213.247.254:8080/login/v1/gettokeninfo
 // email: test4@gmail.com & password: password4
 Future loginUser(String email, String password) async {
-  String endpoint = 'http://52.213.247.254:8080/login/v1/gettokeninfo';
+  String endpoint = 'https://reqres.in/api/login';
   final response = await http.put(endpoint,
       headers: {"Accept": "Application/json", "Content-Type": "application/json"},
-      body:  jsonEncode({'email_id': email, 'password': password}));
+      body:  jsonEncode({'email': email, 'password': password}));
   if (response.statusCode != null) {
     //return response.statusCode;
     var jsonResponse = jsonDecode(response.body);
